@@ -1,0 +1,15 @@
+---
+import Box from "./Box.astro";
+
+const config = {
+    "class": "header",
+    "children": [
+        {"type": "box", "config": {"class": "header-left"}},
+        {"type": "box", "config": {"class": "header-center"}},
+        {"type": "box", "config": {"class": "header-right"}},
+    ],
+};
+---
+
+<Box config={config}/>
+

@@ -1,0 +1,32 @@
+---
+import Button from "./Button.astro";
+import Block from "./Block.astro";
+import Box from "./Box.astro";
+import Header from '../components/Header.astro';
+
+//const config = {
+//    "left": "block",
+//    "class": "box",
+//    "style": "height: 100px;",
+//    //"children": [{"type": "button", "config": {}}, {"type": "block", "config": {}}, {"type": "box", "config": {"style": "background-color: red; width: 10px; height: 10px;"}}],
+//    "children": [],
+//};
+
+const { config } = Astro.props;
+
+
+    //<div class={config["center-class"]} style={config["center"]}>
+    //<div class="class-1" style={config["center"]}>
+
+---
+<div class={config["class"] ?? ""} style={config["style"] ?? ""}>
+    {
+        config["children"] && config["children"].map((_, i) => (
+            <>{config["children"][i]["type"] === "box" && <Box config={config["children"][i]["config"]} />}</>
+            <>{config["children"][i]["type"] === "header" && <Header />}</>
+            <>{config["children"][i]["type"] === "button" && <Button />}</>
+            <>{config["children"][i]["type"] === "block" && <Button />}</>
+        ))
+    }
+</div>
+

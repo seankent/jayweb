@@ -1,0 +1,61 @@
+---
+import Navigation from "./Navigation.astro";
+import Header from "./Header.astro";
+import Button from "./Button.astro";
+import Block from "./Block.astro";
+
+const config = {
+    "background-color": "green",
+    "grid-template-columns": "minmax(auto, 200px) minmax(auto, 200px) minmax(auto, 200px)",
+    "left": "block",
+    //"center": "background-color: olive; width: 20px;",
+    "center": "background-color: olive; width: 20px;",
+    //"center-class": "class-1",
+    "right": {"type": "block", "config": {"background-color": "pink"} }
+};
+
+    //<div class={config["center-class"]} style={config["center"]}>
+    //<div class="class-1" style={config["center"]}>
+
+---
+<style define:vars={{ backgroundColor: config["background-color"], gridTemplateColumns: config["grid-template-columns"] }}>
+    .class-3 {
+        display: grid;
+        //grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: var(--gridTemplateColumns); 
+        gap: 20px;
+        width: 100%;
+        height: 80px;
+        background-color: red;
+        justify-content: space-between;
+        //align-content: center; 
+    }
+
+    .class-2 {
+        display: grid;
+        background-color: var(--backgroundColor);
+        width: 100%;
+        height: 100%;
+    }
+    
+    .class-1 {
+        background-color: blue; 
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<div class="class-3">
+    <div class="class-2">
+        {config["background-color"]}
+        {config["left"] === "button" && <Button />}
+        {config["left"] === "block" && <Block />}
+    </div>
+    <div class={config["center-class"]} style={config["center"]}>
+        {config["background-color"]}
+    </div>
+    <div class="class-2">
+        {config["background-color"]}
+    </div>
+</div>
+

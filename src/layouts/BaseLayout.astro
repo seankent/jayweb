@@ -1,0 +1,39 @@
+---
+//import Header from '../components/Header.astro';
+import Box from '../components/Box.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+const { pageTitle } = Astro.props;
+
+
+//const config = {
+//    "left": "block",
+//    "class": "box",
+//    "style": "height: 100px;",
+//    "children": [{"type": "button", "config": {}}, {"type": "block", "config": {}}, {"type": "box", "config": {"style": "background-color: red; width: 10px; height: 10px;"}}],
+//};
+
+let config = {};
+
+config["class"] = "box";
+config["style"] = "height: 100px;",
+//config["children"] = [{"type": "button", "config": {}}, {"type": "block", "config": {}}, {"type": "box", "config": {"style": "background-color: red; width: 10px; height: 10px;"}}];
+config["children"] = [{"type": "header"}]
+
+
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Box config={config}/>
+    <h1>{pageTitle}</h1>
+    <slot />
+    <Footer />
+  </body>
+</html>
