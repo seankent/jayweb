@@ -43,21 +43,4 @@ const { config } = Astro.props;
   </div>
 )}
 
-{config.type === 'button' && (
-  <button {...config.params}>
-    {config.children && Object.values(config.children)
-      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-      .map((child) => (
-            <Box config={child} />
-      ))
-    }
-  </button>
-)}
-
-{config.type === 'text' && (
-  <div>
-    Push Me
-  </div>
-)}
-
 

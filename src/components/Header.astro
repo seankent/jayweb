@@ -1,5 +1,8 @@
 ---
 import Box from "./Box.astro";
+import Button from "./Button.astro";
+import Block from "./Block.astro";
+import Logo from "./Logo.astro";
 
 const config = {
     "class": "header",
@@ -9,7 +12,22 @@ const config = {
         {"type": "box", "config": {"class": "header-right"}},
     ],
 };
+
+config["children"][1]["config"]["children"] = [{"type": "button"}];
+
 ---
 
-<Box config={config}/>
+<div class="header">
+    <div class="header-left">
+        <Logo />
+    </div>
+    <div class="header-center">
+        <Button />
+        <Button />
+        <Button />
+    </div>
+    <div class="header-right">
+        <Button />
+    </div>
+</div>
 

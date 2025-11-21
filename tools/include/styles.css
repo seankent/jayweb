@@ -1,0 +1,14 @@
+
+
+html {
+    font-family: sans-serif;
+    background-color: transparent;
+    background-color: grey;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+

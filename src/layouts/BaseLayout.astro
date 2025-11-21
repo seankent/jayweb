@@ -1,7 +1,9 @@
 ---
 //import Header from '../components/Header.astro';
 import Box from '../components/Box.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Content from '../components/Content.astro';
 import '../styles/global.css';
 const { pageTitle } = Astro.props;
 
@@ -13,12 +15,49 @@ const { pageTitle } = Astro.props;
 //    "children": [{"type": "button", "config": {}}, {"type": "block", "config": {}}, {"type": "box", "config": {"style": "background-color: red; width: 10px; height: 10px;"}}],
 //};
 
-let config = {};
 
-config["class"] = "box";
-config["style"] = "height: 100px;",
-//config["children"] = [{"type": "button", "config": {}}, {"type": "block", "config": {}}, {"type": "box", "config": {"style": "background-color: red; width: 10px; height: 10px;"}}];
-config["children"] = [{"type": "header"}]
+let config = {
+    "type": "div",
+    "params": {"class": "header"},
+    "children": {},
+};
+
+config["children"]["header-left"] = {
+    "type": "div",
+    "params": {"class": "header-left"},
+    "order": "0",
+    "children": {},
+}
+
+config["children"]["header-center"] = {
+    "type": "div",
+    "params": {"class": "header-center"},
+    "order": "1",
+    "children": {},
+}
+
+config["children"]["header-right"] = {
+    "type": "div",
+    //"params": {"class": "header-right", "style": "background-color: red"},
+    "params": {"class": "header-right"},
+    "order": "3",
+    "children": {},
+}
+
+
+let configButton = {
+    "type": "text",
+    "params": {"text": "Push Me"},
+    "order": "0",
+    "children": {},
+}
+
+config["children"]["header-center"]["children"] = {
+    "type": "button",
+    "params": {"class": "btn"},
+    "order": "0",
+    "children": {configButton},
+}
 
 
 ---
@@ -31,9 +70,13 @@ config["children"] = [{"type": "header"}]
     <title>{pageTitle}</title>
   </head>
   <body>
+    <Header />
     <Box config={config}/>
-    <h1>{pageTitle}</h1>
-    <slot />
+    <!--
+    <Box />
+    <Box config={config}/>
+    <Content />
     <Footer />
+    -->
   </body>
 </html>

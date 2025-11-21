@@ -1,0 +1,21 @@
+---
+import Box from "./Box.astro";
+
+//import ProductSpec from '../pages/posts/post-01.md';
+import * as greatPost from '../pages/posts/post-2.md';
+
+//import ProductSpec from '../pages/posts/post-1.md';
+
+const config = {
+    "class": "header",
+    "children": [
+        {"type": "box", "config": {"class": "header-left"}},
+        {"type": "box", "config": {"class": "header-center"}},
+        {"type": "box", "config": {"class": "header-right"}},
+    ],
+};
+---
+
+<p>{greatPost.frontmatter.title}</p>
+
+
