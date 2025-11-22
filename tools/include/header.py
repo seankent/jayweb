@@ -1,60 +1,50 @@
 
 config = {
-    "type": "none",
-    #"text": "Hello World.",
-    "text": params["text"],
+    "type": "div",
+    "attr": {"class": "grid grid-page grid-header"},
+    "order": {"header-left": "0", "header-right": "1", "header-center": "0"},
+    "children": {"header-left": {}, "header-right": {}, "header-center": {}},
 }
 
-#config = {
-#    "type": "html",
-#    "attr": {"lang": "en"},
-#    "order": {"head": "0", "body": "1"},
-#    "children": {"head": {}, "body": {}},
-#}
-#
-#config["children"]["head"] = {
-#    "type": "head",
-#    #"attr": {"charset": "utf-8"},
-#    "attr": {},
-#    "order": {"meta": "0", "title": "1", "link": "2"},
-#    "children": {},
-#}
-#
-#config["children"]["head"]["children"]["meta"] = {
-#    "type": "meta",
-#    "attr": {"charset": "utf-8", "name": "viewport", "content": "width=device-width, initial-scale=1.0"},
-#    "order": {},
-#    "children": {},
-#}
-#
-#config["children"]["head"]["children"]["title"] = {
-#    "type": "title",
-#    "attr": {},
-#    "order": {"title-text": "0"},
-#    "children": {},
-#}
-#
-#config["children"]["head"]["children"]["title"]["children"]["title-text"] = {
-#    "type": "none",
-#    "text": "Jayweb | Home",
-#}
-#
-#config["children"]["head"]["children"]["title"] = {
-#    "type": "link",
-#    "attr": {"rel": "stylesheet", "href": "./include/styles.css"},
-#    "order": {},
-#    "children": {},
-#}
-#
-#config["children"]["body"] = {
-#    "type": "body",
-#    "attr": {},
-#    "order": {"mnt": "0"},
-#    "children": {},
-#}
-#
-#config["children"]["body"]["children"]["mnt"] = {
-#    "type": "mount",
-#    "filename": "",
-#    "params": {},
-#}
+config["children"]["header-left"] = {
+    "type": "div",
+    "attr": {"class": "grid grid-page grid-header-left"},
+    "order": {"logo": "0"},
+    "children": {},
+}
+
+config["children"]["header-left"]["children"]["logo"] = {
+    "type": "mount",
+    "filename": "./include/img.py",
+    "params": {"class": "", "src": "./include/bluejay_devices.svg"}, 
+}
+
+
+
+config["children"]["header-center"] = {
+    "type": "div",
+    "attr": {"class": "grid grid-page grid-header-center"},
+    "order": {},
+    "children": {},
+}
+
+buttons = ["About", "Products", "Docs"]
+
+for i in range(len(buttons)):
+    button = buttons[i]
+
+    config["children"]["header-center"]["order"][button] = str(i); 
+
+    config["children"]["header-center"]["children"][button] = {
+        "type": "mount",
+        "filename": "./include/nav-button.py",
+        "params": {"href": f"./{button}", "text": button, "icon": "chevron-down"}, 
+    }
+
+config["children"]["header-right"] = {
+    "type": "div",
+    "attr": {"class": "grid grid-page grid-header-right"},
+    "order": {},
+    "children": {},
+}
+

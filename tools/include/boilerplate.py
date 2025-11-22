@@ -63,7 +63,7 @@ config["children"]["head"]["children"]["title"] = {
 }
 
 config["children"]["head"]["children"]["title"]["children"]["title-text"] = {
-    "type": "none",
+    "type": "text",
     "text": "Jayweb | Home",
 }
 

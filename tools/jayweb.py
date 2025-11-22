@@ -93,7 +93,7 @@ class Jayweb:
         """
         txt = f""
 
-        if config["type"] == "none":
+        if config["type"] == "text":
             txt += config["text"]     
 
         else:
