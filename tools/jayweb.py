@@ -42,27 +42,33 @@ class Jayweb:
     ##########
     # indent #
     ##########
-    def indent(self, txt):
+    def indent(self, txt, n = 0):
         """
         """
-        return textwrap.indent(txt, "    ")
+        return textwrap.indent(txt, " "*n)
 
-    ########
-    # load #
-    ########
-    def load(self, filename, params = None):
+    ###########
+    # include #
+    ###########
+    def include(self, filename, params = None):
         """
         """
         if params is None:
-            namespace = {}
-        else:
-            namespace = {"params": params}
+            params = {}
 
-        txt = self.read(filename)
+        namespace = {"jayweb": self, "params": params}
 
-        exec(txt, namespace)
+        exec(self.read(filename), namespace)
       
-        return namespace
+        return namespace["txt"] 
+
+    ############
+    # includef #
+    ############
+    def includef(self, filename, params = None, n = 0):
+        """
+        """
+        return self.indent(self.include(filename, params), n)
 
     ##############
     # preprocess #
@@ -147,16 +153,22 @@ if __name__ == '__main__':
     #    "children": {},
     #}
 
-    
+    txt = "" 
+    txt += "<div>\n" 
+    txt += "</div>\n" 
+
+    params = {"title": "Jayweb | Home"}
 
     jayweb = Jayweb()
+    txt = jayweb.include("./include/main.py", params = params)
+    print(txt)
 
-    config = jayweb.load("./include/boilerplate.py")["config"]
+    #config = jayweb.load("./include/boilerplate.py")["config"]
 
-    jayweb.mount(config)
+    #jayweb.mount(config)
 
-    print(config)
-    print(jayweb.gen(config))
-    jayweb.write("./index.html", jayweb.gen(config))
+    #print(config)
+    #print(jayweb.gen(config))
+    jayweb.write("./index.html", txt)
 
     
