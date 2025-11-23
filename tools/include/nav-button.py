@@ -4,14 +4,10 @@ if "href" not in params:
 
 txt = ''
 
-txt += f'<a href={params["href"]} class="btn">\n'
+txt += f'<a href="{params["href"]}" class="nav-button">\n'
 
-if "text" in params:
-    txt += f'    {params["text"]}\n'
-
-if "icon" in params:
-    #txt += f'\n'
-    txt += jayweb.includef("./include/chevron-down.py", {"width": "1rem", "height": "1rem"}, 4)
+#txt += jayweb.includef("./include/button.py", {"width": "1rem", "height": "1rem"}, 4)
+txt += jayweb.includef("./include/button.py", {"items": [{"type": "text", "text": params["text"]}]}, 4)
 
 txt += f'</a>\n'
 

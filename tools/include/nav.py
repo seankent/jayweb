@@ -1,18 +1,37 @@
+
+if "nav" not in params:
+    params["nav"] = [] 
+
+
+params["nav"].append({
+    #"href": "./About",
+    "href": "#",
+    "text": "About",
+    "icon": "chevron-down",
+})
+
+params["nav"].append({
+    #"href": "./Products",
+    "href": "#",
+    "text": "Products",
+    "icon": "chevron-down",
+})
+
+
 txt = ''
 
-txt += f'<div class="main">\n'
+txt += f'<div>\n'
+txt += f'    <ul>\n'
 
-txt += f'    <div class="main-left">\n'
-txt += f'    </div>\n'
+for i in range(len(params["nav"])):
+    txt += f'        <li>\n' 
+    #txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 12)
+    txt += f'            {params["nav"][i]["text"]}\n' 
+    txt += f'        </li>\n' 
 
-txt += f'    <div class="main-center main-content">\n'
-txt += jayweb.includemdf("./include/docs/about.md", 8)
-txt += f'    </div>\n'
-
-txt += f'    <div class="main-right">\n'
-txt += f'    </div>\n'
-
+txt += f'    </ul>\n'
 txt += f'</div>\n'
+
 #
 #config = {
 #    "type": "div",

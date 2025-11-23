@@ -15,18 +15,23 @@ params["nav"].append({
     "icon": "chevron-down",
 })
 
-
 txt = ''
 
 txt += f'<div class="grid grid-page grid-header">\n'
 
 txt += f'    <div class="grid grid-page grid-header-left">\n'
+
+txt += jayweb.includef("./include/nav-logo.py", {"href": "#", "src": "./../docs/bluejay_devices.svg"}, 8)
+
 txt += f'    </div>\n'
 
 txt += f'    <div class="grid grid-page grid-header-center">\n'
 
 for i in range(len(params["nav"])):
+    #txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 8)
     txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 8)
+
+txt += jayweb.includef("./include/nav-dropdown.py", {"text": "Contact", "items": [{"href": "./About", "text": "About"}, {"href": "#", "text": "More"}]}, 8)
 
 txt += f'    </div>\n'
 

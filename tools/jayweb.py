@@ -1,4 +1,5 @@
 import textwrap
+import markdown
 
 ###########
 # Jayweb #
@@ -70,105 +71,43 @@ class Jayweb:
         """
         return self.indent(self.include(filename, params), n)
 
-    ##############
-    # preprocess #
-    ##############
-    def preprocess(self, config):
+    ############
+    # markdown #
+    ############
+    def markdown(self, txt):
         """
         """
-        pass
+        #return markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite', 'nl2br'])
+        return markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite'], extension_configs = {'codehilite': {'stripnl': True}})
 
-    #########
-    # mount #
-    #########
-    def mount(self, config):
+    #############
+    # includemd #
+    #############
+    def includemd(self, filename):
         """
         """
-        if "children" in config:
-            for child in config["children"]:
-                if config["children"][child]["type"] == "mount":
-                    config["children"][child] = self.load(filename = config["children"][child]["filename"], params = config["children"][child]["params"])["config"]
-                
-                self.mount(config["children"][child])
-
-    #######
-    # gen #
-    #######
-    def gen(self, config):
-        """
-        """
-        txt = f""
-
-        if config["type"] == "text":
-            txt += config["text"]     
-
-        else:
-            txt += f"<{config['type']}"
-            for attr, value in config["attr"].items():
-                txt += f" {attr}=\"{value}\""
-            txt += f">\n"
-            
-            for child in sorted(config["children"], key=lambda x: float(config["order"][x])):
-                txt += self.indent(self.gen(config["children"][child])) 
-                txt += "\n" 
-
-            txt += f"</{config['type']}>"
-
-        return txt
+        return self.markdown(self.read(filename))
         
+    ##############
+    # includemdf #
+    ##############
+    def includemdf(self, filename, n = 0):
+        """
+        """
+        return self.indent(self.includemd(filename) + "\n", n)
+
 
 
 
 if __name__ == '__main__':
     
-    config = {
-        "type": "div",
-        "attr": {"class": "class-0"},
-        "order": {"c1": "1", "c2": "0"},
-        "children": {},
-    }
-
-
-    config["children"]["c1"] = {
-        "type": "none",
-        "text": "Hello World",
-    }
-
-    config["children"]["c2"] = {
-        "type": "none",
-        "text": "Hello There",
-    }
-
-    config["children"]["c2"] = {
-        "type": "div",
-        "attr": {"class": "class-1"},
-        "order": {},
-        "children": {},
-    }
-
-    #config["children"]["c2"]["children"]["c2c1"] = {
-    #    "type": "div",
-    #    "params": {"class": "header-item"},
-    #    "order": "0",
-    #    "children": {},
-    #}
-
-    txt = "" 
-    txt += "<div>\n" 
-    txt += "</div>\n" 
 
     params = {"title": "Jayweb | Home"}
 
     jayweb = Jayweb()
-    txt = jayweb.include("./include/main.py", params = params)
+    txt = jayweb.include("./include/top.py", params = params)
     print(txt)
 
-    #config = jayweb.load("./include/boilerplate.py")["config"]
-
-    #jayweb.mount(config)
-
-    #print(config)
-    #print(jayweb.gen(config))
     jayweb.write("./index.html", txt)
 
     

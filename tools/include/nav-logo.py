@@ -1,19 +1,21 @@
-if "items" not in params:
-    params["items"] = []
+if "href" not in params:
+    params["href"] = "#" 
+if "src" not in params:
+    params["src"] = "" 
+if "alt" not in params:
+    params["alt"] = "" 
+
 
 txt = ''
 
-txt += f'<div class="button">\n'
+txt += f'<a href="{params["href"]}" class="nav-logo">\n'
 
-for i in range(len(params["items"])):
+txt += f'    <img src="{params["src"]}" alt="{params["alt"]}">\n'
 
-    if params["items"][i]["type"] == "text":
-        txt += f'    {params["items"][i]["text"]}\n'
+txt += f'</a>\n'
 
-    if params["items"][i]["type"] == "icon":
-        txt += jayweb.includef("./include/chevron-down.py", {"width": "1rem", "height": "1rem"}, 4)
+#txt += f'    <img src="./../docs/bluejay_devices.svg" alt="{{ site.title }}" class="nav-logo-img">'
 
-txt += f'</div>\n'
 
 
 #config = {
