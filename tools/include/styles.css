@@ -28,6 +28,9 @@ background-color: var(--bg-surface);
     --fg-color-hover: var(--grey-8);
     --bg-color-hover: var(--grey-0);
     --border-width-hover: 1px;
+
+    --h1-size: 2.5rem;
+    --scale-ratio: 1.2;
 }
 
 *, *::before, *::after {
@@ -284,3 +287,37 @@ svg {
     padding: 0 2rem 0 0.75rem;
 }
 
+.footer {
+    display: grid;
+    grid-template-columns: minmax(auto, 400px) minmax(auto, 1000px) minmax(auto, 400px);
+    width: auto;
+    height: 80px;
+    gap: 0;
+    border-style: solid;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    display: grid;
+    justify-content: center;
+}
+
+.footer-left {
+    justify-content: left;
+    padding: 0 0.75rem 0 2rem;
+}
+
+.footer-center {
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.75rem 0 0.75rem;
+    //background-color: red;
+}
+
+.footer-right {
+    justify-content: right;
+    padding: 0 2rem 0 0.75rem;
+}

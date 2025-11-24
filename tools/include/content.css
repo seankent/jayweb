@@ -1,3 +1,4 @@
+@import "./styles.css";
 @charset "UTF-8";
 
 // Styles for rendered markdown in the .main-content container
@@ -5,16 +6,53 @@
 
 
 .main-content {
-    //line-height: 1.6;
+    line-height: 1.6;
     //padding: 0px 0px 20px 0px;
+    font-size: 1rem;
+}
+
+
+.main-content .codehilite,
+.main-content table,
+.main-content p {
+    margin: 2rem 0 0 0;
 }
 
 .main-content h1,
-.main-content .codehilite,
-.main-content p {
-    margin: 20px 0px 0px 0px;
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+    margin: 2.5rem 0 0.5rem 0;
     //background-color: red;
 }
+
+//.main-content h1 {
+//    font-size: 2rem;
+//}
+//
+//.main-content h2 {
+//    font-size: 1.75rem;
+//}
+//
+//.main-content h3 {
+//    font-size: 1.5rem;
+//}
+//
+//.main-content h4 {
+//    font-size: 1.25rem;
+//}
+
+.main-content h1 { font-size: var(--h1-size); }
+.main-content h2 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 1)); }
+.main-content h3 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 2)); }
+.main-content h4 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 3)); }
+.main-content h5 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 4)); }
+.main-content h6 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 5)); }
+
+
+
 
 //.main-content pre {
 //    margin: 0;
@@ -22,9 +60,9 @@
 
 
 .main-content .codehilite {
-    padding: 1em 1em 0 1em;
+    padding: 1.2em 1em 0 1em;
     border: 1px solid grey;
-    border-radius: 8px; 
+    border-radius: var(--border-radius); 
 }
 
 //.codehilite pre {
@@ -38,42 +76,40 @@
 //  padding-bottom: 0;
 //}
 
-//
-//
-//
-//
-//.main-content table {
-//  width: 100%;
-//  border: 1px solid grey;
-//  border-collapse: separate;
-//  border-spacing: 0;
-//  border-radius: 8px;
-//  overflow: hidden;
-//}
-//
-//.main-content th,
-//.main-content td {
-//  padding: 0.75rem;
-//  text-align: left;
-//  border-right: 1px solid grey; /* Vertical dividers */
-//  border-bottom: 1px solid grey; /* Horizontal dividers */
-//}
-//
-///* Remove right border from last column */
-//.main-content th:last-child,
-//.main-content td:last-child {
-//  border-right: none;
-//}
-//
-///* Remove bottom border from last row */
-//.main-content tr:last-child td {
-//  border-bottom: none;
-//}
-//
-//.main-content th {
-//  background: #f0f0f0;
-//  font-weight: bold;
-//}
+
+
+.main-content table {
+  width: 100%;
+  border: 1px solid grey;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--border-radius); 
+  overflow: hidden;
+}
+
+.main-content th,
+.main-content td {
+  padding: 0.75rem;
+  text-align: left;
+  border-right: 1px solid grey; /* Vertical dividers */
+  border-bottom: 1px solid grey; /* Horizontal dividers */
+}
+
+/* Remove right border from last column */
+.main-content th:last-child,
+.main-content td:last-child {
+  border-right: none;
+}
+
+/* Remove bottom border from last row */
+.main-content tr:last-child td {
+  border-bottom: none;
+}
+
+.main-content th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
 
 
 
