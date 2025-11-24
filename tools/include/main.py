@@ -3,6 +3,7 @@ txt = ''
 txt += f'<div class="main">\n'
 
 txt += f'    <div class="main-left">\n'
+#txt += jayweb.includef("./include/side-nav.py", {}, 8)
 txt += f'    </div>\n'
 
 txt += f'    <div class="main-center main-content">\n'

@@ -1,43 +1,6 @@
-
-if "nav" not in params:
-    params["nav"] = [] 
-
-
-params["nav"].append({
-    "href": "./About",
-    "text": "About",
-    "icon": "chevron-down",
-})
-
-params["nav"].append({
-    "href": "./Products",
-    "text": "Products",
-    "icon": "chevron-down",
-})
-
 txt = ''
 
-txt += f'<div class="grid grid-page grid-header">\n'
-
-txt += f'    <div class="grid grid-page grid-header-left">\n'
-
-txt += jayweb.includef("./include/nav-logo.py", {"href": "#", "src": "./include/bluejay_devices_plain.svg"}, 8)
-
-txt += f'    </div>\n'
-
-#txt += f'    <div class="grid grid-page grid-header-center">\n'
-#txt += f'    </div>\n'
-
-txt += f'    <div class="grid grid-page grid-header-right">\n'
-
-for i in range(len(params["nav"])):
-    #txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 8)
-    txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 8)
-
-txt += jayweb.includef("./include/nav-dropdown.py", {"text": "Contact", "items": [{"href": "./About", "text": "About"}, {"href": "#", "text": "Morexxxxxxxxxxxx"}]}, 8)
-
-txt += f'    </div>\n'
-
+txt += f'<div class="side-nav">\n'
 txt += f'</div>\n'
 #
 #config = {

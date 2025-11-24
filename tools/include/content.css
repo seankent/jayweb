@@ -5,17 +5,23 @@
 // stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type, selector-max-specificity, selector-max-id
 
 
-.main-content {
-    line-height: 1.6;
+.main-content * {
+    line-height: 5 !important;
     //padding: 0px 0px 20px 0px;
-    font-size: 1rem;
 }
 
+.main-content p {
+    margin: 1rem 0 0 0;
+    line-height: 1.6; 
+}
 
 .main-content .codehilite,
-.main-content table,
-.main-content p {
-    margin: 2rem 0 0 0;
+.main-content table {
+    margin: 2rem 0 1rem 0;
+}
+
+.main-content > :first-child {
+    margin: 0;
 }
 
 .main-content h1,
@@ -24,25 +30,9 @@
 .main-content h4,
 .main-content h5,
 .main-content h6 {
-    margin: 2.5rem 0 0.5rem 0;
+    margin: 2rem 0 1rem 0;
     //background-color: red;
 }
-
-//.main-content h1 {
-//    font-size: 2rem;
-//}
-//
-//.main-content h2 {
-//    font-size: 1.75rem;
-//}
-//
-//.main-content h3 {
-//    font-size: 1.5rem;
-//}
-//
-//.main-content h4 {
-//    font-size: 1.25rem;
-//}
 
 .main-content h1 { font-size: var(--h1-size); }
 .main-content h2 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 1)); }
