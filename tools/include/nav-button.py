@@ -7,7 +7,7 @@ txt = ''
 txt += f'<a href="{params["href"]}" class="nav-button">\n'
 
 #txt += jayweb.includef("./include/button.py", {"width": "1rem", "height": "1rem"}, 4)
-txt += jayweb.includef("./include/button.py", {"items": [{"type": "text", "text": params["text"]}]}, 4)
+txt += jayweb.includef(f'{params["ROOT"]}/tools/include/button.py', {"items": [{"type": "text", "text": params["text"]}]}, 4)
 
 txt += f'</a>\n'
 

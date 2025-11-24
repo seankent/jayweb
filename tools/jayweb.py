@@ -1,6 +1,8 @@
 import textwrap
 import markdown
 
+ROOT = "/Users/seankent/Documents/jayweb"
+
 ###########
 # Jayweb #
 ###########
@@ -57,6 +59,8 @@ class Jayweb:
         if params is None:
             params = {}
 
+        params["ROOT"] = f"{ROOT}"
+
         namespace = {"jayweb": self, "params": params}
 
         exec(self.read(filename), namespace)
@@ -102,12 +106,12 @@ class Jayweb:
 if __name__ == '__main__':
     
 
-    params = {"title": "Jayweb | Home", "icon": "./include/logo.svg"}
+    params = {"title": "Jayweb | Home", "icon": f"{ROOT}/tools/include/logo.svg", "base": f"{ROOT}/gen/index.html"}
 
     jayweb = Jayweb()
-    txt = jayweb.include("./include/html.py", params = params)
+    txt = jayweb.include(f"{ROOT}/tools/include/html.py", params = params)
     print(txt)
 
-    jayweb.write("./index.html", txt)
+    jayweb.write(f'{ROOT}/gen/index.html', txt)
 
     

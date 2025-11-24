@@ -1,0 +1,50 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: Seans-Laptop.local
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count
+-----  -------
+build        1
+total        1
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Nov 24 09:26:31 2025]
+localrule build:
+    input: /Users/seankent/Documents/jayweb/tools/jayweb.py
+    jobid: 0
+    reason: Rules with a run or shell declaration but no output are always executed.
+    resources: tmpdir=/var/folders/c8/94psm3jd2dv7yy11n8j8fppm0000gn/T
+RuleException:
+CalledProcessError in file "/Users/seankent/Documents/jayweb/Snakefile", line 7:
+Command 'set -euo pipefail;  
+        python3 /Users/seankent/Documents/jayweb/tools/jayweb.py' returned non-zero exit status 1.
+[Mon Nov 24 09:26:31 2025]
+Error in rule build:
+    message: None
+    jobid: 0
+    input: /Users/seankent/Documents/jayweb/tools/jayweb.py
+    shell:
+        
+        python3 /Users/seankent/Documents/jayweb/tools/jayweb.py
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Mon Nov 24 09:26:31 2025]
+Error in rule build:
+    message: None
+    jobid: 0
+    input: /Users/seankent/Documents/jayweb/tools/jayweb.py
+    shell:
+        
+        python3 /Users/seankent/Documents/jayweb/tools/jayweb.py
+        
+        (command exited with non-zero exit code)
+Complete log(s): /Users/seankent/Documents/jayweb/.snakemake/log/2025-11-24T092631.589948.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

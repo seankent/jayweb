@@ -21,7 +21,7 @@ txt += f'<div class="grid grid-page grid-header">\n'
 
 txt += f'    <div class="grid grid-page grid-header-left">\n'
 
-txt += jayweb.includef("./include/nav-logo.py", {"href": "#", "src": "./include/bluejay_devices_plain.svg"}, 8)
+txt += jayweb.includef(f'{params["ROOT"]}/tools/include/nav-logo.py', {"href": "#", "src": f'{params["ROOT"]}/tools/include/bluejay_devices_plain.svg'}, 8)
 
 txt += f'    </div>\n'
 
@@ -32,9 +32,9 @@ txt += f'    <div class="grid grid-page grid-header-right">\n'
 
 for i in range(len(params["nav"])):
     #txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 8)
-    txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 8)
+    txt += jayweb.includef(f'{params["ROOT"]}/tools/include/nav-button.py', params["nav"][i], 8)
 
-txt += jayweb.includef("./include/nav-dropdown.py", {"text": "Contact", "items": [{"href": "./About", "text": "About"}, {"href": "#", "text": "Morexxxxxxxxxxxx"}]}, 8)
+txt += jayweb.includef(f'{params["ROOT"]}/tools/include/nav-dropdown.py', {"text": "Contact", "items": [{"href": "./About", "text": "About"}, {"href": "#", "text": "Morexxxxxxxxxxxx"}]}, 8)
 
 txt += f'    </div>\n'
 

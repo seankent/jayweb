@@ -7,7 +7,7 @@ txt += f'    <div class="main-left">\n'
 txt += f'    </div>\n'
 
 txt += f'    <div class="main-center main-content">\n'
-txt += jayweb.includemdf("./include/docs/about.md", 8)
+txt += jayweb.includemdf(f'{params["ROOT"]}/tools/include/docs/about.md', 8)
 txt += f'    </div>\n'
 
 txt += f'    <div class="main-right">\n'
