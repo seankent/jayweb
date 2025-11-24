@@ -102,7 +102,7 @@ class Jayweb:
 if __name__ == '__main__':
     
 
-    params = {"title": "Jayweb | Home"}
+    params = {"title": "Jayweb | Home", "icon": "./include/logo.svg"}
 
     jayweb = Jayweb()
     txt = jayweb.include("./include/html.py", params = params)
