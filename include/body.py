@@ -1,0 +1,10 @@
+
+txt = ''
+
+txt += f'<body>\n'
+txt += jayweb.includef(f'{params["ROOT"]}/include/header.py', params["header"], 4) 
+txt += jayweb.includef(f'{params["ROOT"]}/include/main.py', params["main"], 4) 
+txt += jayweb.includef(f'{params["ROOT"]}/include/footer.py', {}, 4) 
+txt += f'</body>\n'
+
+

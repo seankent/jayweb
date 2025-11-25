@@ -11,7 +11,7 @@ for i in range(len(params["items"])):
         txt += f'    {params["items"][i]["text"]}\n'
 
     if params["items"][i]["type"] == "icon":
-        txt += jayweb.includef(f'{params["ROOT"]}/tools/include/chevron-down.py', {"width": "1.35rem", "height": "1.35rem"}, 4)
+        txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.35rem", "height": "1.35rem"}, 4)
 
 txt += f'</div>\n'
 

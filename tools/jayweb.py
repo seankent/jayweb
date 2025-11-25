@@ -50,6 +50,19 @@ class Jayweb:
         """
         return textwrap.indent(txt, " "*n)
 
+    ########
+    # exec #
+    ########
+    def exec(self, txt, namespace = None):
+        """
+        """
+        if namespace is None:
+            namespace = {}
+
+        exec(txt, namespace)
+      
+        return namespace
+
     ###########
     # include #
     ###########
@@ -63,7 +76,7 @@ class Jayweb:
 
         namespace = {"jayweb": self, "params": params}
 
-        exec(self.read(filename), namespace)
+        self.exec(self.read(filename), namespace)
       
         return namespace["txt"] 
 
@@ -73,6 +86,8 @@ class Jayweb:
     def includef(self, filename, params = None, n = 0):
         """
         """
+        print(filename)
+        print(params)
         return self.indent(self.include(filename, params), n)
 
     ############
@@ -104,14 +119,17 @@ class Jayweb:
 
 
 if __name__ == '__main__':
+    jayweb = Jayweb()
     
 
-    params = {"title": "Jayweb | Home", "icon": f"{ROOT}/tools/include/logo.svg", "base": f"{ROOT}/gen/index.html"}
+    #params = {"title": "Jayweb | Home", "icon": f"{ROOT}/docs/diag/logo.svg", "base": f"{ROOT}/gen/index.html"}
+    params = jayweb.exec(jayweb.read(f'{ROOT}/site/jayconfig.py'), {"ROOT": ROOT})["params"]
+    print(params)
 
-    jayweb = Jayweb()
-    txt = jayweb.include(f"{ROOT}/tools/include/html.py", params = params)
+    txt = jayweb.include(f"{ROOT}/include/html.py", params = params["html"])
     print(txt)
 
     jayweb.write(f'{ROOT}/gen/index.html', txt)
+    #jayweb.write(f'{ROOT}/gen/jay40.html', txt)
 
     
