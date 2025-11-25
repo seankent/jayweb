@@ -1,6 +1,10 @@
 txt = ''
 
 txt += f'<div class="side-nav">\n'
+
+for i in range(8):
+    txt += f'    <div class="side-nav-button">\n'
+    txt += f'    </div>\n'
 txt += f'</div>\n'
 #
 #config = {
