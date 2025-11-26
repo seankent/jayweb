@@ -6,8 +6,14 @@ txt = ''
 
 txt += f'<a href="{params["href"]}" class="nav-button">\n'
 
+if "text" in params:
+    txt += f'    {params["text"]}\n'
+
+if "icon" in params:
+    txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.35em", "height": "1.35em"}, 4)
+
 #txt += jayweb.includef("./include/button.py", {"width": "1rem", "height": "1rem"}, 4)
-txt += jayweb.includef(f'{params["ROOT"]}/include/button.py', {"items": [{"type": "text", "text": params["text"]}]}, 4)
+#txt += jayweb.includef(f'{params["ROOT"]}/include/button.py', {"items": [{"type": "text", "text": params["text"]}]}, 4)
 
 txt += f'</a>\n'
 

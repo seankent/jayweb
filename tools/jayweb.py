@@ -123,10 +123,10 @@ if __name__ == '__main__':
     
 
     #params = {"title": "Jayweb | Home", "icon": f"{ROOT}/docs/diag/logo.svg", "base": f"{ROOT}/gen/index.html"}
-    params = jayweb.exec(jayweb.read(f'{ROOT}/site/jayconfig.py'), {"ROOT": ROOT})["params"]
-    print(params)
+    #params = jayweb.exec(jayweb.read(f'{ROOT}/site/jayconfig.py'), {"ROOT": ROOT})["params"]
+    #print(params)
 
-    txt = jayweb.include(f"{ROOT}/include/html.py", params = params["html"])
+    txt = jayweb.include(f"{ROOT}/include/page.py", params = {})
     print(txt)
 
     jayweb.write(f'{ROOT}/gen/index.html', txt)

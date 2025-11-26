@@ -6,7 +6,8 @@ txt = ''
 
 txt += f'<div class="dropdown">\n'
 
-txt += jayweb.includef(f'{params["ROOT"]}/include/button.py', {"items": [{"type": "text", "text": params["text"]}, {"type": "icon", "icon-type": "chevron-down"}]}, 4)
+#txt += jayweb.includef(f'{params["ROOT"]}/include/button.py', {"items": [{"type": "text", "text": params["text"]}, {"type": "icon", "icon-type": "chevron-down"}]}, 4)
+txt += jayweb.includef(f'{params["ROOT"]}/include/nav-button.py', {"text": params["text"], "icon": "chevron-down"}, 4)
 
 txt += f'    <div class="dropdown-menu">\n'
 
