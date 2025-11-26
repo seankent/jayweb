@@ -11,10 +11,14 @@ txt += f'<div class="side-nav-item">\n'
 #if "icon" in params:
 #txt += jayweb.includef(f'{params["ROOT"]}/include/side-nav-button.py', {"text": params["text"]}, 4)
 txt += f'<div class="side-nav-button">\n'
-txt += f'    {"&nbsp;"*int(params["indent"]) + params["text"]}\n'
+txt += f'    <div class="side-nav-button-label">\n'
+txt += f'        {"&nbsp;"*int(params["indent"]) + params["text"]}\n'
+txt += f'    </div>\n'
 
 if params["items"] != []:
-    txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.35em", "height": "1.35em"}, 4)
+    txt += f'    <div class="side-nav-button-chevron">\n'
+    txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.35em", "height": "1.35em"}, 8)
+    txt += f'    </div>\n'
 
 txt += f'</div>\n'
 

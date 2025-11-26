@@ -1,14 +1,44 @@
 
-const sideNavButtons = document.querySelectorAll('.side-nav-button');
+//const sideNavButtons = document.querySelectorAll('.side-nav-button');
 
 function toggleExpanded() {
-    this.parentElement.classList.toggle('expanded');
-    console.log("Clicked.");
+    this.parentElement.parentElement.classList.toggle('expanded');
+    console.log("toggleExpanded.");
 }
 
-for (let sideNavButton of sideNavButtons) {
-    sideNavButton.addEventListener('click', toggleExpanded); 
+//function clearAllActive() {
+//    this.parentElement.classList.toggle('active');
+//    for (let sideNavItem of document.querySelectorAll('.side-nav-item')) {
+//        sideNavItem.classList.remove('active');
+//    }
+//    console.log("setActive");
+//}
+
+function setActive() {
+    for (let sideNavButton of document.querySelectorAll('.side-nav-button')) {
+        sideNavButton.classList.remove('active');
+    }
+    this.parentElement.classList.add('active');
+    console.log("setActive");
 }
+
+//function setNewActive() {
+//    this.parentElement.classList.toggle('active');
+//    console.log("setActive");
+//}
+
+for (let sideNavButtonChevron of document.querySelectorAll('.side-nav-button-chevron')) {
+    sideNavButtonChevron.addEventListener('click', toggleExpanded); 
+}
+
+for (let sideNavButtonLabel of document.querySelectorAll('.side-nav-button-label')) {
+    sideNavButtonLabel.addEventListener('click', setActive); 
+}
+
+//for (let sideNavButton of sideNavButtons) {
+//    sideNavButton.addEventListener('click', toggleExpanded); 
+//    sideNavButton.addEventListener('click', setActive); 
+//}
 
 //for (let sideNavItem of sideNavItems) {
 //    sideNavItem.addEventListener('click', function() {

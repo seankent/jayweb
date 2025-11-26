@@ -7,7 +7,18 @@ txt = ''
 txt += f'<div class="dropdown">\n'
 
 #txt += jayweb.includef(f'{params["ROOT"]}/include/button.py', {"items": [{"type": "text", "text": params["text"]}, {"type": "icon", "icon-type": "chevron-down"}]}, 4)
-txt += jayweb.includef(f'{params["ROOT"]}/include/nav-button.py', {"text": params["text"], "icon": "chevron-down"}, 4)
+#txt += jayweb.includef(f'{params["ROOT"]}/include/nav-button.py', {"text": params["text"], "icon": "chevron-down"}, 4)
+
+txt += f'    <a href="{params["href"]}" class="nav-dropdown-button">\n'
+txt += f'        <div class="nav-dropdown-button-label">\n'
+txt += f'            {params["text"]}\n'
+txt += f'        </div>\n'
+txt += f'        <div class="nav-dropdown-button-chevron">\n'
+txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.35em", "height": "1.35em"}, 8)
+txt += f'        </div>\n'
+
+txt += f'    </a>\n'
+
 
 txt += f'    <div class="dropdown-menu">\n'
 
