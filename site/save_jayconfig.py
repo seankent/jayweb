@@ -4,37 +4,36 @@ config = {}
 
 config["root"] = {
     "sub": {},
-    "order": [], 
+}
+
+config["root"]["sub"]["index"] = {
+    "sub": {},
 }
 
 config["root"]["sub"]["about"] = {
     "sub": {},
-    "order": [], 
-} 
+}
 
 config["root"]["sub"]["products"] = {
     "sub": {},
-    "order": [], 
-} 
+}
 
-#config["root"]["products"]["jay40"] = {}
-#
-#config["root"]["products"]["jaybtn"] = {}
+config["root"]["sub"]["products"]["sub"]["jay40"] = {
+    "sub": {},
+}
 
 print(config)
 
 def build(config, path = ""):
     params = {}
 
-    params["href"] = path + "index.html"
-
+    params["href"] = path 
     params["items"] = [] 
 
     for sub in config["sub"]:
-        params["items"].append(build(config["sub"][sub], path + "sub/" + sub + "/"))
+        params["items"].append(build(config["sub"][sub], path + "/" + sub))
 
     return params 
-
         
 params = build(config["root"])
 

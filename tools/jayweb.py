@@ -115,7 +115,52 @@ class Jayweb:
         """
         return self.indent(self.includemd(filename) + "\n", n)
 
+    ##########
+    # gennav #
+    ##########
+    def gennav(self, config, path = ""):
+        params = {}
+    
+        if path == "":
+            params["href"] = path + "index.html"
+        else:
+            params["href"] = path + "/index.html"
+    
+        params["text"] = config["info"]["title"]
+        params["items"] = [] 
+    
+        for subpage in config["sub"]:
+            if path == "":
+                params["items"].append(self.gennav(config["sub"][subpage], "sub/" + subpage))
+            else:
+                params["items"].append(self.gennav(config["sub"][subpage], path + "/sub/" + subpage))
+    
+        return params
 
+    #######
+    # gen #
+    #######
+    def gen(self, config):
+        params = {}
+
+        params["html"] = {}
+        params["html"]["head"] = {}
+        params["html"]["body"] = {}
+        params["html"]["body"]["header"] = {}
+        params["html"]["body"]["header"]["nav"] = {}
+        params["html"]["body"]["header"]["side-nav"] = {}
+        params["html"]["body"]["main"] = {}
+
+        params["html"]["head"]["title"] = "Jayweb | Home" 
+        params["html"]["head"]["icon"] = ROOT + "/docs/diag/logo.svg" 
+        params["html"]["head"]["base"] = ROOT + "/gen/index.html" 
+
+        params["html"]["body"]["header"]["nav"] = self.gennav(config)["items"]
+        
+        params["html"]["body"]["main"]["md"] = ROOT + "/docs/about.md"
+        params["html"]["body"]["main"]["side-nav"] = self.gennav(config)
+
+        return params
 
 
 if __name__ == '__main__':
@@ -126,10 +171,62 @@ if __name__ == '__main__':
     #params = jayweb.exec(jayweb.read(f'{ROOT}/site/jayconfig.py'), {"ROOT": ROOT})["params"]
     #print(params)
 
-    txt = jayweb.include(f"{ROOT}/include/page.py", params = {})
+    #txt = jayweb.include(f"{ROOT}/include/page.py", params = {})
+    #print(txt)
+
+    #jayweb.write(f'{ROOT}/gen/index.html', txt)
+
+
+    config = {}
+    
+    config["root"] = {
+        "info": {
+            "title": "Home",
+        },
+        "sub": {},
+        "order": {}, 
+    }
+    
+    config["root"]["sub"]["about"] = {
+        "info": {
+            "title": "About",
+        },
+        "sub": {},
+        "order": {}, 
+    } 
+    
+    config["root"]["sub"]["products"] = {
+        "info": {
+            "title": "Products",
+        },
+        "sub": {},
+        "order": {}, 
+    } 
+
+    config["root"]["sub"]["products"]["sub"]["jay40"] = {
+        "info": {
+            "title": "Jay40",
+        },
+        "sub": {},
+        "order": {}, 
+    } 
+
+    config["root"]["sub"]["products"]["sub"]["jaybtn"] = {
+        "info": {
+            "title": "JayBTN",
+        },
+        "sub": {},
+        "order": {}, 
+    } 
+
+
+
+    params = jayweb.gen(config["root"])
+    print(params)
+    #jayweb.write(f'{ROOT}/gen/jay40.html', txt)
+    txt = jayweb.include(f"{ROOT}/include/html.py", params = params["html"])
     print(txt)
 
     jayweb.write(f'{ROOT}/gen/index.html', txt)
-    #jayweb.write(f'{ROOT}/gen/jay40.html', txt)
 
     

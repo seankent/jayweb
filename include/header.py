@@ -2,6 +2,8 @@
 if "nav" not in params:
     params["nav"] = [] 
 
+print("## HI ##")
+print(f"## params: {params}")
 
 txt = ''
 
@@ -19,19 +21,18 @@ txt += f'    </div>\n'
 txt += f'    <div class="grid grid-page grid-header-right">\n'
 
 for i in range(len(params["nav"])):
-    if params["nav"][i]["type"] == "nav-button":
-        txt += jayweb.includef(f'{params["ROOT"]}/include/nav-button.py', params["nav"][i], 8)
+    txt += jayweb.includef(f'{params["ROOT"]}/include/nav-item.py', params["nav"][i], 8)
+    #if params["nav"][i]["items"] == []:
+    #    txt += jayweb.includef(f'{params["ROOT"]}/include/nav-button.py', params["nav"][i], 8)
+    #else:
+    #    txt += jayweb.includef(f'{params["ROOT"]}/include/nav-dropdown.py', params["nav"][i], 8)
 
-    if params["nav"][i]["type"] == "nav-dropdown":
-        txt += jayweb.includef(f'{params["ROOT"]}/include/nav-dropdown.py', params["nav"][i], 8)
-
-        #params["nav"][i]
-        #txt += jayweb.includef(f'{params["ROOT"]}/include/nav-dropdown.py', params["sub"][params["nav"][i]["name"]], 8)
-
-        #txt += jayweb.includef(f'{params["ROOT"]}/include/nav-dropdown.py', params["sub"][params["nav"][i]["name"]], 8)
-    #txt += jayweb.includef("./include/nav-button.py", params["nav"][i], 8)
-
-#txt += jayweb.includef(f'{params["ROOT"]}/include/nav-dropdown.py', {"text": "Contact", "items": [{"href": "./About", "text": "About"}, {"href": "#", "text": "Morexxxxxxxxxxxx"}]}, 8)
+#for i in range(len(params["nav"])):
+#    if params["nav"][i]["type"] == "nav-button":
+#        txt += jayweb.includef(f'{params["ROOT"]}/include/nav-button.py', params["nav"][i], 8)
+#
+#    if params["nav"][i]["type"] == "nav-dropdown":
+#        txt += jayweb.includef(f'{params["ROOT"]}/include/nav-dropdown.py', params["nav"][i], 8)
 
 txt += f'    </div>\n'
 

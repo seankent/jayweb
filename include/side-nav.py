@@ -2,12 +2,9 @@ txt = ''
 
 txt += f'<div class="side-nav">\n'
 
-for i in range(8):
-    #txt += jayweb.includef(f'{params["ROOT"]}/include/side-nav-button.py', {"text": f"Page {i}"}, 4)
-    txt += jayweb.includef(f'{params["ROOT"]}/include/side-nav-item.py', {"text": f"Page {i}", "items": [{"text": "Sub 0"}, {"text": "Sub 1", "items": [{"text": "Sub Sub 0"}]}]}, 4)
-    #txt += jayweb.includef(f'{params["ROOT"]}/include/side-nav-button.py', {"items": [{"type": "text", "text": params["text"]}, {"type": "icon", "icon-type": "chevron-down"}]}, 4)
-    #txt += f'    <div class="side-nav-button">\n'
-    #txt += f'    </div>\n'
+for i in range(len(params["items"])):
+    txt += jayweb.includef(f'{params["ROOT"]}/include/side-nav-item.py', params["items"][i], 4)
+
 txt += f'</div>\n'
 #
 #config = {
