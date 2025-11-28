@@ -413,7 +413,7 @@ svg {
     justify-content: space-between;
 }
 
-.side-nav-button.active {
+.side-nav-item.active > .side-nav-button > .side-nav-button-label {
     font-weight: 700;
 }
 
