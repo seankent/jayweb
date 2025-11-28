@@ -126,6 +126,7 @@ if __name__ == '__main__':
     }))
 
     root.get(["products"]).add(Jaypage("jay40", {
+        #"title": "Jay40 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "title": "Jay40",
         "side-nav-group": "jay40-side-nav",
         "side-nav": ["products"],
@@ -133,6 +134,13 @@ if __name__ == '__main__':
 
     root.get(["products", "jay40"]).add(Jaypage("configuration", {
         "title": "Configuration",
+        "side-nav-group": "jay40-side-nav",
+        "side-nav": ["products"],
+    }))
+
+    root.get(["products", "jay40"]).add(Jaypage("demo", {
+        #"title": "DemoXXXXXXXXXXXXXXXXXXXXX Click Me!! Please",
+        "title": "Demo",
         "side-nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
