@@ -126,6 +126,10 @@ function load()
         {
             config["side-nav"]["state"] = {};
         }
+        if (config["side-nav"]["side-nav-group"] === "none") 
+        {
+            config["side-nav"]["state"] = {};
+        }
     }
 
     if ("side-nav" in config && "state" in config["side-nav"])

@@ -396,24 +396,29 @@ svg {
 
 .side-nav-button {
     display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr auto;
-    grid-template-columns: 1fr auto;
-    //grid-template-columns: auto 1fr;
-    width: 100%;
+    //grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    //grid-template-columns: 22em 2em;
+    //grid-template-columns: 1fr 2em;
+    //grid-template-columns: minmax(0, 1fr) 2em;
+    width: auto;
     height: auto;
     gap: 0;
     border-color: var(--fg-color);
     border-style: solid;
     //border-width: var(--border-width);
     //border-width: var(--border-width) var(--border-width) 0 var(--border-width);
+    //padding: 0.5em 0 0.5em 0;
     border-width: var(--border-width) 0 0 0; 
     margin: 0; /* Remove any margin */
     //padding: 0 1em 0 1em;
-    padding: 0.5em 0 0.5em 0;
     align-items: center;
     justify-content: space-between;
     //line-height: 1.6; 
+}
+
+.side-nav-button-with-icon {
+    grid-template-columns: minmax(0, 1fr) 2em;
 }
 
 .side-nav-item.active > .side-nav-button > .side-nav-button-label {
@@ -425,12 +430,7 @@ svg {
 //}
 
 
-.side-nav-button-label:hover {
-    color: var(--fg-color-hover);
-    background-color: var(--bg-color-hover);
-    border-color: var(--fg-color-hover);
-}
-
+.side-nav-button-label:hover,
 .side-nav-button-label:hover ~ * {
     color: var(--fg-color-hover);
     background-color: var(--bg-color-hover);
@@ -445,13 +445,21 @@ svg {
 
 .side-nav-button-label {
     display: grid;
+    //width: 10em;
     width: 100%;
     height: 100%;
     align-items: center;
     //justify-content: space-between;
     //padding: 0 1em 0 1em;
-    padding: 0 0 0 0;
+    //padding: 0 0 0 0;
+    padding: 0.5em 0 0.5em 0;
     text-decoration: none;
+    //min-width: 0;  /* Critical: allow grid item to shrink */
+    overflow-wrap: break-word;
+    //background: rgba(255,0,0,0.2);  /* Debug: see the bounds */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;  /* Critical - overrides any nowrap */
 }
 
 .side-nav-button-label.active {
@@ -460,13 +468,13 @@ svg {
 
 .side-nav-button-chevron {
     display: grid;
-    //height: 100%;
     height: 100%;
+    width: 2em;
     //border-width: 0 0 0 var(--border-width);
     margin: 0; /* Remove any margin */
-    padding: 0 .5em 0 .5em;
+    //padding: 0 .5em 0 .5em;
     align-items: center;
-    //justify-content: space-between;
+    justify-content: center; 
 }
 
 .side-nav-item {
