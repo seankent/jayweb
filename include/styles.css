@@ -80,7 +80,7 @@ svg {
     //grid-template-columns: 20rem minmax(auto, 60rem) minmax(auto, 20rem);
     //grid-template-columns: minmax(auto, 20rem) minmax(auto, 60rem) minmax(auto, 20rem);
     //grid-template-columns: 60rem 60rem; 
-    grid-template-columns: auto auto auto;
+    //grid-template-columns: auto auto auto;
     grid-template-columns: auto auto; 
     height: 5rem;
     border-width: 0px 0px var(--border-width) 0px;
@@ -100,7 +100,7 @@ svg {
 
 .grid-header-left {
     justify-content: left;
-    padding: 0 4rem 0 4rem;
+    padding: 0 0.5rem 0 4rem;
 }
 
 .grid-header-center {
@@ -111,7 +111,7 @@ svg {
 
 .grid-header-right {
     justify-content: right;
-    padding: 0 4rem 0 4rem;
+    padding: 0 4rem 0 0.5rem;
 }
 
 .nav-button {
