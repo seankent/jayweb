@@ -65,7 +65,8 @@ class Jaypage(TreeNode):
         params["head"]["icon"] = ROOT + "/docs/diag/logo.svg" 
         params["head"]["base"] = ROOT + "/gen/index.html" 
         
-        params["body"]["main"]["md"] = ROOT + "/docs/about.md"
+        #params["body"]["main"]["md"] = ROOT + "/docs/about.py"
+        params["body"]["main"]["md"] = ROOT + f"/docs/{self.name}.py"
 
         #if "side-nav" in self.value and self.value["side-nav"] == "self":
         #    params["body"]["main"]["side-nav"] = self.gen_nav()

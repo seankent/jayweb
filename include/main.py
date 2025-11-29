@@ -12,7 +12,7 @@ if params["side-nav"]["items"] != []:
 txt += f'    </div>\n'
 
 txt += f'    <div class="main-center main-content">\n'
-txt += jayweb.includemdf(f'{params["md"]}', 8)
+txt += jayweb.includef(f'{params["md"]}', {}, 8)
 txt += f'    </div>\n'
 
 txt += f'    <div class="main-right">\n'

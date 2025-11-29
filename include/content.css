@@ -10,6 +10,7 @@ stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-sel
 html .main-content,
 html .main-content * {
     font-family: var(--content-font-family); 
+    justify-content: left;
 }
 
 .main-content p {

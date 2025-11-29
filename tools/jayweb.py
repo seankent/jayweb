@@ -157,7 +157,7 @@ class Jayweb:
 
         params["html"]["body"]["header"]["nav"] = self.gennav(config)["items"]
         
-        params["html"]["body"]["main"]["md"] = ROOT + "/docs/about.md"
+        params["html"]["body"]["main"]["md"] = ROOT + "/docs/about.py"
         params["html"]["body"]["main"]["side-nav"] = self.gennav(config)
 
         return params

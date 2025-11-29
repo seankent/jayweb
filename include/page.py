@@ -49,7 +49,7 @@ params["html"]["body"]["header"] = {
 }
 
 params["html"]["body"]["main"] = {
-    "md": f"{params['ROOT']}/docs/about.md",
+    #"md": f"{params['ROOT']}/docs/about.md",
     #"md": f"{ROOT}/docs/jay40.md",
 }
 
