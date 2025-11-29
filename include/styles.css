@@ -142,7 +142,8 @@ svg {
     appearance: none;
     //box-shadow: none;
     //overflow-x: auto;
-    //white-space: nowrap;
+    white-space: nowrap;
+    min-width: min-content;
     text-decoration: none;
 }
 
