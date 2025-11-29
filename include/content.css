@@ -54,10 +54,28 @@ html .main-content * {
 
 
 .main-content .codehilite {
-    padding: 1.2em 1em 0 1em;
+    padding: 1em 1em 1em 1em;
     border: 1px solid grey;
     border-radius: var(--border-radius); 
 }
+
+.codehilite pre code {
+    white-space: pre-line;
+}
+
+
+//.codehilite pre {
+//    text-indent: 0;
+//    white-space: pre;
+//    background-color: pink;
+//}
+//
+//.codehilite pre code {
+//    display: block;
+//    white-space: pre;
+//}
+
+
 
 //.codehilite pre {
 //  line-height: 1.2;
