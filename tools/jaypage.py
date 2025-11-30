@@ -87,7 +87,7 @@ class Jaypage(TreeNode):
     def build(self):
         """
         """
-        txt = jayweb.include(f"{ROOT}/include/html.py", params = self.gen())
+        txt = jayweb.postprocess(jayweb.include(f"{ROOT}/include/html.py", params = self.gen()))
         print(txt)
         print(f"mkdir -p {ROOT}/gen/{"/".join(self.getpath())}")
         os.system(f"mkdir -p {ROOT}/gen/{"/".join(self.getpath())}")

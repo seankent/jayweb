@@ -1,5 +1,7 @@
+import re
 import textwrap
 import markdown
+from bs4 import BeautifulSoup
 
 ROOT = "/Users/seankent/Documents/jayweb"
 
@@ -116,118 +118,61 @@ class Jayweb:
         """
         return self.indent(self.includemd(filename) + "\n", n)
 
-    ##########
-    # gennav #
-    ##########
-    def gennav(self, config, path = ""):
-        params = {}
-    
-        if path == "":
-            params["href"] = path + "index.html"
-        else:
-            params["href"] = path + "/index.html"
-    
-        params["text"] = config["info"]["title"]
-        params["items"] = [] 
-    
-        for subpage in config["sub"]:
-            if path == "":
-                params["items"].append(self.gennav(config["sub"][subpage], "sub/" + subpage))
-            else:
-                params["items"].append(self.gennav(config["sub"][subpage], path + "/sub/" + subpage))
-    
-        return params
+    ###############
+    # postprocess #
+    ###############
+    def postprocess(self, txt):
+        """
+        """
+        while True:
+            # check for a codehilite div block with one or more leading spaces
+            match = re.search(r'^\s+<div\s+class=["\']codehilite["\'][^>]*>.*?</div>', txt, re.DOTALL | re.MULTILINE)
 
-    #######
-    # gen #
-    #######
-    def gen(self, config):
-        params = {}
 
-        params["html"] = {}
-        params["html"]["head"] = {}
-        params["html"]["body"] = {}
-        params["html"]["body"]["header"] = {}
-        params["html"]["body"]["header"]["nav"] = {}
-        params["html"]["body"]["header"]["side-nav"] = {}
-        params["html"]["body"]["main"] = {}
+            if match is None:
+                break
 
-        params["html"]["head"]["title"] = "Jayweb | Home" 
-        params["html"]["head"]["icon"] = ROOT + "/docs/diag/logo.svg" 
-        params["html"]["head"]["base"] = ROOT + "/gen/index.html" 
+            print(match.group())
 
-        params["html"]["body"]["header"]["nav"] = self.gennav(config)["items"]
-        
-        params["html"]["body"]["main"]["md"] = ROOT + "/docs/about.py"
-        params["html"]["body"]["main"]["side-nav"] = self.gennav(config)
+            txt = txt[:match.start()] + textwrap.dedent(match.group()) + txt[match.end():]
+                
 
-        return params
+
+
+
+
+        ##pattern = r'<div\s+class=["\']codehilite["\'][^>]*>.*?</div>'
+        #pattern = r'^\s*<div\s+class=["\']codehilite["\'][^>]*>.*?</div>'
+        #matches = re.findall(pattern, txt, re.DOTALL | re.MULTILINE)
+        #for match in matches:
+        #    print("##########")
+        #    print(match)
+
+        ##for match in re.finditer(pattern, html, re.DOTALL):
+        ##    print("Found match:")
+        ##    print(repr(match.group()))
+        ##    print(f"Start: {match.start()}, End: {match.end()}")
+
+        #print("########################")
+        #print("########################")
+        #txt = """
+        #    fun ():
+        #        Hellow
+        #        There
+        #"""
+        #txt = textwrap.dedent(txt)
+
+        #print(txt)
+
+        return txt
 
 
 if __name__ == '__main__':
     jayweb = Jayweb()
     
-
-    #params = {"title": "Jayweb | Home", "icon": f"{ROOT}/docs/diag/logo.svg", "base": f"{ROOT}/gen/index.html"}
-    #params = jayweb.exec(jayweb.read(f'{ROOT}/site/jayconfig.py'), {"ROOT": ROOT})["params"]
-    #print(params)
-
-    #txt = jayweb.include(f"{ROOT}/include/page.py", params = {})
-    #print(txt)
-
-    #jayweb.write(f'{ROOT}/gen/index.html', txt)
-
-
-    config = {}
-    
-    config["root"] = {
-        "info": {
-            "title": "Home",
-        },
-        "sub": {},
-        "order": {}, 
-    }
-    
-    config["root"]["sub"]["about"] = {
-        "info": {
-            "title": "About",
-        },
-        "sub": {},
-        "order": {}, 
-    } 
-    
-    config["root"]["sub"]["products"] = {
-        "info": {
-            "title": "Products",
-        },
-        "sub": {},
-        "order": {}, 
-    } 
-
-    config["root"]["sub"]["products"]["sub"]["jay40"] = {
-        "info": {
-            "title": "Jay40",
-        },
-        "sub": {},
-        "order": {}, 
-    } 
-
-    config["root"]["sub"]["products"]["sub"]["jaybtn"] = {
-        "info": {
-            "title": "JayBTN",
-        },
-        "sub": {},
-        "order": {}, 
-    } 
-
-
-
-    params = jayweb.gen(config["root"])
-    print(params)
-    #jayweb.write(f'{ROOT}/gen/jay40.html', txt)
-    txt = jayweb.include(f"{ROOT}/include/html.py", params = params["html"])
+    txt = jayweb.read(f"{ROOT}/gen/about/index.html")
+    txt = jayweb.postprocess(txt) 
     print(txt)
-
-    jayweb.write(f'{ROOT}/gen/index.html', txt)
+    jayweb.write(f"{ROOT}/gen/about/index.html", txt)
 
     

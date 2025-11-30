@@ -59,9 +59,16 @@ html .main-content * {
     border-radius: var(--border-radius); 
 }
 
-.codehilite pre code {
-    white-space: pre-line;
+pre {
+    margin-left: 0;
+    text-indent: 0;
 }
+
+
+//.codehilite pre {
+//    //white-space: pre-line;
+//    //white-space: pre;
+//}
 
 
 //.codehilite pre {
