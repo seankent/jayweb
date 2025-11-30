@@ -531,3 +531,49 @@ body {
     //background-color: var(--bg-color-alt);
 }
 
+.gallery {
+    display: grid;
+    //grid-template-columns: 1fr 1fr 1fr;
+    //grid-template-columns: 200px 200px 200px;
+    grid-template-columns: repeat(3, 18rem);
+    //height: 15rem;
+    gap: 1rem;
+}
+
+.gallery-item {
+    display: grid;
+    //grid-template-rows: 10rem 5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem 3rem;
+    //background-color: pink;
+    border-width: var(--border-width);
+    border-radius: var(--border-radius);
+    border-color: var(--fg-color);
+    border-style: solid;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.gallery-item:hover {
+    color: var(--fg-color-hover);
+    background-color: var(--bg-color-hover);
+    border-color: var(--fg-color-hover);
+}
+
+.gallery-item-img {
+    //width: 80%;
+    //height: 80%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    //margin: auto;
+    //transform: rotate(90deg);
+}
+
+.gallery-item-label {
+    padding: 1em 1em 1em 1em;
+}
+
+

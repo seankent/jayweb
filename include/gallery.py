@@ -2,23 +2,9 @@
 
 txt = ''
 
-txt += f'<div class="main">\n'
-
-txt += f'    <div class="main-left">\n'
-
-if params["side-nav"]["items"] != []:
-    txt += jayweb.includef(f"{params['ROOT']}/include/side-nav.py", params["side-nav"], 8)
-
-txt += f'    </div>\n'
-
-#txt += f'    <div class="main-center main-content">\n'
-txt += f'    <div class="main-center">\n'
-txt += jayweb.includef(f'{params["md"]}', {}, 8)
-txt += f'    </div>\n'
-
-txt += f'    <div class="main-right">\n'
-txt += f'    </div>\n'
-
+txt += f'<div class="gallery">\n'
+for i in range(3):
+    txt += jayweb.includef(f"{params['ROOT']}/include/gallery-item.py", {}, 4)
 txt += f'</div>\n'
 #
 #config = {

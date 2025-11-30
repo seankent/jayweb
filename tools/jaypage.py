@@ -122,8 +122,8 @@ if __name__ == '__main__':
 
     root.get([]).add(Jaypage("products", {
         "title": "Products",
-        "side-nav-group": "jay40-side-nav",
-        "side-nav": ["products"],
+        #"side-nav-group": "jay40-side-nav",
+        #"side-nav": ["products"],
     }))
 
     root.get(["products"]).add(Jaypage("jay40", {
