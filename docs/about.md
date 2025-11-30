@@ -3,7 +3,7 @@
 ### Heading 3
 #### Heading 4
 
-```bash
+```
 $ sudo install x
 ```
 

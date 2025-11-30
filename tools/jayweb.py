@@ -100,7 +100,7 @@ class Jayweb:
         """
         #return markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite', 'nl2br'])
         print(repr(txt))
-        return markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite'], extension_configs = {'codehilite': {'stripnl': True}})
+        return markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite', 'attr_list', "md_in_html"], extension_configs = {'codehilite': {'stripnl': True}})
 
     #############
     # includemd #

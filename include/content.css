@@ -130,5 +130,17 @@ pre {
   font-weight: bold;
 }
 
+.main-content img {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    margin: 3rem auto 3rem auto;
+  //margin: 0 auto;
+  //border: 1px solid grey;
+  //border-radius: var(--border-radius); 
+  //padding: ;
+}
+
 
 

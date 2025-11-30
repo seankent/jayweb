@@ -34,6 +34,9 @@ $ sudo make install
 
 Note, the cloned repositories can be deleted after the tools have been installed. 
 
+![Alt text](../docs/diag/jay40.svg){: style="width: 300px;"}
+
+![Alt text](../docs/diag/jay40.svg)
 
 <!--
 %===============================================================
