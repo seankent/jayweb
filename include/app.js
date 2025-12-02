@@ -34,7 +34,7 @@ function setActive() {
 
     const currentPath = window.location.pathname;
 
-    for (let link of document.querySelectorAll('.side-nav-button-label')) {
+    for (let link of document.querySelectorAll('.side-nav-button-text')) {
         if (currentPath.endsWith(link.getAttribute('href'))) {
             //link.classList.add('active');
             console.log("TRUE!!!");
@@ -208,9 +208,9 @@ for (let sideNavButtonChevron of document.querySelectorAll('.side-nav-button-che
     sideNavButtonChevron.addEventListener('click', toggleExpanded); 
 }
 
-for (let sideNavButtonLabel of document.querySelectorAll('.side-nav-button-label')) {
+for (let sideNavButtonText of document.querySelectorAll('.side-nav-button-text')) {
     //sideNavButtonLabel.addEventListener('click', setActive); 
-    sideNavButtonLabel.addEventListener('click', navButtonClick); 
+    sideNavButtonText.addEventListener('click', navButtonClick); 
 }
 
 for (let navButtonLabel of document.querySelectorAll('.nav-button')) {

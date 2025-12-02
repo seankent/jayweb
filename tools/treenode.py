@@ -85,6 +85,17 @@ class TreeNode:
         else:
             return self.parent.root()
 
+    #########
+    # depth #
+    #########
+    def depth(self):
+        """
+        """
+        if self.parent is None:
+            return 0 
+        else:
+            return self.parent.depth() + 1
+
 
 
 if __name__ == '__main__':

@@ -31,17 +31,27 @@ class Jaypage(TreeNode):
     ###########
     # gen_nav #
     ###########
-    def gen_nav(self):
+    def gen_nav(self, depth = 0):
         """
         """
         params = {}
-        params["text"] = self.value["title"]
-        params["href"] = "/".join(self.getpath()) + "/index.html"
+        params["nav-button"] = {}
+        params["nav-button"]["text"] = self.value["title"]
+        params["nav-button"]["href"] = "/".join(self.getpath()) + "/index.html"
+        params["nav-button"]["indent"] = str(min(1, 2*depth - 1)) 
+
         params["id"] = "side-nav-item--root-" + "-".join(self.getpath())
+       
+        if self.children != []:
+            params["nav-button"]["toggle"] = "yes"
+        else:
+            params["nav-button"]["toggle"] = "no"
+
+        #params["nav-button"]["indent"] = str(2*depth) 
         params["items"] = [] 
 
         for child in self.children:
-            params["items"].append(child.gen_nav())
+            params["items"].append(child.gen_nav(depth = depth + 1))
 
         return params
 
@@ -57,7 +67,8 @@ class Jaypage(TreeNode):
         params["head"] = {}
         params["body"] = {}
         params["body"]["header"] = {}
-        params["body"]["header"]["nav"] = self.root().gen_nav()["items"]
+        params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices_plain.svg'} 
+        params["body"]["header"]["nav"] = self.root().gen_nav()
         params["body"]["main"] = {}
         params["body"]["data-active-side-nav-item"] = "side-nav-item--root-" + "-".join(self.getpath())
 
@@ -66,6 +77,11 @@ class Jaypage(TreeNode):
         params["head"]["base"] = ROOT + "/gen/index.html" 
         
         #params["body"]["main"]["md"] = ROOT + "/docs/about.py"
+        if "layout" in self.value:
+            params["body"]["main"]["layout"] = self.value["layout"]
+        else:
+            params["body"]["main"]["layout"] = "default" 
+
         params["body"]["main"]["md"] = ROOT + f"/docs/{self.name}.py"
 
         #if "side-nav" in self.value and self.value["side-nav"] == "self":
@@ -77,6 +93,8 @@ class Jaypage(TreeNode):
             params["body"]["main"]["side-nav"] = self.gen_nav()
             params["body"]["main"]["side-nav"]["side-nav-group"] = "none" 
             #params["body"]["main"]["side-nav"] = {"items": []} 
+
+        #params["body"]["main"]["side-nav"] = {"items": []} 
 
 
         return params
@@ -129,12 +147,14 @@ if __name__ == '__main__':
     root.get(["products"]).add(Jaypage("jay40", {
         #"title": "Jay40 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "title": "Jay40",
+        "layout": "docs",
         "side-nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
 
     root.get(["products", "jay40"]).add(Jaypage("configuration", {
         "title": "Configuration",
+        "layout": "docs",
         "side-nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
@@ -142,12 +162,14 @@ if __name__ == '__main__':
     root.get(["products", "jay40"]).add(Jaypage("demo", {
         #"title": "DemoXXXXXXXXXXXXXXXXXXXXX Click Me!! Please",
         "title": "Demo",
+        "layout": "docs",
         "side-nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
 
     root.get(["products"]).add(Jaypage("jaybtn", {
         "title": "JayBTN",
+        "layout": "docs",
         "side-nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))

@@ -170,9 +170,10 @@ class Jayweb:
 if __name__ == '__main__':
     jayweb = Jayweb()
     
-    txt = jayweb.read(f"{ROOT}/gen/about/index.html")
+    #txt = jayweb.read(f"{ROOT}/gen/about/index.html")
+    txt = jayweb.includef(f"{ROOT}/include/box.py", {}, 0)
     txt = jayweb.postprocess(txt) 
     print(txt)
-    jayweb.write(f"{ROOT}/gen/about/index.html", txt)
+    jayweb.write(f"{ROOT}/gen/test.html", txt)
 
     

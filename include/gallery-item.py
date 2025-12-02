@@ -3,14 +3,17 @@
 txt = ''
 
 txt += f'<a href="{params["ROOT"]}/gen/products/jay40/index.html" class="gallery-item">\n'
-#txt += f'    <img src="{params["src"]}" alt="{params["alt"]}">\n'
-txt += f'        <img class="gallery-item-img" src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
-#txt += f'    <div>\n'
-#txt += f'        <img src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
+
+#txt += f'    <div class="gallery-box">\n'
 #txt += f'    </div>\n'
-txt += f'    <div class="gallery-item-label">\n'
+#txt += f'    <div class="gallery-box">\n'
+#txt += f'    </div>\n'
+
+txt += f'     <img class="gallery-item-img" src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
+txt += f'    <div class="gallery-item-text">\n'
 txt += f'        Jay40 Developement Board\n'
 txt += f'    </div>\n'
+
 txt += f'</a>\n'
 #
 #config = {
