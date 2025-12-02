@@ -525,7 +525,7 @@ body {
 .gallery-item {
     display: grid;
     grid-template-columns: 1fr; 
-    grid-template-rows: 1fr 3rem;
+    grid-template-rows: 12rem 3rem;
     border-width: var(--border-width);
     border-radius: var(--border-radius);
     border-color: var(--fg-color);
@@ -543,25 +543,28 @@ body {
     background-color: pink; 
 }
 
-.gallery-item:hover {
-    color: var(--fg-color-hover);
-    background-color: var(--bg-color-hover);
-    border-color: var(--fg-color-hover);
-}
-
 .gallery-item-img {
+    display: block;
     width: 100%;
-    height: 100%;
+    //height: 100%;
     object-fit: cover;
     //margin: auto;
     //transform: rotate(90deg);
-    overflow: hidden;
+    //overflow: hidden;
 }
 
 .gallery-item-text {
     display: grid;
     justify-content: start;
     padding: 1em 1em 1em 1em;
+    background-color: var(--bg-color);
 }
+
+.gallery-item:hover .gallery-item-text {
+    color: var(--fg-color-hover);
+    background-color: var(--bg-color-hover);
+    border-color: var(--fg-color-hover);
+}
+
 
 
