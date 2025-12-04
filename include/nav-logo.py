@@ -10,7 +10,7 @@ txt = ''
 
 txt += f'<a href="{params["href"]}" class="nav-logo">\n'
 
-txt += f'    <img src="{params["src"]}" alt="{params["alt"]}">\n'
+txt += f'    <img class="nav-logo-img" src="{params["src"]}" alt="{params["alt"]}">\n'
 
 txt += f'</a>\n'
 

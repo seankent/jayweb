@@ -67,7 +67,7 @@ class Jaypage(TreeNode):
         params["head"] = {}
         params["body"] = {}
         params["body"]["header"] = {}
-        params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices_plain.svg'} 
+        params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices.svg'} 
         params["body"]["header"]["nav"] = self.root().gen_nav()
         params["body"]["main"] = {}
         params["body"]["data-active-side-nav-item"] = "side-nav-item--root-" + "-".join(self.getpath())

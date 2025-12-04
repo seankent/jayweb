@@ -193,27 +193,27 @@ svg {
 }
 
 
-//@media (max-width: 35em) {
-//    .header {
-//        background-color: pink;
-//        height: auto;
-//    }
-//
-//    .nav-logo {
-//        display: none;
-//    }
-//
-//    .nav {
-//        display: grid;
-//        //grid-template-columns: 1fr; 
-//        grid-auto-flow: row;
-//    }
-//
-//    .nav-item {
-//        display: grid;
-//        width: 100%;
-//    }
-//}
+@media (max-width: 35em) {
+    .header {
+        background-color: pink;
+        height: auto;
+    }
+
+    .nav-logo {
+        display: none;
+    }
+
+    .nav {
+        display: grid;
+        //grid-template-columns: 1fr; 
+        grid-auto-flow: row;
+    }
+
+    .nav-item {
+        display: grid;
+        width: 100%;
+    }
+}
 
 
 .dropdown {
