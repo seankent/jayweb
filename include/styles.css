@@ -63,19 +63,27 @@ svg {
     background-color: inherit; 
 }
 
-.header {
-    display: grid;
-    grid-template-columns: auto auto; 
-    height: 5rem;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    border-width: 0px 0px var(--border-width) 0px;
-    border-style: solid;
-    border-color: var(--fg-color);
-    padding: 0rem 4rem 0rem 4rem;
-}
+//.header {
+//    display: grid;
+//    grid-template-columns: auto auto; 
+//    height: 5rem;
+//    align-items: center;
+//    justify-content: space-between;
+//    gap: 1rem;
+//    border-width: 0px 0px var(--border-width) 0px;
+//    border-style: solid;
+//    border-color: var(--fg-color);
+//    padding: 0rem 4rem 0rem 4rem;
+//}
 
+
+.header {
+    height: auto;
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 0;
+    border-width: 0px 0px var(--border-width) 0px;
+}
 
 
 
