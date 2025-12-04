@@ -77,14 +77,27 @@ svg {
 //}
 
 
-.header {
-    height: auto;
-    width: 100%;
-    grid-template-columns: 1fr;
-    padding: 0;
-    border-width: 0px 0px var(--border-width) 0px;
-}
+//.header {
+//    height: auto;
+//    width: 100%;
+//    grid-template-columns: 1fr;
+//    padding: 1rem;
+//    border-width: 0px 0px var(--border-width) 0px;
+//}
 
+
+.header {
+    display: grid;
+    grid-template-columns: auto auto; 
+    height: 5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-width: 0px 0px var(--border-width) 0px;
+    border-style: solid;
+    border-color: var(--fg-color);
+    padding: 0rem 4rem 0rem 4rem;
+}
 
 
 .nav-dropdown-button {
@@ -225,21 +238,14 @@ svg {
 
 .main {
     display: grid;
-    grid-template-columns: auto; 
+    //grid-template-columns: auto; 
+    grid-template-columns: minmax(0, calc(100vw - 8rem)); 
     align-items: stretch;
     justify-content: center;
     gap: 4rem;
     padding: 4rem 4rem 4rem 4rem;
 }
 
-.main-docs {
-    display: grid;
-    grid-template-columns: auto minmax(auto, 50rem); 
-    align-items: stretch;
-    justify-content: start;
-    gap: 4rem;
-    padding: 4rem 4rem 4rem 4rem;
-}
 
 .footer {
     display: grid;
@@ -465,6 +471,7 @@ body {
     grid-auto-rows: 15rem;
     //height: 15rem;
     gap: 2rem;
+    overflow-x: auto;
 }
 
 .gallery-item {
