@@ -7,6 +7,9 @@
     align-items: start;
     align-self: start;
     overflow: hidden;
+    background-color: var(--bg-color);
+    border-width: var(--border-width);
+    border-radius: var(--border-radius);
 
     //width: 20rem;
 }
@@ -281,8 +284,8 @@
 
 .main .nav {
     //background-color: pink;
-    border-width: var(--border-width);
-    border-radius: var(--border-radius);
+    //border-width: var(--border-width);
+    //border-radius: var(--border-radius);
     //overflow: hidden;
 }
 
@@ -291,16 +294,25 @@
 
 #main-nav {
     position: fixed;
-    top: 5rem;
-    right: 0;
+    top: 6rem;
+    right: 1rem;
     width: 22rem;
-    background-color: pink;
+    //background-color: var(--bg-color);
+    //border-width: var(--border-width);
+    //border-radius: var(--border-radius);
 }
 
 #side-nav {
-    background-color: pink;
+    //background-color: pink;
     width: 22rem;
 }
 
+.navbar-hamburger-menu-expanded {
+    background-color: pink; 
+}
+
+.navbar-hamburger-menu-expanded ~ .nav {
+    display: none;
+}
 
 

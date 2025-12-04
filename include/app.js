@@ -6,6 +6,11 @@ function toggleExpanded() {
     //console.log("toggleExpanded.");
 }
 
+function toggleNavExpanded() {
+    this.classList.toggle('navbar-hamburger-menu-expanded');
+    //console.log("toggleExpanded.");
+}
+
 //function clearAllActive() {
 //    this.parentElement.classList.toggle('active');
 //    for (let sideNavItem of document.querySelectorAll('.side-nav-item')) {
@@ -240,6 +245,10 @@ for (let navButtonLabel of document.querySelectorAll('.nav-button')) {
     //sideNavButtonLabel.addEventListener('click', setActive); 
     navButtonLabel.addEventListener('click', navButtonClick); 
     //console.log(navButtonLabel)
+}
+
+for (let item of document.querySelectorAll('.navbar-hamburger-menu')) {
+    item.addEventListener('click', toggleNavExpanded); 
 }
 
 //for (let sideNavButton of sideNavButtons) {
