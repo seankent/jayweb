@@ -308,7 +308,7 @@
 }
 
 .navbar-hamburger-menu-expanded {
-    background-color: pink; 
+    //background-color: pink; 
 }
 
 .navbar-hamburger-menu-expanded ~ .nav {
