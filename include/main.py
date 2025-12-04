@@ -4,7 +4,8 @@ txt = ''
 
 if params["layout"] == "docs":
     txt += f'<div class="main-docs">\n'
-    txt += jayweb.includef(f"{params['ROOT']}/include/side-nav.py", params["side-nav"], 4)
+    #txt += jayweb.includef(f"{params['ROOT']}/include/side-nav.py", params["side-nav"], 4)
+    txt += jayweb.includef(f"{params['ROOT']}/include/nav.py", params["side-nav"], 4)
     txt += jayweb.includef(f'{params["md"]}', {}, 4)
     txt += f'</div>\n'
 

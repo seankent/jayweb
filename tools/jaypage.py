@@ -38,9 +38,9 @@ class Jaypage(TreeNode):
         params["nav-button"] = {}
         params["nav-button"]["text"] = self.value["title"]
         params["nav-button"]["href"] = "/".join(self.getpath()) + "/index.html"
-        params["nav-button"]["indent"] = str(min(1, 2*depth - 1)) 
+        params["nav-button"]["indent"] = str(max(1, 1*depth)) 
 
-        params["id"] = "side-nav-item--root-" + "-".join(self.getpath())
+        params["nav-item-name"] = "nav-item-name--" + "-".join(self.getpath())
        
         if self.children != []:
             params["nav-button"]["toggle"] = "yes"
@@ -70,7 +70,12 @@ class Jaypage(TreeNode):
         params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices.svg'} 
         params["body"]["header"]["nav"] = self.root().gen_nav()
         params["body"]["main"] = {}
-        params["body"]["data-active-side-nav-item"] = "side-nav-item--root-" + "-".join(self.getpath())
+        params["body"]["nav-item-name"] = "nav-item-name--" + "-".join(self.getpath())
+
+        if "nav-group" in self.value:
+            params["body"]["nav-group"] = self.value["nav-group"]
+        else:
+            params["body"]["nav-group"] = "none" 
 
         params["head"]["title"] = self.value["title"] 
         params["head"]["icon"] = ROOT + "/docs/diag/logo.svg" 
@@ -88,7 +93,7 @@ class Jaypage(TreeNode):
         #    params["body"]["main"]["side-nav"] = self.gen_nav()
         if "side-nav" in self.value:
             params["body"]["main"]["side-nav"] = self.root().get(self.value["side-nav"]).gen_nav()
-            params["body"]["main"]["side-nav"]["side-nav-group"] = self.value["side-nav-group"] 
+            params["body"]["main"]["side-nav"]["side-nav-group"] = self.value["nav-group"] 
         else:
             params["body"]["main"]["side-nav"] = self.gen_nav()
             params["body"]["main"]["side-nav"]["side-nav-group"] = "none" 
@@ -148,14 +153,14 @@ if __name__ == '__main__':
         #"title": "Jay40 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "title": "Jay40",
         "layout": "docs",
-        "side-nav-group": "jay40-side-nav",
+        "nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
 
     root.get(["products", "jay40"]).add(Jaypage("configuration", {
-        "title": "Configuration",
+        "title": "Configuration - This is a long Config section",
         "layout": "docs",
-        "side-nav-group": "jay40-side-nav",
+        "nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
 
@@ -163,14 +168,14 @@ if __name__ == '__main__':
         #"title": "DemoXXXXXXXXXXXXXXXXXXXXX Click Me!! Please",
         "title": "Demo",
         "layout": "docs",
-        "side-nav-group": "jay40-side-nav",
+        "nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
 
     root.get(["products"]).add(Jaypage("jaybtn", {
         "title": "JayBTN",
         "layout": "docs",
-        "side-nav-group": "jay40-side-nav",
+        "nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
 

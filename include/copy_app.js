@@ -2,7 +2,7 @@
 //const sideNavButtons = document.querySelectorAll('.side-nav-button');
 
 function toggleExpanded() {
-    this.parentElement.parentElement.classList.toggle('nav-item-expanded');
+    this.parentElement.parentElement.classList.toggle('expanded');
     //console.log("toggleExpanded.");
 }
 
@@ -47,11 +47,11 @@ function setActive() {
 
     let config = {};
 
-    config["nav"] = "Sean";
+    config["side-nav"] = "Sean";
     localStorage.setItem('config', JSON.stringify(config));
     
     console.log(sideNav.id);
-    console.log(config["nav"]);
+    console.log(config["side-nav"]);
 
     config = JSON.parse(localStorage.getItem('config'));
     console.log(config);
@@ -65,46 +65,42 @@ function store()
 
     let config = JSON.parse(localStorage.getItem('config') || '{}');
 
-    if (!("nav" in config))
+    if (!("side-nav" in config))
     {
-        config["nav"] = {};
+        config["side-nav"] = {};
     }
 
-    //if (document.querySelector('.nav'))
-    //{
-    //    config["nav"]["nav-group"] = document.body.getAttribute('data-nav-group');
-    //}
-    //else
-    //{
-    //    config["nav"]["nav-group"] = "none";
-    //}
-
-    //if (!("state" in config["nav"]))
-    //{
-    //    config["nav"]["state"] = {};
-    //}
-
-    for (let item of document.querySelectorAll(".nav-item"))
+    if (document.querySelector('.side-nav'))
     {
-        if (!(item.getAttribute('data-nav-item-name') in config["nav"]["state"]))
+        config["side-nav"]["side-nav-group"] = document.querySelector('.side-nav').id;
+    }
+    else
+    {
+        config["side-nav"]["side-nav-group"] = "none";
+    }
+
+    if (!("state" in config["side-nav"]))
+    {
+        config["side-nav"]["state"] = {};
+    }
+
+    for (let item of document.querySelectorAll(".side-nav-item"))
+    {
+        if (!(item.id in config["side-nav"]["state"]))
         {
-            config["nav"]["state"][item.getAttribute('data-nav-item-name')] = {};
+            config["side-nav"]["state"][item.id] = {};
         }
 
-        if (item.classList.contains("nav-item-expanded"))
+        if (item.classList.contains("expanded"))
         {
-            console.log(item.getAttribute('data-nav-item-name'))
-            config["nav"]["state"][item.getAttribute('data-nav-item-name')]["expanded"] = "yes";
+            config["side-nav"]["state"][item.id]["expanded"] = "yes";
         }
         else
         {
-            config["nav"]["state"][item.getAttribute('data-nav-item-name')]["expanded"] = "no";
+            config["side-nav"]["state"][item.id]["expanded"] = "no";
         }
     }
 
-
-    console.log(config)
-    //debugger;
     localStorage.setItem('config', JSON.stringify(config));
 }
 
@@ -114,56 +110,44 @@ function load()
 
     let config = JSON.parse(localStorage.getItem('config') || '{}');
 
-    console.log(config);
 
-
-    //if ("nav" in config && "nav-group" in config["nav"])
-    //{
-    //    
-    //    if (document.querySelector('.nav'))
-    //    {
-    //        if (config["nav"]["nav-group"] !== document.body.getAttribute('data-nav-group'))
-    //        {
-    //            config["nav"]["state"] = {};
-    //        }
-
-    //    }
-    //    else
-    //    {
-    //        config["nav"]["state"] = {};
-    //    }
-    //    if (config["nav"]["nav-group"] === "none") 
-    //    {
-    //        config["nav"]["state"] = {};
-    //    }
-    //}
-
-    if ("nav" in config && "nav-group" in config["nav"])
+    if ("side-nav" in config && "side-nav-group" in config["side-nav"])
     {
-    }
-    else
-    {
-        config["nav"] = {}
-        config["nav"]["state"] = {};
-    }
-
-
-    if ("nav" in config && "state" in config["nav"])
-    {
-        for (let item of document.querySelectorAll(".nav-item"))
+        
+        if (document.querySelector('.side-nav'))
         {
-            console.log("LOOP");
-            if (item.getAttribute('data-nav-item-name') in config["nav"]["state"])
+            if (config["side-nav"]["side-nav-group"] !== document.querySelector('.side-nav').id)
             {
-                if (config["nav"]["state"][item.getAttribute('data-nav-item-name')]["expanded"] === "yes")
+                config["side-nav"]["state"] = {};
+            }
+
+        }
+        else
+        {
+            config["side-nav"]["state"] = {};
+        }
+        if (config["side-nav"]["side-nav-group"] === "none") 
+        {
+            config["side-nav"]["state"] = {};
+        }
+    }
+
+    if ("side-nav" in config && "state" in config["side-nav"])
+    {
+        for (let item of document.querySelectorAll(".side-nav-item"))
+        {
+            if (item.id in config["side-nav"]["state"])
+            {
+                //console.log(item.id);
+                if (config["side-nav"]["state"][item.id]["expanded"] === "yes")
                 {
                     console.log("YES!!");
-                    item.classList.add('nav-item-expanded');
+                    item.classList.add('expanded');
                 } 
                 else 
                 {
                     console.log("NO!!");
-                    item.classList.remove('nav-item-expanded');
+                    item.classList.remove('expanded');
                 }
             }
 
@@ -187,18 +171,11 @@ function load()
         console.log("Config:");
         console.log(config);
     }
-
-    for (let item of document.querySelectorAll(".nav-item"))
-    {
-        if (item.getAttribute('data-nav-item-name') == document.body.getAttribute('data-nav-item-name')) 
-        item.classList.add("nav-item-active");
-    }
  
-    //if (document.querySelector("." + document.body.getAttribute('data-nav-item-name')))
-    //{
-    //    document.querySelector("." + document.body.getAttribute('data-nav-item-name')).classList.add("nav-item-active");
-    //    console.log("nav-item-active");
-    //}
+    if (document.querySelector("#" + document.body.getAttribute('data-active-side-nav-item')))
+    {
+        document.querySelector("#" + document.body.getAttribute('data-active-side-nav-item')).classList.add("active");
+    }
 
 }
 
@@ -227,11 +204,11 @@ document.addEventListener('DOMContentLoaded', function() {
 //    console.log("setActive");
 //}
 
-for (let sideNavButtonChevron of document.querySelectorAll('.nav-button-chevron')) {
+for (let sideNavButtonChevron of document.querySelectorAll('.side-nav-button-chevron')) {
     sideNavButtonChevron.addEventListener('click', toggleExpanded); 
 }
 
-for (let sideNavButtonText of document.querySelectorAll('.nav-button-text')) {
+for (let sideNavButtonText of document.querySelectorAll('.side-nav-button-text')) {
     //sideNavButtonLabel.addEventListener('click', setActive); 
     sideNavButtonText.addEventListener('click', navButtonClick); 
 }

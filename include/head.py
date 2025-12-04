@@ -18,6 +18,7 @@ txt += f'    <link rel="icon" href="{params["icon"]}">\n'
 txt += f'    <link rel="stylesheet" href="{params["ROOT"]}/include/styles.css">\n'
 txt += f'    <link rel="stylesheet" href="{params["ROOT"]}/include/syntax.css">\n'
 txt += f'    <link rel="stylesheet" href="{params["ROOT"]}/include/content.css">\n'
+txt += f'    <link rel="stylesheet" href="{params["ROOT"]}/include/nav-styles.css">\n'
 txt += f'    <base href="{params["base"]}">\n'
 txt += f'</head>\n'
 
