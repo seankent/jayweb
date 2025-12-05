@@ -38,7 +38,7 @@ class Jaypage(TreeNode):
         params["nav-button"] = {}
         params["nav-button"]["text"] = self.value["title"]
         params["nav-button"]["href"] = "/".join(self.getpath()) + "/index.html"
-        params["nav-button"]["indent"] = str(max(1, 1*depth)) 
+        params["nav-button"]["indent"] = str(2*depth - 0.5) 
 
         params["nav-item-name"] = "nav-item-name--" + "-".join(self.getpath())
        

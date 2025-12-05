@@ -10,7 +10,7 @@ if params["toggle"] == "yes":
     txt += f'        {params["text"]}\n'
     txt += f'    </a>\n'
     txt += f'    <div class="nav-button-chevron">\n'
-    txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.35rem", "height": "1.35rem"}, 4)
+    txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.5rem", "height": "1.5rem"}, 4)
     txt += f'    </div>\n'
 else:
     txt += f'    <a class="nav-button-text nav-button-text-solo" href="{params["href"]}" style="padding-left: {params["indent"]}rem">\n'

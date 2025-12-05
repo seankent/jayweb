@@ -13,7 +13,7 @@ if "text" in params:
 
 if "icon" in params:
     txt += f'    <div class="nav-button-dropdown-chevron">\n'
-    txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.35em", "height": "1.35em"}, 8)
+    txt += jayweb.includef(f'{params["ROOT"]}/include/chevron-down.py', {"width": "1.5em", "height": "1.5em"}, 8)
     txt += f'    </div>\n'
 
 #txt += jayweb.includef("./include/button.py", {"width": "1rem", "height": "1rem"}, 4)

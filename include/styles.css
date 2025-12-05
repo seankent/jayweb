@@ -88,7 +88,7 @@ svg {
 
 .header {
     display: grid;
-    grid-template-columns: auto auto; 
+    //grid-template-columns: auto auto; 
     height: 5rem;
     align-items: center;
     justify-content: space-between;
@@ -96,7 +96,7 @@ svg {
     border-width: 0px 0px var(--border-width) 0px;
     border-style: solid;
     border-color: var(--fg-color);
-    padding: 0rem 4rem 0rem 4rem;
+    //padding: 0rem 4rem 0rem 4rem;
 }
 
 
@@ -459,6 +459,7 @@ body {
         auto;
     min-height: 100vh;
     min-height: 100dvh;
+    position: relative;
     //background-color: var(--bg-color-alt);
 }
 
