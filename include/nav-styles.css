@@ -106,10 +106,10 @@
     align-items: center;
     text-decoration: none;
     border-radius: var(--border-radius);
-    //margin-left: 2rem;
-    position: absolute;
-    top: 1rem;
-    left: 2rem;
+    margin-left: 2rem;
+    //position: absolute;
+    //top: 1rem;
+    //left: 2rem;
 }
 
 .nav-logo:hover {
@@ -218,7 +218,7 @@
     padding: 0.25rem;
     border-radius: var(--border-radius);
     z-index: 9999;
-    //margin-right: 2rem;
+    margin-right: 2rem;
     position: absolute;
     top: 1rem;
     right: 2rem;
@@ -317,40 +317,79 @@
     border-radius: var(--border-radius);
 }
 
-.navbar-hamburger-menu svg:nth-child(2) {
-    display: none; 
-}
+//.navbar-hamburger-menu svg:nth-child(2) {
+//    display: none; 
+//}
+//
+//.navbar-hamburger-menu-expanded svg:nth-child(2) {
+//    display: grid; 
+//}
+//
+//.navbar-hamburger-menu-expanded svg:nth-child(1) {
+//    display: none; 
+//}
+//
+//.navbar-hamburger-menu-expanded {
+//    //background-color: pink; 
+//}
 
-.navbar-hamburger-menu-expanded svg:nth-child(2) {
-    display: grid; 
-}
-
-.navbar-hamburger-menu-expanded svg:nth-child(1) {
-    display: none; 
-}
-
-.navbar-hamburger-menu-expanded {
-    //background-color: pink; 
-}
-
-.navbar-hamburger-menu-expanded ~ .nav-menu {
+.navbar-expanded > .nav-menu {
     display: grid;
 }
 
+.nav-cross-button {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    //width: fit-content;
+    //height: fit-content;
+    align-self: center;
+    justify-self: right;
+    margin-right: 2rem;
+}
+
+.nav-hamburger-button {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    margin-right: 2rem;
+}
+
+.nav-cross-button:hover,
+.nav-hamburger-button:hover {
+    background-color: var(--bg-color-hover);
+}
+
+
 .nav-menu {
     display: none;
-    position: absolute;
-    //position: fixed;
+    //position: absolute;
+
+    position: fixed;
     top: 0;
     right: 0;
-    left: auto;
-    width: max(23rem, 40vw);
-    height: auto;
+
+    grid-template-rows: 5rem auto; 
+
+    //width: max(24rem, 30vw);
+    width: min(100vw, 30rem);
+    //height: auto;
+    //height: max(100vh, max-content);
+    height: 100vh;
     //background-color: pink; 
     background-color: var(--bg-color);
-    padding: 5rem 0 2rem 0;
+    padding: 0 0 2rem 0;
     //background-color: var(--bg-color);
-    border-width: 0 0 var(--border-width) var(--border-width);
-    border-radius: 0 0 0 var(--border-radius);
+    //border-width: 0 0 var(--border-width) var(--border-width);
+    //border-radius: 0 0 0 var(--border-radius);
+    border-width: var(--border-width);
+    border-radius: var(--border-radius);
+    overflow: auto;
 }
 

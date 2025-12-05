@@ -6,8 +6,13 @@ function toggleExpanded() {
     //console.log("toggleExpanded.");
 }
 
-function toggleNavExpanded() {
-    this.classList.toggle('navbar-hamburger-menu-expanded');
+function addNavExpanded() {
+    this.parentElement.classList.add('navbar-expanded');
+    //console.log("toggleExpanded.");
+}
+
+function removeNavExpanded() {
+    this.parentElement.parentElement.classList.remove('navbar-expanded');
     //console.log("toggleExpanded.");
 }
 
@@ -247,8 +252,12 @@ for (let navButtonLabel of document.querySelectorAll('.nav-button')) {
     //console.log(navButtonLabel)
 }
 
-for (let item of document.querySelectorAll('.navbar-hamburger-menu')) {
-    item.addEventListener('click', toggleNavExpanded); 
+for (let item of document.querySelectorAll('.nav-hamburger-button')) {
+    item.addEventListener('click', addNavExpanded); 
+}
+
+for (let item of document.querySelectorAll('.nav-cross-button')) {
+    item.addEventListener('click', removeNavExpanded); 
 }
 
 //for (let sideNavButton of sideNavButtons) {
