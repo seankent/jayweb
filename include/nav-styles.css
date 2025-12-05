@@ -46,7 +46,7 @@
     justify-content: left;
     width: auto;
     //padding: 0.5rem 1rem 0.5rem 1rem;
-    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+    padding: 0.75rem 0rem 0.75rem 1.5rem;
     text-decoration: none;
 
     white-space: nowrap;
@@ -58,7 +58,8 @@
 
 .nav-button-text-solo {
     //padding-right: calc(1rem + max(2rem, 5%));
-    padding-right: calc(1rem + 4rem);
+    //padding-right: calc(1.5rem + 4rem);
+    padding-right: 4rem; 
 }
 
 .nav-button-text:hover ~ *,
@@ -316,16 +317,16 @@
     border-radius: var(--border-radius);
 }
 
-.navbar-hamburger-menu svg:nth-child(1) {
+.navbar-hamburger-menu svg:nth-child(2) {
     display: none; 
 }
 
 .navbar-hamburger-menu-expanded svg:nth-child(2) {
-    display: none; 
+    display: grid; 
 }
 
 .navbar-hamburger-menu-expanded svg:nth-child(1) {
-    display: grid; 
+    display: none; 
 }
 
 .navbar-hamburger-menu-expanded {
@@ -333,16 +334,17 @@
 }
 
 .navbar-hamburger-menu-expanded ~ .nav-menu {
-    display: none;
+    display: grid;
 }
 
 .nav-menu {
+    display: none;
     position: absolute;
     //position: fixed;
     top: 0;
     right: 0;
     left: auto;
-    width: max(23rem, 33vw);
+    width: max(23rem, 40vw);
     height: auto;
     //background-color: pink; 
     background-color: var(--bg-color);

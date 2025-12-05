@@ -88,7 +88,10 @@ class Jaypage(TreeNode):
         else:
             params["body"]["main"]["layout"] = "default" 
 
-        params["body"]["main"]["md"] = ROOT + f"/docs/{self.name}.py"
+        if self.name[:4] == "test":
+            params["body"]["main"]["md"] = ROOT + f"/docs/about.py"
+        else:
+            params["body"]["main"]["md"] = ROOT + f"/docs/{self.name}.py"
 
         #if "side-nav" in self.value and self.value["side-nav"] == "self":
         #    params["body"]["main"]["side-nav"] = self.gen_nav()
@@ -183,6 +186,15 @@ if __name__ == '__main__':
         "nav-group": "jay40-side-nav",
         "side-nav": ["products"],
     }))
+
+    for i in range(10):
+        root.get(["products", "jay40"]).add(Jaypage(f"test{i}", {
+            #"title": "DemoXXXXXXXXXXXXXXXXXXXXX Click Me!! Please",
+            "title": f"Test {i}",
+            "layout": "docs",
+            "nav-group": "jay40-side-nav",
+            "side-nav": ["products"],
+        }))
 
 
     page = root.get(["products", "jay40"])
