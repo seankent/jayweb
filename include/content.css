@@ -2,58 +2,58 @@
 @charset "UTF-8";
 
 /*
-Styles for rendered markdown in the .main-content container
+Styles for rendered markdown in the .content container
 stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type, selector-max-specificity, selector-max-id
 */
 
 
-html .main-content,
-html .main-content * {
+html .content,
+html .content * {
     font-family: var(--content-font-family); 
     justify-content: left;
 }
 
-.main-content p {
+.content p {
     margin: 1rem 0 0 0;
     line-height: 1.6; 
 }
 
-.main-content .codehilite,
-.main-content table {
+.content .codehilite,
+.content table {
     margin: 2rem 0 1rem 0;
 }
 
-.main-content > :first-child {
+.content > :first-child {
     margin: 0;
 }
 
-.main-content h1,
-.main-content h2,
-.main-content h3,
-.main-content h4,
-.main-content h5,
-.main-content h6 {
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
     margin: 2rem 0 1rem 0;
     //background-color: red;
     font-family: var(--page-font-family); 
 }
 
-.main-content h1 { font-size: var(--h1-size); }
-.main-content h2 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 1)); }
-.main-content h3 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 2)); }
-.main-content h4 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 3)); }
-.main-content h5 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 4)); }
-.main-content h6 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 5)); }
+.content h1 { font-size: var(--h1-size); }
+.content h2 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 1)); }
+.content h3 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 2)); }
+.content h4 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 3)); }
+.content h5 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 4)); }
+.content h6 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 5)); }
 
 
 
 
-//.main-content pre {
+//.content pre {
 //    margin: 0;
 //}
 
 
-.main-content .codehilite {
+.content .codehilite {
     padding: 1em 1em 1em 1em;
     border: 1px solid grey;
     border-radius: var(--border-radius); 
@@ -91,14 +91,14 @@ pre {
 //  padding: 15px;
 //}
 
-//.main-content .codehilite pre {
+//.content .codehilite pre {
 //  margin-bottom: 0;
 //  padding-bottom: 0;
 //}
 
 
 
-.main-content table {
+.content table {
   width: 100%;
   border: 1px solid grey;
   border-collapse: separate;
@@ -107,8 +107,8 @@ pre {
   overflow: hidden;
 }
 
-.main-content th,
-.main-content td {
+.content th,
+.content td {
   padding: 0.75rem;
   text-align: left;
   border-right: 1px solid grey; /* Vertical dividers */
@@ -116,22 +116,22 @@ pre {
 }
 
 /* Remove right border from last column */
-.main-content th:last-child,
-.main-content td:last-child {
+.content th:last-child,
+.content td:last-child {
   border-right: none;
 }
 
 /* Remove bottom border from last row */
-.main-content tr:last-child td {
+.content tr:last-child td {
   border-bottom: none;
 }
 
-.main-content th {
+.content th {
   background: #f0f0f0;
   font-weight: bold;
 }
 
-.main-content img {
+.content img {
     width: 50%;
     margin-left: auto;
     margin-right: auto;

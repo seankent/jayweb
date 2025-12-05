@@ -19,10 +19,8 @@ txt = ''
 #    txt += f'<div class="main main-side-nav">\n'
 #else:
 
-txt += f'<div class="main">\n'
-txt += jayweb.includef(f"{params['ROOT']}/include/side-nav-menu.py", params, 4)
-txt += jayweb.includef(f"{params['ROOT']}/include/main-content.py", params, 4)
-#txt += jayweb.includef(f'{params["md"]}', {}, 4)
+txt += f'<div class="main-content">\n'
+txt += jayweb.includef(f'{params["md"]}', {}, 4)
 txt += f'</div>\n'
 
 
