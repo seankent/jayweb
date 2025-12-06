@@ -68,10 +68,15 @@ class Jaypage(TreeNode):
         params["body"] = {}
         params["body"]["header"] = {}
         params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices.svg'} 
-        params["body"]["header"]["nav"] = self.root().gen_nav()
-        params["body"]["header"]["nav"]["id"] = "main-nav" 
+        params["body"]["header"]["navbar"] = {} 
+        params["body"]["header"]["navbar"]["nav-menu"] = {} 
+        params["body"]["header"]["navbar"]["nav-menu"]["nav"] = self.root().gen_nav() 
+        params["body"]["header"]["navbar"]["nav-menu"]["nav"]["id"] = "main-nav" 
+
         params["body"]["main"] = {}
+
         params["body"]["nav-item-name"] = "nav-item-name--" + "-".join(self.getpath())
+
 
         if "nav-group" in self.value:
             params["body"]["nav-group"] = self.value["nav-group"]
@@ -93,17 +98,20 @@ class Jaypage(TreeNode):
         else:
             params["body"]["main"]["md"] = ROOT + f"/docs/{self.name}.py"
 
-        #if "side-nav" in self.value and self.value["side-nav"] == "self":
-        #    params["body"]["main"]["side-nav"] = self.gen_nav()
+
+        params["body"]["main"]["side-nav-menu"] = {}
+
         if "side-nav" in self.value:
-            params["body"]["main"]["side-nav"] = self.root().get(self.value["side-nav"]).gen_nav()
-            params["body"]["main"]["side-nav"]["side-nav-group"] = self.value["nav-group"] 
+            params["body"]["main"]["has-side-nav-menu"] = "yes"
+            params["body"]["main"]["side-nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
+            #params["body"]["main"]["side-nav-menu"]["side-nav-group"] = self.value["nav-group"] 
         else:
-            params["body"]["main"]["side-nav"] = self.gen_nav()
-            params["body"]["main"]["side-nav"]["side-nav-group"] = "none" 
+            params["body"]["main"]["has-side-nav-menu"] = "no"
+            params["body"]["main"]["side-nav-menu"]["nav"] = {} 
+            #params["body"]["main"]["side-nav-menu"]["side-nav-group"] = "none" 
 
 
-        params["body"]["main"]["side-nav"]["id"] = "side-nav" 
+        params["body"]["main"]["side-nav-menu"]["nav"]["id"] = "side-nav" 
 
             #params["body"]["main"]["side-nav"] = {"items": []} 
 
