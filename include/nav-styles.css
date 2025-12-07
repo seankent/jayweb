@@ -106,7 +106,7 @@
     align-items: center;
     text-decoration: none;
     border-radius: var(--border-radius);
-    margin-left: 2rem;
+    //margin-left: 2rem;
     //position: absolute;
     //top: 1rem;
     //left: 2rem;
@@ -317,7 +317,6 @@
     background-color: var(--bg-color);
     border-width: var(--border-width);
     border-radius: var(--border-radius);
-    margin-right: 4rem;
     //margin-right: 4rem;
 }
 
@@ -362,7 +361,7 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius);
-    margin-right: 2rem;
+    //margin-right: 2rem;
 }
 
 .nav-cross-button:hover,
@@ -401,6 +400,10 @@
 
 
 @media (max-width: 58rem) {
+    .main-docs {
+        grid-template-columns: 1fr;
+    }
+
     .side-nav-menu {
         display: none;
     }

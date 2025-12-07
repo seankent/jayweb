@@ -23,7 +23,7 @@ $ cmake --build build
 $ sudo cmake --install build
 ```
 
-To install Yosys, run the commands in \autoref{lst:yosys_installation_macos} 
+To install Yosys, run the commands in 
 
 ```
 $ git clone https://github.com/YosysHQ/yosys.git yosys

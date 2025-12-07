@@ -96,7 +96,7 @@ svg {
     border-width: 0px 0px var(--border-width) 0px;
     border-style: solid;
     border-color: var(--fg-color);
-    //padding: 0rem 4rem 0rem 4rem;
+    padding: 0rem 2rem 0rem 2rem;
 }
 
 
@@ -240,17 +240,25 @@ svg {
     display: grid;
     //grid-template-columns: auto; 
     //grid-template-columns: minmax(0, calc(100vw - 8rem)); 
-    grid-template-columns: auto 1fr auto;
+    //grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr;
     align-items: stretch;
     justify-content: space-between;
     //gap: 4rem;
-    padding: 4rem;
 }
 
-.main-content {
+.main-default {
     display: grid;
-    grid-column: 2;
+    grid-template-columns: 1fr;
 }
+
+.main-docs {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 4rem;
+    gap: 4rem;
+}
+
 
 
 

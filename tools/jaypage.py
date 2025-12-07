@@ -88,30 +88,46 @@ class Jaypage(TreeNode):
         params["head"]["base"] = ROOT + "/gen/index.html" 
         
         #params["body"]["main"]["md"] = ROOT + "/docs/about.py"
-        if "layout" in self.value:
-            params["body"]["main"]["layout"] = self.value["layout"]
+        if "layout" in self.value and self.value["layout"] == "docs":
+            params["body"]["main"]["layout"] = "docs" 
+            params["body"]["main"]["main-docs"] = {} 
+            params["body"]["main"]["main-docs"]["side-nav-menu"] = {}
+            params["body"]["main"]["main-docs"]["markdown-content"] ={}
+            params["body"]["main"]["main-docs"]["side-nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
+            params["body"]["main"]["main-docs"]["side-nav-menu"]["nav"]["id"] = "side-nav" 
+
+            if self.name[:4] == "test":
+                params["body"]["main"]["main-docs"]["markdown-content"]["md"] = ROOT + f"/docs/about.md"
+            else:
+                params["body"]["main"]["main-docs"]["markdown-content"]["md"] = ROOT + f"/docs/{self.name}.md"
+
         else:
             params["body"]["main"]["layout"] = "default" 
-
-        if self.name[:4] == "test":
-            params["body"]["main"]["md"] = ROOT + f"/docs/about.py"
-        else:
-            params["body"]["main"]["md"] = ROOT + f"/docs/{self.name}.py"
+            params["body"]["main"]["main-default"] = {} 
+            params["body"]["main"]["main-default"]["src"] = ROOT + f"/docs/{self.name}.py" 
+            params["body"]["main"]["main-default"]["params"] = {} 
 
 
-        params["body"]["main"]["side-nav-menu"] = {}
-
-        if "side-nav" in self.value:
-            params["body"]["main"]["has-side-nav-menu"] = "yes"
-            params["body"]["main"]["side-nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
-            #params["body"]["main"]["side-nav-menu"]["side-nav-group"] = self.value["nav-group"] 
-        else:
-            params["body"]["main"]["has-side-nav-menu"] = "no"
-            params["body"]["main"]["side-nav-menu"]["nav"] = {} 
-            #params["body"]["main"]["side-nav-menu"]["side-nav-group"] = "none" 
 
 
-        params["body"]["main"]["side-nav-menu"]["nav"]["id"] = "side-nav" 
+        #if self.name[:4] == "test":
+        #    params["body"]["main"]["md"] = ROOT + f"/docs/about.py"
+        #else:
+        #    params["body"]["main"]["md"] = ROOT + f"/docs/{self.name}.py"
+
+
+        #params["body"]["main"]["side-nav-menu"] = {}
+
+        #if "side-nav" in self.value:
+        #    params["body"]["main"]["has-side-nav-menu"] = "yes"
+        #    params["body"]["main"]["side-nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
+        #    #params["body"]["main"]["side-nav-menu"]["side-nav-group"] = self.value["nav-group"] 
+        #else:
+        #    params["body"]["main"]["has-side-nav-menu"] = "no"
+        #    params["body"]["main"]["side-nav-menu"]["nav"] = {} 
+        #    #params["body"]["main"]["side-nav-menu"]["side-nav-group"] = "none" 
+
+
 
             #params["body"]["main"]["side-nav"] = {"items": []} 
 

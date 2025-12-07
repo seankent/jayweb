@@ -2,63 +2,63 @@
 @charset "UTF-8";
 
 /*
-Styles for rendered markdown in the .content container
+Styles for rendered markdown in the .markdown-content container
 stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type, selector-max-specificity, selector-max-id
 */
 
 
-html .content,
-html .content * {
+html .markdown-content,
+html .markdown-content * {
     font-family: var(--content-font-family); 
-    justify-content: left;
+    justify.markdown-content: left;
 }
 
-.content {
+.markdown-content {
     min-width: 0;
     max-width: 50rem;
 }
 
-.content p {
+.markdown-content p {
     margin: 1rem 0 0 0;
     line-height: 1.6; 
 }
 
-.content .codehilite,
-.content table {
+.markdown-content .codehilite,
+.markdown-content table {
     margin: 2rem 0 1rem 0;
 }
 
-.content > :first-child {
+.markdown-content > :first-child {
     margin: 0;
 }
 
-.content h1,
-.content h2,
-.content h3,
-.content h4,
-.content h5,
-.content h6 {
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
     margin: 2rem 0 1rem 0;
     //background-color: red;
     font-family: var(--page-font-family); 
 }
 
-.content h1 { font-size: var(--h1-size); }
-.content h2 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 1)); }
-.content h3 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 2)); }
-.content h4 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 3)); }
-.content h5 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 4)); }
-.content h6 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 5)); }
+.markdown-content h1 { font-size: var(--h1-size); }
+.markdown-content h2 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 1)); }
+.markdown-content h3 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 2)); }
+.markdown-content h4 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 3)); }
+.markdown-content h5 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 4)); }
+.markdown-content h6 { font-size: calc(var(--h1-size) / pow(var(--scale-ratio), 5)); }
 
 
 
 
-//.content pre {
+//.markdown-content pre {
 //    margin: 0;
 //}
 
 
-.content .codehilite {
+.markdown-content .codehilite {
     padding: 1em 1em 1em 1em;
     border: 1px solid grey;
     border-radius: var(--border-radius); 
@@ -98,17 +98,17 @@ pre {
 //  padding: 15px;
 //}
 
-//.content .codehilite pre {
+//.markdown-content .codehilite pre {
 //  margin-bottom: 0;
 //  padding-bottom: 0;
 //}
 
 
 
-.content table {
+.markdown-content table {
   width: 100%;
   min-width: 100%;
-  //width: max-content;
+  //width: max.markdown-content;
   border: 1px solid grey;
   border-collapse: separate;
   border-spacing: 0;
@@ -119,7 +119,7 @@ pre {
 }
 
 
-.content .table-wrapper {
+.markdown-content .table-wrapper {
     width: 100%; 
     //background-color: pink;
     overflow-x: scroll; 
@@ -127,8 +127,8 @@ pre {
     min-width: 0;  /* Important for grid/flex parents */
 }
 
-.content th,
-.content td {
+.markdown-content th,
+.markdown-content td {
   padding: 0.75rem;
   text-align: left;
   border-right: 1px solid grey; /* Vertical dividers */
@@ -140,17 +140,17 @@ pre {
 }
 
 /* Remove right border from last column */
-.content th:last-child,
-.content td:last-child {
+.markdown-content th:last-child,
+.markdown-content td:last-child {
   border-right: none;
 }
 
 /* Remove bottom border from last row */
-.content tr:last-child td {
+.markdown-content tr:last-child td {
   border-bottom: none;
 }
 
-.content th {
+.markdown-content th {
   background: #f0f0f0;
   font-weight: bold;
 }
@@ -159,7 +159,7 @@ pre {
 
 
 
-.content img {
+.markdown-content img {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
