@@ -399,7 +399,7 @@
     overflow: auto;
 }
 
-@media (max-width: 46rem) {
+@media (max-width: 58rem) {
     .side-nav-menu {
         display: none;
     }

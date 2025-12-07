@@ -137,6 +137,8 @@ class Jayweb:
             txt = txt[:match.start()] + textwrap.dedent(match.group()) + txt[match.end():]
                 
 
+        # add table-wrapper around tables
+        txt = re.sub(r'(<table>.*?</table>)', r'<div class="table-wrapper">\1</div>', txt, flags=re.DOTALL)
 
 
 
