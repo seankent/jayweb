@@ -15,6 +15,7 @@ html .content * {
 
 .content {
     min-width: 0;
+    max-width: 50rem;
 }
 
 .content p {

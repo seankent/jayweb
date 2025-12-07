@@ -244,14 +244,12 @@ svg {
     align-items: stretch;
     justify-content: space-between;
     //gap: 4rem;
-    //padding: 4rem 4rem 4rem 4rem;
+    padding: 4rem;
 }
 
 .main-content {
     display: grid;
     grid-column: 2;
-    margin-left: 4rem;
-    margin-right: 4rem;
 }
 
 
@@ -469,7 +467,6 @@ body {
     min-height: 100vh;
     min-height: 100dvh;
     position: relative;
-    gap: 4rem;
     //background-color: var(--bg-color-alt);
     //overflow-x: hidden
 }
@@ -539,4 +536,12 @@ body {
 //        grid-template-columns: 1fr;
 //        padding: 0;
 //    }
+
+
+.product {
+    display: grid;
+    width: 100%;
+    justify-content: center;
+}
+
 
