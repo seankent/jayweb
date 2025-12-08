@@ -1,3 +1,43 @@
 
-txt = jayweb.includemdf(f'{params["ROOT"]}/docs/index.md')
-#txt = ''
+txt = ''
+txt += f'<div class="main-product">\n'
+txt += f'    <div class="main-product-gallery">\n'
+txt += f'        <div class="main-product-gallery-img">\n'
+txt += f'            <img src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
+txt += f'        </div>\n'
+txt += f'        <div class="thumbnail-container">\n'
+txt += f'           <div class="thumbnail thumbnail-one">\n'
+txt += f'               <img src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
+txt += f'           </div>\n'
+txt += f'           <div class="thumbnail thumbnail-two">\n'
+txt += f'               <img src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
+txt += f'           </div>\n'
+txt += f'           <div class="thumbnail thumbnail-three">\n'
+txt += f'               <img src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
+txt += f'           </div>\n'
+txt += f'           <div class="thumbnail thumbnail-four">\n'
+txt += f'               <img src="{params["ROOT"]}/docs/diag/jay40.svg" alt="">\n'
+txt += f'           </div>\n'
+txt += f'        </div>\n'
+txt += f'    </div>\n'
+txt += f'    <div class="product-info">\n'
+#txt += jayweb.includemdf(f'{params["ROOT"]}/docs/product-info.md', 8)
+txt += jayweb.includef(f'{params["ROOT"]}/include/markdown-content.py', {"md": f'{params["ROOT"]}/docs/product-info.md'}, 8)
+txt += f'    </div>\n'
+
+#txt += f'        <div class="product-info-title">\n'
+#txt += f'            Jay40 Development Board\n'
+#txt += f'        </div>\n'
+#txt += f'        <div class="product-info-price">\n'
+#txt += f'            $50.00\n'
+#txt += f'        </div>\n'
+#txt += f'        <div class="product-info-description">\n'
+#txt += f'            The Jay40 is a low-power FPGA development board designed around the ICE40LP8K from Lattice Semiconductor.\n'
+#txt += f'        </div>\n'
+#txt += jayweb.includef(f'{params["ROOT"]}/include/button.py', {"text": "ORDER NOW"}, 8)
+#txt += f'    </div>\n'
+txt += f'</div>\n'
+
+txt += f'<div class="product-info-cont">\n'
+txt += jayweb.includef(f'{params["ROOT"]}/include/markdown-content.py', {"md": f'{params["ROOT"]}/docs/product-info-cont.md'}, 4)
+txt += f'</div>\n'
