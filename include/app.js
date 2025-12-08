@@ -16,6 +16,13 @@ function removeNavExpanded() {
     //console.log("toggleExpanded.");
 }
 
+function setDisplayImage() {
+    const item = document.querySelector('.product-gallery-image img');
+    //item.classList.add('active');
+    item.src = this.querySelector('img').src;
+    //console.log("toggleExpanded.");
+}
+
 //function clearAllActive() {
 //    this.parentElement.classList.toggle('active');
 //    for (let sideNavItem of document.querySelectorAll('.side-nav-item')) {
@@ -258,6 +265,10 @@ for (let item of document.querySelectorAll('.nav-hamburger-button')) {
 
 for (let item of document.querySelectorAll('.nav-cross-button')) {
     item.addEventListener('click', removeNavExpanded); 
+}
+
+for (let item of document.querySelectorAll('.product-gallery-thumbnail')) {
+    item.addEventListener('click', setDisplayImage); 
 }
 
 //for (let sideNavButton of sideNavButtons) {

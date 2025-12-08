@@ -409,3 +409,18 @@
     }
 }
 
+
+
+@media (max-width: 55rem) {
+    .main-product {
+        grid-template-columns: minmax(0, 30rem);
+    }
+
+    .main-product > :nth-child(3) {
+        grid-column: span 1;
+    }
+
+    .product-gallery-thumbnail-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
