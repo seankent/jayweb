@@ -10,7 +10,7 @@ txt += jayweb.includef(f'{params["ROOT"]}/include/nav-logo.py', params["nav-logo
 #txt += jayweb.includef(f'{params["ROOT"]}/include/navbar.py', params["navbar"], 4)
 #txt += f'    <div class="nav-hamburger-button">\n'
 #txt += f'    </div>\n'
-txt += f'    <div class="">\n'
-txt += f'    </div>\n'
+#txt += f'    <div class="">\n'
+#txt += f'    </div>\n'
 
 txt += f'</div>\n'

@@ -71,14 +71,16 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: 5rem 1fr;
     min-height: 100vh;
-    background-color: pink;
+    //background-color: pink;
 }
 
 .header {
     display: grid;
+    width: 100%;
+    height: 100%;
     background-color: white;
     grid-template-columns: auto auto; 
-    grid-template-rows: 1fr;
+    //grid-template-rows: 1fr;
     align-items: center;
     //justify-content: space-between;
     gap: 2rem;
@@ -112,7 +114,8 @@ body {
 .nav-menu {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 5rem;
+    grid-template-rows: 100%;
+    background-color: var(--bg-color);
 }
 
 .nav-toggle-wrapper {
@@ -145,13 +148,79 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    grid-template-columns: min(100vw, 25rem);
+    grid-template-columns: min(100vw, 27rem);
     grid-template-rows: 5rem 1fr;
-    background-color: var(--bg-color);
     min-height: 100vh;
     border-width: 0 var(--border-width) 0 0;
 }
 
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    //min-height: 100vh;
+    //height: 100%;
+    //background-color: blue;
+    //grid-template-columns: auto; 
+    //grid-template-columns: minmax(0, calc(100vw - 8rem)); 
+    //grid-template-columns: auto 1fr auto;
+    //grid-template-columns: 1fr;
+    //align-items: stretch;
+    //justify-content: space-between;
+    //gap: 4rem;
+    //margin: 4rem 4rem 4rem 4rem;
+    //padding: 4rem 4rem 4rem 4rem;
+    //min-width: 0;
+    //object-fit: contain;
+}
+
+.main-side-nav-menu {
+    display: grid;
+    grid-template-columns: 27rem 1fr;
+    grid-template-rows: 1fr;
+}
+
+
+.side-nav-menu {
+    display: grid;
+    background-color: var(--bg-color);
+    border-width: 0 var(--border-width) 0 0;
+}
+
+.side-nav-wrapper {
+    display: grid;
+    padding: 2rem 0 2rem 0;
+}
+
+.main-content {
+    padding: 4rem 4rem 4rem 4rem;
+    background-color: var(--bg-color);
+    width: 100%;
+    min-width: 0;
+}
+
+.main-content * {
+    min-width: 0;
+}
+
+@media (max-width: 58rem) {
+    .main-side-nav-menu {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .main-side-nav-menu > .side-nav-menu {
+        display: none;
+    }
+}
+
+
+@media (max-width: 27rem) {
+    .nav-menu.expanded {
+        border-width: 0;
+    }
+}
 
 
 

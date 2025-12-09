@@ -70,7 +70,7 @@ class Jaypage(TreeNode):
 
         params["body"]["header"]["nav-menu"] = {}
         params["body"]["header"]["nav-menu"]["nav"] = self.root().gen_nav() 
-        params["body"]["header"]["nav-menu"]["nav"]["id"] = "main-navbar" 
+        params["body"]["header"]["nav-menu"]["nav"]["id"] = "nav" 
 
 
         params["body"]["header"]["nav-toggle"] = {}
@@ -83,9 +83,9 @@ class Jaypage(TreeNode):
 
         params["body"]["main"] = {}
 
-        params["body"]["main"]["side-navbar"] = {} 
-        params["body"]["main"]["side-navbar"]["nav"] = self.gen_nav() 
-        params["body"]["main"]["side-navbar"]["nav"]["id"] = "side-navbar" 
+        params["body"]["main"]["side-nav-menu"] = {} 
+        params["body"]["main"]["side-nav-menu"]["nav"] = self.root().gen_nav() 
+        params["body"]["main"]["side-nav-menu"]["nav"]["id"] = "side-nav" 
 
 
 
@@ -128,11 +128,12 @@ class Jaypage(TreeNode):
         #        params["body"]["main"]["main-docs"]["markdown-content"]["md"] = ROOT + f"/docs/{self.name}.md"
 
         #else:
+        params["body"]["main"]["main-content"] = {}
 
         if self.name[:4] == "test":
-            params["body"]["main"]["src"] = ROOT + f"/docs/index.py" 
+            params["body"]["main"]["main-content"]["src"] = ROOT + f"/docs/index.py" 
         else:
-            params["body"]["main"]["src"] = ROOT + f"/docs/{self.name}.py" 
+            params["body"]["main"]["main-content"]["src"] = ROOT + f"/docs/{self.name}.py" 
         #params["body"]["main"]["params"] = {} 
 
 
