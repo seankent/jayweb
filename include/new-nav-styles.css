@@ -96,7 +96,12 @@
     transform: rotate(-180deg);
 }
 
+
 .nav-logo {
+    display: grid;
+}
+
+.nav-logo-button {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: auto;
@@ -111,13 +116,14 @@
     //position: absolute;
     //top: 1rem;
     //left: 2rem;
+
 }
 
-.nav-logo:hover {
+.nav-logo-button:hover {
     background-color: var(--bg-color-hover);
 }
 
-.nav-logo-img {
+.nav-logo-button > img {
     height: 100%;
 }
 

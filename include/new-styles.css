@@ -78,9 +78,11 @@ body {
     display: grid;
     background-color: white;
     grid-template-columns: auto auto; 
+    grid-template-rows: 1fr;
     align-items: center;
-    justify-content: space-between;
+    //justify-content: space-between;
     gap: 2rem;
+    justify-content: start;
     border-width: 0 0 var(--border-width) 0;
     border-style: solid;
     border-color: var(--fg-color);
@@ -109,7 +111,7 @@ body {
 
 .nav-menu {
     display: grid;
-    grid-template-columns: 7rem;
+    grid-template-columns: auto;
     grid-template-rows: 5rem;
 }
 

@@ -8,11 +8,13 @@ if "alt" not in params:
 
 txt = ''
 
-txt += f'<a href="{params["href"]}" class="nav-logo">\n'
+txt += f'<div href="{params["href"]}" class="nav-logo">\n'
 
-txt += f'    <img class="nav-logo-img" src="{params["src"]}" alt="{params["alt"]}">\n'
-
+txt += f'<a href="{params["href"]}" class="nav-logo-button">\n'
+txt += f'    <img src="{params["src"]}" alt="{params["alt"]}">\n'
 txt += f'</a>\n'
+
+txt += f'</div>\n'
 
 #txt += f'    <img src="./../docs/bluejay_devices.svg" alt="{{ site.title }}" class="nav-logo-img">'
 
