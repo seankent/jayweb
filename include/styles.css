@@ -243,14 +243,23 @@ svg {
 .main {
     grid-area: main;
     display: grid;
+    width: 100%;
+    max-width: 100%;
     //grid-template-columns: auto; 
     //grid-template-columns: minmax(0, calc(100vw - 8rem)); 
     //grid-template-columns: auto 1fr auto;
-    grid-template-columns: 1fr;
-    align-items: stretch;
-    justify-content: space-between;
+    //grid-template-columns: 1fr;
+    //align-items: stretch;
+    //justify-content: space-between;
     //gap: 4rem;
     //margin: 4rem 4rem 4rem 4rem;
+    padding: 4rem 4rem 4rem 4rem;
+    min-width: 0;
+    object-fit: contain;
+}
+.main * {
+    max-width: 100%;
+    min-width: 0;
 }
 
 .main-default {
@@ -488,7 +497,7 @@ body {
     grid-template-rows: 5rem 1fr;
     grid-template-areas:
         "navbar ."
-        ". main";
+        "navbar main";
 
     min-height: 100vh;
     min-height: 100dvh;
@@ -511,6 +520,11 @@ body.navbar-expanded {
         "navbar ."
         "navbar main";
 }
+
+
+//body.navbar-expanded > .main {
+//    padding: 0rem 4rem 4rem 4rem;
+//}
 
 .gallery {
     display: grid;
@@ -709,7 +723,7 @@ body.navbar-expanded {
     //grid-template-columns: 1fr 1fr;
     width: 100%;
     justify-content: center;
-    padding: 4rem;
+    //padding: 4rem 0 0 0;
     gap: 4rem;
     //max-width: 60rem;
 }

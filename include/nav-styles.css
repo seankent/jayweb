@@ -351,10 +351,5 @@ body.navbar-expanded > .navbar > .nav  {
         grid-template-areas:
             "navbar";
     }
-
-    body.navbar-expanded > .navbar {
-        border-width: 0;
-    }
-
 }
 

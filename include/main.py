@@ -21,10 +21,9 @@ txt = ''
 
 txt += f'<div class="main">\n'
 
-if params["layout"] == "docs":
-    txt += jayweb.includef(f"{params['ROOT']}/include/main-docs.py", params["main-docs"], 4)
-else:
-    txt += jayweb.includef(f"{params['ROOT']}/include/main-default.py", params["main-default"], 4)
+txt += jayweb.includef(f"{params['src']}", {}, 4)
+
+#txt += jayweb.includef(f"{params['ROOT']}/include/main-default.py", params["main-default"], 4)
 
 #if params["has-side-nav-menu"] == "yes":
 #    txt += jayweb.includef(f"{params['ROOT']}/include/side-nav-menu.py", params["side-nav-menu"], 4)

@@ -68,10 +68,11 @@ class Jaypage(TreeNode):
         params["body"] = {}
         params["body"]["header"] = {}
         params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices.svg'} 
-        params["body"]["header"]["navbar"] = {} 
-        params["body"]["header"]["navbar"]["nav-menu"] = {} 
-        params["body"]["header"]["navbar"]["nav-menu"]["nav"] = self.root().gen_nav() 
-        params["body"]["header"]["navbar"]["nav-menu"]["nav"]["id"] = "main-nav" 
+
+        params["body"]["navbar"] = {} 
+        params["body"]["navbar"] = {} 
+        params["body"]["navbar"]["nav"] = self.root().gen_nav() 
+        params["body"]["navbar"]["nav"]["id"] = "main-nav" 
 
         params["body"]["main"] = {}
 
@@ -88,24 +89,26 @@ class Jaypage(TreeNode):
         params["head"]["base"] = ROOT + "/gen/index.html" 
         
         #params["body"]["main"]["md"] = ROOT + "/docs/about.py"
-        if "layout" in self.value and self.value["layout"] == "docs":
-            params["body"]["main"]["layout"] = "docs" 
-            params["body"]["main"]["main-docs"] = {} 
-            params["body"]["main"]["main-docs"]["side-nav-menu"] = {}
-            params["body"]["main"]["main-docs"]["markdown-content"] ={}
-            params["body"]["main"]["main-docs"]["side-nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
-            params["body"]["main"]["main-docs"]["side-nav-menu"]["nav"]["id"] = "side-nav" 
+        #if "layout" in self.value and self.value["layout"] == "docs":
+        #    params["body"]["main"]["layout"] = "docs" 
+        #    params["body"]["main"]["main-docs"] = {} 
+        #    params["body"]["main"]["main-docs"]["side-nav-menu"] = {}
+        #    params["body"]["main"]["main-docs"]["markdown-content"] ={}
+        #    params["body"]["main"]["main-docs"]["side-nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
+        #    params["body"]["main"]["main-docs"]["side-nav-menu"]["nav"]["id"] = "side-nav" 
 
-            if self.name[:4] == "test":
-                params["body"]["main"]["main-docs"]["markdown-content"]["md"] = ROOT + f"/docs/about.md"
-            else:
-                params["body"]["main"]["main-docs"]["markdown-content"]["md"] = ROOT + f"/docs/{self.name}.md"
+        #    if self.name[:4] == "test":
+        #        params["body"]["main"]["main-docs"]["markdown-content"]["md"] = ROOT + f"/docs/about.md"
+        #    else:
+        #        params["body"]["main"]["main-docs"]["markdown-content"]["md"] = ROOT + f"/docs/{self.name}.md"
 
+        #else:
+
+        if self.name[:4] == "test":
+            params["body"]["main"]["src"] = ROOT + f"/docs/index.py" 
         else:
-            params["body"]["main"]["layout"] = "default" 
-            params["body"]["main"]["main-default"] = {} 
-            params["body"]["main"]["main-default"]["src"] = ROOT + f"/docs/{self.name}.py" 
-            params["body"]["main"]["main-default"]["params"] = {} 
+            params["body"]["main"]["src"] = ROOT + f"/docs/{self.name}.py" 
+        #params["body"]["main"]["params"] = {} 
 
 
 
