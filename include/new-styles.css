@@ -1,0 +1,156 @@
+
+/*
+background-color: var(--bg-surface);
+*/
+:root {
+    --white-0: #ffffff;
+
+    --black-0: #1f2328;
+    
+    --grey-0: #f6f8fa;
+    --grey-1: #eaeef2;
+    --grey-2: #d0d7de;
+    --grey-3: #afb8c1;
+    --grey-4: #8c959f;
+    --grey-5: #6e7781;
+    --grey-6: #57606a;
+    --grey-7: #424a53;
+    --grey-8: #32383f;
+    --grey-9: #24292f;
+
+    --fg-color: var(--grey-8);
+    //--fg-color: red; 
+    --bg-color: var(--white-0);
+    --bg-color-alt: var(--grey-0);
+    --border-width: 1px;
+    --border-radius: 8px;
+
+    --fg-color-hover: var(--grey-8);
+    --bg-color-hover: var(--grey-0);
+    --border-width-hover: 2px;
+
+    --h1-size: 2.5rem;
+    --scale-ratio: 1.2;
+
+    --page-font-family: "Courier New", Courier, monospace;
+    --content-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --bg-color-button: #304e67; 
+    --fg-color-button: white; 
+    --font-weight-button: 700; 
+}
+
+html {
+    font-size: 1rem;
+    font-family: var(--page-font-family); 
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-style: solid; 
+    border-width: 0; 
+    color: var(--fg-color);
+}
+
+svg {
+    background-color: inherit; 
+}
+
+
+body {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr;
+    min-height: 100vh;
+    background-color: pink;
+}
+
+.header {
+    display: grid;
+    background-color: white;
+    grid-template-columns: auto auto; 
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-width: 0 0 var(--border-width) 0;
+    border-style: solid;
+    border-color: var(--fg-color);
+}
+
+
+.nav-cross-button,
+.nav-hamburger-button {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+}
+
+.nav-cross-button:hover,
+.nav-hamburger-button:hover {
+    background-color: var(--bg-color-hover);
+}
+
+.nav-cross-button {
+    display: none;
+}
+
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: 7rem;
+    grid-template-rows: 5rem;
+}
+
+.nav-toggle-wrapper {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 0 0 0 2rem;
+}
+
+.nav-wrapper {
+    display: none;
+    padding: 2rem 0 2rem 0;
+}
+
+.nav-menu.expanded > .nav-toggle-wrapper > .nav-hamburger-button {
+    display: none;
+}
+
+.nav-menu.expanded > .nav-toggle-wrapper > .nav-cross-button {
+    display: grid;
+}
+
+.nav-menu.expanded > .nav-wrapper {
+    display: grid;
+}
+
+.nav-menu.expanded {
+    display: grid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    grid-template-columns: min(100vw, 25rem);
+    grid-template-rows: 5rem 1fr;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    border-width: 0 var(--border-width) 0 0;
+}
+
+
+
+
+

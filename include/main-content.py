@@ -20,7 +20,7 @@ txt = ''
 #else:
 
 txt += f'<div class="main-content">\n'
-txt += jayweb.includef(f'{params["md"]}', {}, 4)
+#txt += jayweb.includef(f'{params["md"]}', {}, 4)
 txt += f'</div>\n'
 
 

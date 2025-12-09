@@ -38,7 +38,7 @@ class Jaypage(TreeNode):
         params["nav-button"] = {}
         params["nav-button"]["text"] = self.value["title"]
         params["nav-button"]["href"] = "/".join(self.getpath()) + "/index.html"
-        params["nav-button"]["indent"] = str(2*depth - 0.5) 
+        params["nav-button"]["indent"] = str(2*depth + 2) 
 
         params["nav-item-name"] = "nav-item-name--" + "-".join(self.getpath())
        
@@ -67,14 +67,28 @@ class Jaypage(TreeNode):
         params["head"] = {}
         params["body"] = {}
         params["body"]["header"] = {}
+
+        params["body"]["header"]["nav-menu"] = {}
+        params["body"]["header"]["nav-menu"]["nav"] = self.root().gen_nav() 
+        params["body"]["header"]["nav-menu"]["nav"]["id"] = "main-navbar" 
+
+
+        params["body"]["header"]["nav-toggle"] = {}
+
         params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices.svg'} 
 
-        params["body"]["navbar"] = {} 
-        params["body"]["navbar"] = {} 
-        params["body"]["navbar"]["nav"] = self.root().gen_nav() 
-        params["body"]["navbar"]["nav"]["id"] = "main-nav" 
+        params["body"]["header"]["navbar"] = {} 
+        params["body"]["header"]["navbar"]["nav"] = self.root().gen_nav() 
+        params["body"]["header"]["navbar"]["nav"]["id"] = "main-navbar" 
 
         params["body"]["main"] = {}
+
+        params["body"]["main"]["side-navbar"] = {} 
+        params["body"]["main"]["side-navbar"]["nav"] = self.gen_nav() 
+        params["body"]["main"]["side-navbar"]["nav"]["id"] = "side-navbar" 
+
+
+
 
         params["body"]["nav-item-name"] = "nav-item-name--" + "-".join(self.getpath())
 
@@ -87,6 +101,17 @@ class Jaypage(TreeNode):
         params["head"]["title"] = self.value["title"] 
         params["head"]["icon"] = ROOT + "/docs/diag/logo.svg" 
         params["head"]["base"] = ROOT + "/gen/index.html" 
+
+        params["body"]["layout"] = "body-default" 
+        if "layout" in self.value and self.value["layout"] == "docs":
+            params["body"]["layout"] = "body-docs" 
+
+
+        if "side-nav" in self.value:
+            params["body"]["main"]["has-side-navbar"] = "yes"
+        else:
+            params["body"]["main"]["has-side-navbar"] = "no"
+
         
         #params["body"]["main"]["md"] = ROOT + "/docs/about.py"
         #if "layout" in self.value and self.value["layout"] == "docs":
