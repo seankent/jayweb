@@ -67,13 +67,12 @@ class Jaypage(TreeNode):
         params["head"] = {}
         params["body"] = {}
         params["body"]["header"] = {}
-
-        params["body"]["header"]["nav-menu"] = {}
-        params["body"]["header"]["nav-menu"]["nav"] = self.root().gen_nav() 
-        params["body"]["header"]["nav-menu"]["nav"]["id"] = "nav" 
-
-
+        
         params["body"]["header"]["nav-toggle"] = {}
+        params["body"]["header"]["nav-toggle"]["nav-menu"] = {}
+        params["body"]["header"]["nav-toggle"]["nav-menu"]["nav"] = self.root().gen_nav() 
+        params["body"]["header"]["nav-toggle"]["nav-menu"]["nav"]["id"] = "nav" 
+
 
         params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices.svg'} 
 
@@ -83,9 +82,13 @@ class Jaypage(TreeNode):
 
         params["body"]["main"] = {}
 
-        params["body"]["main"]["side-nav-menu"] = {} 
-        params["body"]["main"]["side-nav-menu"]["nav"] = self.root().gen_nav() 
-        params["body"]["main"]["side-nav-menu"]["nav"]["id"] = "side-nav" 
+        params["body"]["main"]["nav-menu"] = {} 
+        if "side-nav" in self.value:
+            params["body"]["main"]["nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
+        else:
+            params["body"]["main"]["nav-menu"]["nav"] = self.root().gen_nav() 
+
+        params["body"]["main"]["nav-menu"]["nav"]["id"] = "side-nav" 
 
 
 

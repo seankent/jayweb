@@ -268,36 +268,6 @@ body.navbar-expanded > .navbar > .nav  {
     background-color: pink;
 }
 
-.nav-menu {
-    display: grid;
-    //display: none;
-    //display: none;
-    //position: absolute;
-
-    //position: fixed;
-    //top: 0;
-    //left: 0;
-
-    grid-template-rows: 5rem auto; 
-
-    //width: max(24rem, 30vw);
-    //width: min(100vw, 30rem);
-    width: min(100%, 30rem);
-    //width: min(100%, 30rem, 100vw);
-    //height: auto;
-    //height: max(100vh, max-content);
-    height: 100%;
-    //background-color: pink; 
-    background-color: var(--bg-color);
-    padding: 0 0 2rem 0;
-    //background-color: var(--bg-color);
-    //border-width: 0 0 var(--border-width) var(--border-width);
-    //border-radius: 0 0 0 var(--border-radius);
-
-    //border-width: var(--border-width);
-    //border-radius: var(--border-radius);
-    //overflow: auto;
-}
 
 
 @media (max-width: 58rem) {

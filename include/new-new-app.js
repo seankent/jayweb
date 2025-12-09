@@ -14,7 +14,7 @@ function addNavMenuExpanded() {
 }
 
 function removeNavMenuExpanded() {
-    this.parentElement.parentElement.classList.remove('expanded');
+    this.parentElement.parentElement.parentElement.classList.remove('expanded');
 }
 
 function toggleNavExpanded() {
