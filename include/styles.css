@@ -241,6 +241,7 @@ svg {
 //}
 
 .main {
+    grid-area: main;
     display: grid;
     //grid-template-columns: auto; 
     //grid-template-columns: minmax(0, calc(100vw - 8rem)); 
@@ -249,6 +250,7 @@ svg {
     align-items: stretch;
     justify-content: space-between;
     //gap: 4rem;
+    //margin: 4rem 4rem 4rem 4rem;
 }
 
 .main-default {
@@ -478,15 +480,36 @@ svg {
 
 body {                                                                                                                                                                         
     display: grid;
-    grid-template-rows: 
-        auto
-        1fr
-        auto;
+    //grid-template-rows: 
+    //    auto
+    //    1fr
+    //    auto;
+    grid-template-columns: 7rem 1fr;
+    grid-template-rows: 5rem 1fr;
+    grid-template-areas:
+        "navbar ."
+        ". main";
+
     min-height: 100vh;
     min-height: 100dvh;
     position: relative;
+
+    //gap: 4rem;
+
+    //align-items: start;
+    align-content: start;
+
+
     //background-color: var(--bg-color-alt);
     //overflow-x: hidden
+}
+
+body.navbar-expanded {
+    grid-template-columns: 23rem 1fr;
+    grid-template-rows: 5rem 1fr;
+    grid-template-areas:
+        "navbar ."
+        "navbar main";
 }
 
 .gallery {

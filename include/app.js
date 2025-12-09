@@ -7,7 +7,7 @@ function toggleExpanded() {
 }
 
 function addNavExpanded() {
-    this.parentElement.classList.add('navbar-expanded');
+    this.parentElement.parentElement.classList.add('navbar-expanded');
     //console.log("toggleExpanded.");
 }
 
