@@ -1,4 +1,4 @@
-# Jay40 Development Board
+## Jay40 Development Board
 
 **Price:** $50.00
 

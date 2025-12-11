@@ -1,6 +1,14 @@
 function load()
 {
-    return JSON.parse(localStorage.getItem('config') || '{}');
+    let config = JSON.parse(localStorage.getItem('config') || '{}');
+
+    if (JSON.stringify(config) === '{}')
+    {
+        config["nav"] = {};
+    }
+
+    console.log(config);
+    return config
 }
 
 function store(config)
@@ -8,6 +16,54 @@ function store(config)
     console.log(config);
     localStorage.setItem('config', JSON.stringify(config));
 }
+
+function init()
+{
+}
+
+function save()
+{
+    console.log("[INFO] Saving state.");
+
+    let config = load() ;
+
+    for (let element of document.querySelectorAll(".nav-item"))
+    {
+        if (element.classList.contains("expanded"))
+        {
+            config["nav"][element.id] = "yes";
+        }
+        else
+        {
+            config["nav"][element.id] = "no";
+        }
+    }
+
+    store(config);
+}
+
+
+function restore()
+{
+    console.log("[INFO] Restoring state.");
+
+    let config = load() ;
+
+    for (let element of document.querySelectorAll(".nav-item"))
+    {
+        if (element.id in config["nav"] && config["nav"][element.id] === "yes")
+        {
+            element.classList.add('expanded');
+        }
+
+        if (element.getAttribute('data-nav-item-name') == document.body.getAttribute('data-nav-item-name')) 
+        {
+            element.classList.add("active");
+        }
+
+    }
+}
+
 
 function addNavMenuExpanded() {
     this.parentElement.parentElement.classList.add('expanded');
@@ -21,6 +77,9 @@ function toggleNavExpanded() {
     this.parentElement.parentElement.classList.toggle('expanded');
 }
 
+function navButtonClick() {
+    save();
+}
 
 
 
@@ -36,5 +95,21 @@ for (let element of document.querySelectorAll('.nav-button-chevron')) {
     element.addEventListener('click', toggleNavExpanded); 
 }
 
+for (let element of document.querySelectorAll('.nav-button-text')) {
+    element.addEventListener('click', navButtonClick); 
+}
 
+// Save state whenever leaving page
+window.addEventListener('pagehide', () => {
+    save();
+});
+
+// Restore on load
+window.addEventListener('pageshow', () => {
+    restore()
+});
+
+
+
+init();
 

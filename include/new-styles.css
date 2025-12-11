@@ -122,6 +122,7 @@ body {
 
 .nav-toggle-menu {
     display: none;
+    z-index: 9999;
     background-color: var(--bg-color);
 }
 

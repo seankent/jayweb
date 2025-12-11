@@ -87,7 +87,7 @@
     display: grid;
 }
 
-.nav-item-active > .nav-button > .nav-button-text {
+.nav-item.active > .nav-button > .nav-button-text {
     font-weight: 700;
     //background-color: pink;
 }

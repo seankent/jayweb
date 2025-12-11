@@ -31,7 +31,7 @@ class Jaypage(TreeNode):
     ###########
     # gen_nav #
     ###########
-    def gen_nav(self, depth = 0):
+    def gen_nav(self, prefix, depth = 0):
         """
         """
         params = {}
@@ -39,6 +39,9 @@ class Jaypage(TreeNode):
         params["nav-button"]["text"] = self.value["title"]
         params["nav-button"]["href"] = "/".join(self.getpath()) + "/index.html"
         params["nav-button"]["indent"] = str(2*depth + 2) 
+
+        params["depth"] = str(depth) 
+        params["id"] = prefix + "--" + "-".join(self.getpath())
 
         params["nav-item-name"] = "nav-item-name--" + "-".join(self.getpath())
        
@@ -51,7 +54,7 @@ class Jaypage(TreeNode):
         params["items"] = [] 
 
         for child in self.children:
-            params["items"].append(child.gen_nav(depth = depth + 1))
+            params["items"].append(child.gen_nav(prefix, depth = depth + 1))
 
         return params
 
@@ -70,23 +73,23 @@ class Jaypage(TreeNode):
         
         params["body"]["header"]["nav-toggle"] = {}
         params["body"]["header"]["nav-toggle"]["nav-menu"] = {}
-        params["body"]["header"]["nav-toggle"]["nav-menu"]["nav"] = self.root().gen_nav() 
+        params["body"]["header"]["nav-toggle"]["nav-menu"]["nav"] = self.root().gen_nav("nav") 
         params["body"]["header"]["nav-toggle"]["nav-menu"]["nav"]["id"] = "nav" 
 
 
         params["body"]["header"]["nav-logo"] = {"href": "#", "src": f'{ROOT}/docs/diag/bluejay_devices.svg'} 
 
-        params["body"]["header"]["navbar"] = {} 
-        params["body"]["header"]["navbar"]["nav"] = self.root().gen_nav() 
-        params["body"]["header"]["navbar"]["nav"]["id"] = "main-navbar" 
+        #params["body"]["header"]["navbar"] = {} 
+        #params["body"]["header"]["navbar"]["nav"] = self.root().gen_nav() 
+        #params["body"]["header"]["navbar"]["nav"]["id"] = "main-navbar" 
 
         params["body"]["main"] = {}
 
         params["body"]["main"]["nav-menu"] = {} 
         if "side-nav" in self.value:
-            params["body"]["main"]["nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav()
+            params["body"]["main"]["nav-menu"]["nav"] = self.root().get(self.value["side-nav"]).gen_nav("side-nav")
         else:
-            params["body"]["main"]["nav-menu"]["nav"] = self.root().gen_nav() 
+            params["body"]["main"]["nav-menu"]["nav"] = self.root().gen_nav("side-nav") 
 
         params["body"]["main"]["nav-menu"]["nav"]["id"] = "side-nav" 
 
@@ -261,7 +264,7 @@ if __name__ == '__main__':
     
     page = root.get([])
     print(page.getpath())
-    params = page.gen_nav()
+    params = page.gen_nav("nav")
     print(params)
     print(page.gen())
 
