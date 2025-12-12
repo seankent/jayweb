@@ -63,8 +63,7 @@ svg {
 body {
     display: grid;
     width: 100%;
-    height: 100%;
-    grid-template-columns: 30rem 1fr;
+    grid-template-columns: 23rem 1fr;
     //grid-template-rows: 5rem 1fr;
     min-height: 100vh;
 
@@ -148,4 +147,31 @@ body {
 .nav .nav .nav .nav .nav .nav .nav-button {
     padding-left: 10rem;
 } 
+
+.nav-menu {
+    padding: 2rem 0rem 2rem 0rem;
+}
+
+.sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-header {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.main {
+    padding: 4rem;
+    background-color: pink;
+}
 

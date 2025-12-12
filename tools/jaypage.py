@@ -71,8 +71,12 @@ class Jaypage(TreeNode):
         params["head"]["base"] = ROOT + "/gen/index.html" 
 
         params["body"] = {}
+        params["body"]["sidebar"] = {}
+        params["body"]["main"] = {}
 
-        params["body"]["nav"] = self.root().gennav("nav")
+        params["body"]["sidebar"]["nav-menu"] = {}
+        params["body"]["sidebar"]["nav-menu"]["nav"] = self.root().gennav("nav")
+
 
         return params
 
