@@ -53,10 +53,10 @@ function restore()
             element.classList.add('show');
         }
 
-        //if (element.getAttribute('data-nav-item-name') == document.body.getAttribute('data-nav-item-name')) 
-        //{
-        //    element.classList.add("active");
-        //}
+        if (element.id == document.body.getAttribute('data-nav-id')) 
+        {
+            element.classList.add("active");
+        }
 
     }
 }
@@ -67,7 +67,7 @@ function addNavMenuExpanded() {
 }
 
 function removeNavMenuExpanded() {
-    this.parentElement.parentElement.parentElement.classList.remove('show');
+    this.parentElement.parentElement.classList.remove('show');
 }
 
 function toggleNavExpanded() {

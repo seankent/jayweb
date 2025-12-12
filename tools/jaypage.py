@@ -31,12 +31,16 @@ class Jaypage(TreeNode):
     ##########
     # gennav #
     ##########
-    def gennav(self, id, depth = 0):
+    def gennav(self, depth = 0):
         """
         """
         params = {}
 
-        params["id"] = id 
+        if self.getpath() == []:
+            params["id"] = "nav"
+        else:
+            params["id"] = "nav-" + "-".join(self.getpath())
+
         params["depth"] = str(depth)
 
         params["nav-button"] = {}
@@ -53,7 +57,7 @@ class Jaypage(TreeNode):
         params["children"] = {} 
 
         for child in self.children:
-            params["children"][child.name] = child.gennav(f"{id}-{child.name}", depth = depth + 1)
+            params["children"][child.name] = child.gennav(depth = depth + 1)
 
         return params
 
@@ -66,16 +70,26 @@ class Jaypage(TreeNode):
         params = {}
 
         params["head"] = {}
+        params["body"] = {}
+        params["body"]["navbar"] = {}
+        params["body"]["navbar"]["header"] = {}
+        params["body"]["navbar"]["header"]["logo"] = {}
+        params["body"]["navbar"]["nav-menu"] = {}
+        params["body"]["main"] = {}
+
         params["head"]["title"] = self.value["title"] 
         params["head"]["logo"] = ROOT + "/docs/diag/logo.svg" 
         params["head"]["base"] = ROOT + "/gen/index.html" 
 
-        params["body"] = {}
-        params["body"]["sidebar"] = {}
-        params["body"]["main"] = {}
+        if self.getpath() == []:
+            params["body"]["data-nav-id"] = "nav"
+        else:
+            params["body"]["data-nav-id"] = "nav-" + "-".join(self.getpath())
 
-        params["body"]["sidebar"]["nav-menu"] = {}
-        params["body"]["sidebar"]["nav-menu"]["nav"] = self.root().gennav("nav")
+        params["body"]["navbar"]["header"]["logo"]["src"] = ROOT + f"/docs/diag/bluejay_devices.svg"  
+        params["body"]["navbar"]["header"]["logo"]["alt"] = "logo" 
+
+        params["body"]["navbar"]["nav-menu"]["nav"] = self.root().gennav()
 
 
         return params
@@ -173,7 +187,7 @@ if __name__ == '__main__':
     
     page = root.get([])
     print(page.getpath())
-    params = page.gennav("nav")
+    params = page.gennav()
     print(params)
     print(page.gen())
 
