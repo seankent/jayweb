@@ -24,7 +24,7 @@ function save()
 
     let config = load() ;
 
-    for (let element of document.querySelectorAll(".nav"))
+    for (let element of document.querySelectorAll(".nav-item"))
     {
         if (element.classList.contains("show"))
         {
@@ -46,14 +46,14 @@ function restore()
 
     let config = load() ;
 
-    for (let element of document.querySelectorAll(".nav"))
+    for (let element of document.querySelectorAll(".nav-item"))
     {
         if (element.id in config["nav"] && config["nav"][element.id] === "yes")
         {
             element.classList.add('show');
         }
 
-        if (element.id == document.body.getAttribute('data-nav-id')) 
+        if (element.getAttribute('data-page-id') == document.body.getAttribute('data-page-id')) 
         {
             element.classList.add("active");
         }
@@ -63,11 +63,13 @@ function restore()
 
 
 function addNavMenuExpanded() {
-    this.parentElement.parentElement.classList.add('show');
+    this.parentElement.classList.add('show');
+    document.body.classList.add('show');
 }
 
 function removeNavMenuExpanded() {
-    this.parentElement.parentElement.classList.remove('show');
+    this.parentElement.classList.remove('show');
+    document.body.classList.remove('show');
 }
 
 function toggleNavExpanded() {
