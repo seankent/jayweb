@@ -61,34 +61,35 @@ svg {
 }
 
 
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
     //width: 2rem;
     width: 1rem;
+    height: 1rem;
 }
 
-*::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     width: 1rem;
+    height: 1rem;
     background-color: transparent;
     //background-color: red; 
     border-radius: 100vw;
     margin-block: .5rem;
 }
 
-*::-webkit-scrollbar-thumb {
-    width: 0.5rem;
+::-webkit-scrollbar-thumb {
     background-color: transparent;
     border-radius: 100vw;
     border-width: 0.3rem;
     border-style: solid;
-    border-color: var(--bg-color);
+    border-color: transparent;
+    background-clip: padding-box;
 }
 
-*::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background-color: var(--grey-2);
 }
 
-*.is-scrolling::-webkit-scrollbar-thumb {
-    //background-color: red; 
+.is-scrolling::-webkit-scrollbar-thumb {
     background-color: var(--grey-2);
 }
 

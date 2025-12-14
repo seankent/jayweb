@@ -1,4 +1,5 @@
-let scrollTimeout;
+// Use a Map to store separate timeouts for each element
+let scrollTimeouts = new Map();
 
 
 function load()
@@ -99,11 +100,24 @@ function handleScroll(e) {
     //console.log("Scrolling");
     element.classList.add('is-scrolling');
 
-    clearTimeout(scrollTimeout);
+    // Clear existing timeout for THIS specific element
+    if (scrollTimeouts.has(element)) {
+        clearTimeout(scrollTimeouts.get(element));
+    }
 
-    scrollTimeout = setTimeout(() => {
+    //scrollTimeout = setTimeout(() => {
+    //    element.classList.remove('is-scrolling');
+    //}, 500);
+
+
+    // Create new timeout for THIS specific element
+    const timeout = setTimeout(() => {
         element.classList.remove('is-scrolling');
+        //scrollTimeouts.delete(scrollingElement); // Clean up
     }, 1000);
+
+    // Store the timeout with the element as the key
+    scrollTimeouts.set(element, timeout);
 }
 
 
