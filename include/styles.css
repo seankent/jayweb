@@ -89,6 +89,7 @@ body {
     width: 100%;
     grid-template-columns: 25rem 1fr;
     grid-template-rows: 5rem calc(100vh - 5rem);
+    //grid-template-rows: 5rem 1fr; 
     grid-template-areas:
         "header main"
         "side-nav main";
