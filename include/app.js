@@ -1,3 +1,6 @@
+let scrollTimeout;
+
+
 function load()
 {
     let config = JSON.parse(localStorage.getItem('config') || '{}');
@@ -80,6 +83,29 @@ function navButtonClick() {
     save();
 }
 
+//function showScrollbar(e) {
+//    let element = e.target;
+//    element.classList.add('is-scrolling');
+//}
+//
+//function hideScrollbar(e) {
+//    let element = e.target;
+//    element.classList.remove('is-scrolling');
+//}
+
+
+function handleScroll(e) {
+    let element = e.target;
+    //console.log("Scrolling");
+    element.classList.add('is-scrolling');
+
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+        element.classList.remove('is-scrolling');
+    }, 1000);
+}
+
 
 
 for (let element of document.querySelectorAll('.nav-hamburger-button')) {
@@ -99,11 +125,22 @@ for (let element of document.querySelectorAll('.nav-button')) {
 }
 
 // Save state whenever leaving page
-window.addEventListener('pagehide', () => {
-    save();
-});
+window.addEventListener('pagehide', save);
+//window.addEventListener('pagehide', () => {
+//    save();
+//});
 
 // Restore on load
-window.addEventListener('pageshow', () => {
-    restore()
-});
+window.addEventListener('pageshow', restore);
+//window.addEventListener('pageshow', () => {
+//    restore();
+//});
+
+
+document.addEventListener('scroll', handleScroll, true);
+
+//document.addEventListener('scroll', () => {
+//    showScrollbar();
+//    console.log("Window scroll detected");
+//}, true);
+
