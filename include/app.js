@@ -84,6 +84,11 @@ function navButtonClick() {
     save();
 }
 
+function setDisplayImage() {
+    let element = document.querySelector('.product-gallery-image img');
+    element.src = this.querySelector('img').src;
+}
+
 //function showScrollbar(e) {
 //    let element = e.target;
 //    element.classList.add('is-scrolling');
@@ -136,6 +141,10 @@ for (let element of document.querySelectorAll('.nav-button-chevron')) {
 
 for (let element of document.querySelectorAll('.nav-button')) {
     element.addEventListener('click', navButtonClick); 
+}
+
+for (let element of document.querySelectorAll('.product-gallery-thumbnail')) {
+    element.addEventListener('click', setDisplayImage); 
 }
 
 // Save state whenever leaving page

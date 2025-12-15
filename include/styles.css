@@ -382,7 +382,7 @@ body {
 
 .main-product-head {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 3fr;
     justify-content: center;
     gap: 2rem;
 }
@@ -458,13 +458,26 @@ body {
 
 .button {
     display: grid;
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 1rem 1rem 1rem;
     width: max-content;
     background-color: var(--bg-color-button);
     color: var(--fg-color-button);
     border-radius: var(--border-radius);
     font-weight: var(--font-weight-button);
     text-decoration: none;
+}
+
+.product-button {
+    display: grid;
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: var(--bg-color-button);
+    color: var(--fg-color-button);
+    border-radius: 100vw; 
+    font-weight: 400; 
+    text-decoration: none;
+    justify-content: center;
+    margin: 4rem 0rem 4rem 0rem;
 }
 
 .product-info-cont {
@@ -484,10 +497,13 @@ body {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr; 
+    grid-template-rows: auto auto; 
     justify-content: center;
     gap: 1rem;
     align-items: start;
     align-self: start;
+
+    //background-color: var(--grey-2);
 }
 
 
@@ -498,7 +514,7 @@ body {
     align-items: center;
     justify-content: center;
     //background-color: pink;
-    border-width: var(--border-width);
+    //border-width: var(--border-width);
     border-style: solid;
     border-color: var(--fg-color);
     border-radius: var(--border-radius);
@@ -522,19 +538,39 @@ body {
 
 .product-gallery-thumbnail {
     display: grid;
+    position: relative;
     width: 100%;
     aspect-ratio: 1;
     //background-color: pink;
     align-items: center;
     justify-content: center;
-    border-width: var(--border-width);
+    //border-width: var(--border-width);
     border-style: solid;
     border-color: var(--fg-color);
     border-radius: var(--border-radius);
 }
 
+.product-gallery-thumbnail::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Start transparent */
+    transition: background-color 0.3s ease;
+    border-radius: var(--border-radius);
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+.product-gallery-thumbnail:hover::after {
+    background-color: rgba(0, 0, 0, 0.2); /* Dark overlay on hover */
+}
+
+
+
 .product-gallery-thumbnail:hover {
-    border-width: var(--border-width-hover);
+    //border-width: var(--border-width-hover);
 }
 
 .product-gallery-image img,
