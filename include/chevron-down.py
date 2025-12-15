@@ -11,5 +11,5 @@ if "fill" not in params:
 
 txt = ''
 
-txt += f'<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg width="{params["width"]}" height="{params["height"]}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" fill="transparent"/><path d="M17 9.5L12 14.5L7 9.5" stroke="{params["stroke"]}" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+txt += f'<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg width="{params["width"]}" height="{params["height"]}" stroke="{params["stroke"]}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 9.5L12 14.5L7 9.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 
