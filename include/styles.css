@@ -101,7 +101,7 @@ body {
     grid-template-rows: 5rem calc(100vh - 5rem);
     //grid-template-rows: 5rem 1fr; 
     grid-template-areas:
-        "header main"
+        "header header"
         "side-nav main";
     //grid-template-areas:
     //    "header main";
@@ -196,7 +196,6 @@ body {
     background-color: var(--bg-color);
     z-index: 9999;
     overflow: scroll;
-    padding: 0 0 2rem 0;
     padding-left: 1rem;
 }
 
@@ -270,8 +269,9 @@ body {
     top: 0;
     background-color: var(--bg-color);
     align-items: center;
-    justify-content: center;
-    border-width: 0 var(--border-width) 0 0;
+    justify-content: left;
+    //border-width: 0 var(--border-width) 0 0;
+    border-width: 0 0 var(--border-width) 0;
     border-style: solid;
     border-color: var(--fg-color);
     //height: 100vh;
@@ -291,7 +291,7 @@ body {
     border-style: solid;
     border-color: var(--fg-color);
     height: calc(100vh - 5rem);
-    padding-left: 1rem;
+    padding: 2rem 0rem 2rem 1rem;
     overflow-y: scroll;
 }
 
