@@ -51,10 +51,10 @@ class Jaypage(TreeNode):
             params["nav-button"]["toggle"] = "no"
 
         #params["nav-button"]["indent"] = str(2*depth) 
-        params["children"] = {} 
+        params["items"] = {} 
 
         for child in self.children:
-            params["children"][child.name] = child.gennav(name, depth = depth + 1)
+            params["items"][child.name] = child.gennav(name, depth = depth + 1)
 
         return params
 
@@ -83,6 +83,16 @@ class Jaypage(TreeNode):
         params["body"]["header"]["nav-logo"]["src"] = ROOT + f"/docs/diag/bluejay_devices.svg"  
         params["body"]["header"]["nav-logo"]["alt"] = "logo" 
 
+        params["body"]["header"]["navbar"] = {}
+
+        
+        params["body"]["header"]["navbar"]["items"] = {}
+        params["body"]["header"]["navbar"]["items"]["about"] = {"href": ROOT + f"/gen/about/index.html", "text": "About"}
+        params["body"]["header"]["navbar"]["items"]["contact"] = {"href": ROOT + f"/gen/contact/index.html", "text": "Contact"}
+        params["body"]["header"]["navbar"]["items"]["docs"] = {"href": ROOT + f"/gen/products/index.html", "text": "Products"}
+
+
+
         params["body"]["nav"]["nav-item"] = self.root().gennav("nav")
 
         params["body"]["side-nav"]["nav-item"] = self.root().gennav("side-nav")
@@ -94,6 +104,7 @@ class Jaypage(TreeNode):
             params["body"]["main"]["src"] = ROOT + f"/docs/{self.name}.py" 
         params["body"]["main"]["params"] = {} 
 
+        params["body"]["main"]["footer"] = {}
 
 
         return params

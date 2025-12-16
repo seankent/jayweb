@@ -108,7 +108,7 @@ body {
     //grid-template-areas:
     //    "header main";
     //min-height: 100vh;
-    overflow: hidden;
+    //overflow: hidden;
 }
 
 
@@ -237,13 +237,17 @@ body {
     padding-right: 2rem;
 }
 
+
 .main {
     grid-area: main;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
     width: 100%;
     height: 100%;
     min-width: 0;
     padding: 4rem 3rem 4rem 4rem;
+    gap: 4rem;
     //justify-content: center;
     //justify-content: left;
     //background-color: pink;
@@ -256,22 +260,34 @@ body {
 
 .navbar {
     display: grid;
-    grid-template-columns: auto;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    height: 100%;
     //background-color: var(--bg-color);
+    //background-color: pink; 
     align-items: center;
     justify-content: center;
-    padding: 0rem 2rem 0rem 2rem;
+    gap: 1rem;
+    //padding: 0rem 2rem 0rem 2rem;
+}
+
+.navbar-button {
+    //display: grid;
+    //height: 3rem; 
+    //align-items: center;
+    //justify-content: center;
+    //padding: 0 1rem 0 1rem;
 }
 
 .header {
     grid-area: header;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto;
     position: sticky;
     top: 0;
     background-color: var(--bg-color);
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
     //border-width: 0 var(--border-width) 0 0;
     border-width: 0 0 var(--border-width) 0;
     border-style: solid;
@@ -279,6 +295,15 @@ body {
     //height: 100vh;
     padding: 0rem 2rem 0rem 2rem;
     overflow: auto;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 3rem;
+    border-width: var(--border-width) 0 0 0;
+    border-color: var(--fg-color);
 }
 
 .side-nav {
@@ -293,7 +318,7 @@ body {
     border-style: solid;
     border-color: var(--fg-color);
     height: calc(100vh - 5rem);
-    padding: 2rem 0rem 2rem 1rem;
+    padding: 2rem 0rem 4rem 1rem;
     overflow-y: scroll;
 }
 
@@ -460,13 +485,21 @@ body {
 
 .button {
     display: grid;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 0rem 1rem 0rem 1rem;
+    height: 3rem;
     width: max-content;
-    background-color: var(--bg-color-button);
-    color: var(--fg-color-button);
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
     border-radius: var(--border-radius);
-    font-weight: var(--font-weight-button);
+    border-width: var(--border-width);
+    //font-weight: var(--font-weight-button);
     text-decoration: none;
+}
+
+.button:hover {
+    background-color: var(--bg-color-hover);
 }
 
 .product-button {
@@ -661,6 +694,10 @@ body {
 
     .nav-hamburger-button {
         display: grid;
+    }
+
+    .navbar {
+        display: none;
     }
 
     body.show > .nav {
