@@ -13,6 +13,7 @@ txt += jayweb.includef(f'{params["ROOT"]}/include/header.py', params["header"], 
 txt += jayweb.includef(f'{params["ROOT"]}/include/side-nav.py', params["side-nav"], 4) 
 txt += jayweb.includef(f'{params["ROOT"]}/include/main.py', params["main"], 4) 
 txt += jayweb.includef(f'{params["ROOT"]}/include/nav.py', params["nav"], 4) 
+txt += jayweb.includef(f'{params["ROOT"]}/include/footer.py', params["footer"], 4) 
 #txt += jayweb.includef(f'{params["ROOT"]}/include/footer.py', params["footer"], 4) 
 
 txt += f'<script src="{params["ROOT"]}/include/app.js"></script>\n'

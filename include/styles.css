@@ -67,7 +67,15 @@ svg {
     //width: 2rem;
     width: 1rem;
     height: 1rem;
+    position: absolute; /* Makes it overlay */
 }
+
+//body::-webkit-scrollbar {
+//    //width: 2rem;
+//    width: 1rem;
+//    height: 1rem;
+//}
+
 
 ::-webkit-scrollbar-track {
     width: 1rem;
@@ -80,6 +88,7 @@ svg {
 
 ::-webkit-scrollbar-thumb {
     background-color: transparent;
+    background-color: var(--scrollbar-color);
     border-radius: 100vw;
     border-width: 0.3rem;
     border-style: solid;
@@ -100,16 +109,15 @@ body {
     display: grid;
     width: 100%;
     grid-template-columns: 25rem 1fr;
-    grid-template-rows: 5rem calc(100vh - 5rem);
-    //grid-template-rows: 5rem 1fr; 
+    grid-template-rows: 5rem auto 5rem; 
     grid-template-areas:
         "header header"
-        "side-nav main";
-    //grid-template-areas:
-    //    "header main";
-    //min-height: 100vh;
-    //overflow: hidden;
+        "side-nav main"
+        "footer footer";
+    min-height: 100vh;
+    overflow-y: scroll;
 }
+
 
 
 
@@ -251,7 +259,8 @@ body {
     //justify-content: center;
     //justify-content: left;
     //background-color: pink;
-    overflow-y: scroll;
+    //overflow-y: scroll;
+    //scrollbar-gutter: auto;
 }
 
 .main * {
@@ -283,8 +292,8 @@ body {
     grid-area: header;
     display: grid;
     grid-template-columns: auto auto;
-    position: sticky;
-    top: 0;
+    //position: sticky;
+    //top: 0;
     background-color: var(--bg-color);
     align-items: center;
     justify-content: space-between;
@@ -298,6 +307,7 @@ body {
 }
 
 .footer {
+    grid-area: footer;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -309,17 +319,18 @@ body {
 .side-nav {
     grid-area: side-nav;
     display: grid;
-    position: sticky;
-    top: 5rem;
+    //position: sticky;
+    //top: 0rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     background-color: var(--bg-color);
     border-width: 0 var(--border-width) 0 0;
     border-style: solid;
     border-color: var(--fg-color);
-    height: calc(100vh - 5rem);
-    padding: 2rem 0rem 4rem 1rem;
-    overflow-y: scroll;
+    padding: 2rem 1rem 4rem 1rem;
+    //height: calc(100vh - 5rem);
+    //padding: 2rem 0rem 4rem 1rem;
+    //overflow-y: scroll;
 }
 
 .side-nav > .nav-item {
@@ -676,10 +687,11 @@ body {
 @media (max-width: 58rem) {
     body {
         grid-template-columns: 1fr;
-        grid-template-rows: 5rem calc(100vh - 5rem);
+        grid-template-rows: 5rem auto 5rem;
         grid-template-areas:
             "header"
-            "main";
+            "main"
+            "footer";
     }
 
     .side-nav {

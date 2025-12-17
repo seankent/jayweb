@@ -101,28 +101,27 @@ function setDisplayImage() {
 
 
 function handleScroll(e) {
-    let element = e.target;
-    //console.log("Scrolling");
-    element.classList.add('is-scrolling');
-
-    // Clear existing timeout for THIS specific element
-    if (scrollTimeouts.has(element)) {
-        clearTimeout(scrollTimeouts.get(element));
-    }
-
-    //scrollTimeout = setTimeout(() => {
-    //    element.classList.remove('is-scrolling');
-    //}, 500);
-
-
-    // Create new timeout for THIS specific element
-    const timeout = setTimeout(() => {
-        element.classList.remove('is-scrolling');
-        //scrollTimeouts.delete(scrollingElement); // Clean up
-    }, 1000);
-
-    // Store the timeout with the element as the key
-    scrollTimeouts.set(element, timeout);
+//    let element = e.target;
+//    element.classList.add('is-scrolling');
+//
+//    // Clear existing timeout for THIS specific element
+//    if (scrollTimeouts.has(element)) {
+//        clearTimeout(scrollTimeouts.get(element));
+//    }
+//
+//    //scrollTimeout = setTimeout(() => {
+//    //    element.classList.remove('is-scrolling');
+//    //}, 500);
+//
+//
+//    // Create new timeout for THIS specific element
+//    const timeout = setTimeout(() => {
+//        element.classList.remove('is-scrolling');
+//        //scrollTimeouts.delete(scrollingElement); // Clean up
+//    }, 1000);
+//
+//    // Store the timeout with the element as the key
+//    scrollTimeouts.set(element, timeout);
 }
 
 

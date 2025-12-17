@@ -72,6 +72,7 @@ class Jaypage(TreeNode):
         params["body"]["nav"] = {}
         params["body"]["side-nav"] = {}
         params["body"]["main"] = {}
+        params["body"]["footer"] = {}
 
         params["head"]["title"] = self.value["title"] 
         params["head"]["logo"] = ROOT + "/docs/diag/logo.svg" 
@@ -104,7 +105,6 @@ class Jaypage(TreeNode):
             params["body"]["main"]["src"] = ROOT + f"/docs/{self.name}.py" 
         params["body"]["main"]["params"] = {} 
 
-        params["body"]["main"]["footer"] = {}
 
 
         return params
