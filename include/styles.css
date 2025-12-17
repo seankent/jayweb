@@ -42,6 +42,7 @@
 html {
     font-size: 1rem;
     font-family: var(--page-font-family); 
+    //overflow-y: hidden;
 }
 
 *, *::before, *::after {
@@ -67,14 +68,7 @@ svg {
     //width: 2rem;
     width: 1rem;
     height: 1rem;
-    position: absolute; /* Makes it overlay */
 }
-
-//body::-webkit-scrollbar {
-//    //width: 2rem;
-//    width: 1rem;
-//    height: 1rem;
-//}
 
 
 ::-webkit-scrollbar-track {
@@ -82,6 +76,9 @@ svg {
     height: 1rem;
     background-color: transparent;
     //background-color: red; 
+    //border-width: 1px;
+    //border-style: solid;
+    //border-color: var(--fg-color);
     border-radius: 100vw;
     margin-block: .5rem;
 }
@@ -100,6 +97,13 @@ svg {
     background-color: var(--scrollbar-color);
 }
 
+/* The scrollbar handle (thumb) */
+.os-scrollbar-handle {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+
 .is-scrolling::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-color);
 }
@@ -115,7 +119,8 @@ body {
         "side-nav main"
         "footer footer";
     min-height: 100vh;
-    overflow-y: scroll;
+    //height: 100vh;
+    //overflow-y: scroll;
 }
 
 
@@ -198,19 +203,20 @@ body {
 .nav {
     display: none;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 5rem 1fr;
-    position: fixed;
-    top: 0;
+    grid-template-rows: 5rem auto;
+    //position: fixed;
+    //top: 0;
     background-color: var(--bg-color);
-    z-index: 9999;
-    overflow: scroll;
-    padding-left: 1rem;
+    //z-index: 9999;
+    //overflow: scroll;
+    padding: 0rem 2rem 0rem 2rem;
 }
 
 .nav > .nav-item {
     display: grid;
+    padding: 2rem 0rem 2rem 0rem;
 }
 
 .nav > .nav-item > .nav-button {
@@ -224,7 +230,7 @@ body {
 .nav > .nav-cross-button {
     align-self: center;
     justify-self: right;
-    margin-right: 1rem;
+    //margin-right: 2rem;
 }
 
 .sidebar {
@@ -683,6 +689,16 @@ body {
     border-color: var(--fg-color-hover);
 }
 
+.os-scrollbar-handle {
+    //background: var(--grey-2) !important; 
+    //background: red !important; 
+}
+
+.os-scrollbar-vertical {
+    width: 1rem !important; /* Default is usually 10-14px */
+    padding: 0.25rem !important;
+}
+
 
 @media (max-width: 58rem) {
     body {
@@ -712,9 +728,18 @@ body {
         display: none;
     }
 
+    body.show > * {
+        display: none;
+    }
+
     body.show > .nav {
         display: grid;
     }
 
+    body.show {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
 }
+
 
