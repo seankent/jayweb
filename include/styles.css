@@ -33,7 +33,7 @@
     --content-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
 
-    --scrollbar-color: var(--grey-3);
+    --scrollbar-color: rgba(0, 0, 0, 0.5); 
     --bg-color-button: #304e67; 
     --fg-color-button: white; 
     --font-weight-button: 700; 
@@ -211,12 +211,12 @@ body {
     background-color: var(--bg-color);
     //z-index: 9999;
     //overflow: scroll;
-    padding: 0rem 2rem 0rem 2rem;
 }
 
 .nav > .nav-item {
     display: grid;
-    padding: 2rem 0rem 2rem 0rem;
+    //padding: 2rem 0rem 2rem 0rem;
+    margin: 2rem 1rem 2rem 1rem;
 }
 
 .nav > .nav-item > .nav-button {
@@ -230,7 +230,7 @@ body {
 .nav > .nav-cross-button {
     align-self: center;
     justify-self: right;
-    //margin-right: 2rem;
+    margin: 0rem 2rem 0rem 0rem;
 }
 
 .sidebar {
@@ -690,14 +690,22 @@ body {
 }
 
 .os-scrollbar-handle {
-    //background: var(--grey-2) !important; 
-    //background: red !important; 
+    background: var(--scrollbar-color) !important; 
+}
+
+.os-scrollbar-handle:hover {
+    background: var(--scrollbar-color) !important; 
+}
+
+.os-scrollbar-handle:active {
+    background: var(--scrollbar-color) !important; 
 }
 
 .os-scrollbar-vertical {
     width: 1rem !important; /* Default is usually 10-14px */
     padding: 0.25rem !important;
 }
+
 
 
 @media (max-width: 58rem) {
@@ -728,7 +736,10 @@ body {
         display: none;
     }
 
-    body.show > * {
+    body.show > .header,
+    body.show > .side-nav,
+    body.show > .main,
+    body.show > .footer {
         display: none;
     }
 
