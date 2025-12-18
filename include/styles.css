@@ -216,7 +216,7 @@ body {
 .nav > .nav-item {
     display: grid;
     //padding: 2rem 0rem 2rem 0rem;
-    margin: 2rem 1rem 2rem 1rem;
+    margin: 0rem 1rem 2rem 1rem;
 }
 
 .nav > .nav-item > .nav-button {
