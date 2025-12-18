@@ -167,34 +167,19 @@ document.addEventListener('scroll', handleScroll, true);
 //}, true);
 
 
-const { OverlayScrollbars, ClickScrollPlugin } = OverlayScrollbarsGlobal;
-
-// optional: use the ClickScrollPlugin to make the option "scrollbars.clickScroll: true" available
-OverlayScrollbars.plugin(ClickScrollPlugin);
-
-OverlayScrollbars(document.body, {
-    scrollbars: {
-        clickScroll: true,
-        visibility: 'auto',
-        //visibility: 'hover',
-        //visibility: 'visible',
-        //autoHide: 'move',
-        autoHide: 'scroll',
-        autoHideDelay: 1000,
-    },
-});
-
-//OverlayScrollbars(document.querySelector('.nav'), {
+//const { OverlayScrollbars, ClickScrollPlugin } = OverlayScrollbarsGlobal;
+//
+//// optional: use the ClickScrollPlugin to make the option "scrollbars.clickScroll: true" available
+//OverlayScrollbars.plugin(ClickScrollPlugin);
+//
+//OverlayScrollbars(document.body, {
 //    scrollbars: {
 //        clickScroll: true,
-//        visibility: 'auto',        // Change from 'visible' to 'auto'
-//        autoHide: 'leave',         // Change from 'never' to 'leave', 'scroll', or 'move'
-//        autoHideDelay: 1000,       // Delay in ms before hiding (default is 1300)
+//        visibility: 'auto',
+//        //visibility: 'hover',
+//        //visibility: 'visible',
+//        //autoHide: 'move',
+//        autoHide: 'scroll',
+//        autoHideDelay: 1000,
 //    },
 //});
-
-
-//OverlayScrollbars(document.getElementById('target'), {});
-
-//OverlayScrollbars(document.getElementById('target'), {});
-//OverlayScrollbars(document.body, {});
