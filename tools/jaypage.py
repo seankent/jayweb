@@ -105,6 +105,7 @@ class Jaypage(TreeNode):
             params["body"]["main"]["src"] = ROOT + f"/docs/{self.name}.py" 
         params["body"]["main"]["params"] = {} 
 
+        params["body"]["footer"]["text"] = "&copy; 2025 Bluejay Devices"
 
 
         return params

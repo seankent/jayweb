@@ -22,8 +22,8 @@
     --border-radius: 8px;
 
     --fg-color-hover: var(--grey-9);
-    --bg-color-hover: var(--grey-1);
-    --bg-color-hover-alt: var(--grey-2);
+    --bg-color-hover: var(--grey-0);
+    --bg-color-hover-alt: var(--grey-1);
     --border-width-hover: 2px;
     --border-color: var(--grey-3);
 
@@ -45,7 +45,7 @@ html {
     font-size: 1rem;
     font-family: var(--page-font-family); 
     width: 100%;
-    height: 100%;
+    //height: 100%;
     overflow-y: scroll;
     //background-color: red;
 }
@@ -137,7 +137,7 @@ body {
         "side-nav main"
         "footer footer";
     min-height: 100vh;
-    overflow: hidden;
+    //overflow: hidden;
     //height: 100vh;
     //overflow-y: scroll;
     //background-color: blue;
@@ -337,9 +337,13 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    height: 3rem;
+    //height: 3rem;
     border-width: var(--border-width) 0 0 0;
     border-color: var(--border-color);
+    background-color: var(--bg-color);
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem 0 2rem;
 }
 
 .side-nav {
@@ -630,14 +634,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Start transparent */
-    transition: background-color 0.3s ease;
+    //background-color: rgba(0, 0, 0, 0); /* Start transparent */
+    //transition: background-color 0.3s ease;
     border-radius: var(--border-radius);
     pointer-events: none; /* Allows clicks to pass through */
 }
 
 .product-gallery-thumbnail:hover::after {
-    background-color: rgba(0, 0, 0, 0.2); /* Dark overlay on hover */
+    background-color: var(--grey-3); 
+    opacity: 0.2;
+    //background-color: rgba(0, 0, 0, 0.2); /* Dark overlay on hover */
 }
 
 
