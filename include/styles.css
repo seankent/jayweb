@@ -25,7 +25,8 @@
     --bg-color-hover: var(--grey-0);
     --bg-color-hover-alt: var(--grey-1);
     --border-width-hover: 2px;
-    --border-color: var(--grey-3);
+    --border-color: var(--grey-2);
+    --border-color-hover: var(--grey-3);
 
     --h1-size: 2.5rem;
     --scale-ratio: 1.2;
@@ -36,6 +37,7 @@
 
     //--scrollbar-color: rgba(0, 0, 0, 0.5); 
     --scrollbar-color: var(--grey-3); 
+    --button-color: var(--grey-0); 
     --bg-color-button: #304e67; 
     --fg-color-button: white; 
     --font-weight-button: 700; 
@@ -531,7 +533,7 @@ body {
     width: max-content;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-color);
+    background-color: var(--button-color);
     color: var(--fg-color);
     border-radius: var(--border-radius);
     border-width: var(--border-width);
@@ -541,7 +543,8 @@ body {
 }
 
 .button:hover {
-    background-color: var(--bg-color-hover);
+    //background-color: var(--button-color-hover);
+    border-color: var(--border-color-hover);
 }
 
 .product-button {
