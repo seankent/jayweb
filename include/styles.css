@@ -22,8 +22,8 @@
     --border-radius: 8px;
 
     --fg-color-hover: var(--grey-9);
-    --bg-color-hover: var(--grey-0);
-    --bg-color-hover-alt: var(--grey-1);
+    --bg-color-hover: var(--grey-1);
+    --bg-color-hover-alt: var(--grey-2);
     --border-width-hover: 2px;
     --border-color: var(--grey-2);
     --border-color-hover: var(--grey-3);
@@ -38,6 +38,7 @@
     //--scrollbar-color: rgba(0, 0, 0, 0.5); 
     --scrollbar-color: var(--grey-3); 
     --button-color: var(--grey-0); 
+    --button-color-hover: var(--grey-1); 
     --bg-color-button: #304e67; 
     --fg-color-button: white; 
     --font-weight-button: 700; 
@@ -132,7 +133,7 @@ body {
     display: grid;
     width: 100%;
     height: auto;
-    grid-template-columns: 25rem 1fr;
+    grid-template-columns: 23rem 1fr;
     grid-template-rows: 5rem auto 5rem; 
     grid-template-areas:
         "header header"
@@ -209,17 +210,17 @@ body {
 
 /* Third level (nested twice) */
 .nav-item .nav-item .nav-item .nav-button {
-    padding-left: 3rem;
+    padding-left: 2rem;
 }
 
 /* Fourth level */
 .nav-item .nav-item .nav-item .nav-item .nav-button {
-    padding-left: 5rem;
+    padding-left: 3rem;
 } 
 
 /* Fourth level, etc. */
 .nav-item .nav-item .nav-item .nav-item .nav-item .nav-item .nav-button {
-    padding-left: 7rem;
+    padding-left: 4rem;
 } 
 
 .nav {
@@ -543,7 +544,7 @@ body {
 }
 
 .button:hover {
-    //background-color: var(--button-color-hover);
+    background-color: var(--button-color-hover);
     border-color: var(--border-color-hover);
 }
 
@@ -594,7 +595,7 @@ body {
     align-items: center;
     justify-content: center;
     //background-color: pink;
-    //border-width: var(--border-width);
+    border-width: var(--border-width);
     border-style: solid;
     border-color: var(--border-color);
     border-radius: var(--border-radius);
@@ -624,10 +625,15 @@ body {
     //background-color: pink;
     align-items: center;
     justify-content: center;
-    //border-width: var(--border-width);
+    border-width: var(--border-width);
     border-style: solid;
     border-color: var(--border-color);
     border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.product-gallery-thumbnail:hover {
+    border-color: var(--border-color-hover);
 }
 
 .product-gallery-thumbnail::after {
@@ -639,7 +645,7 @@ body {
     height: 100%;
     //background-color: rgba(0, 0, 0, 0); /* Start transparent */
     //transition: background-color 0.3s ease;
-    border-radius: var(--border-radius);
+    //border-radius: var(--border-radius);
     pointer-events: none; /* Allows clicks to pass through */
 }
 
