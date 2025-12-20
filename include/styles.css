@@ -37,7 +37,8 @@
 
     //--scrollbar-color: rgba(0, 0, 0, 0.5); 
     --scrollbar-color: var(--grey-3); 
-    --button-color: var(--grey-0); 
+    //--button-color: var(--grey-0); 
+    --button-color: white; 
     --button-color-hover: var(--grey-1); 
     --bg-color-button: #304e67; 
     --fg-color-button: white; 
