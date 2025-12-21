@@ -1,115 +1,47 @@
-import re
-import copy 
-import textwrap
-import markdown
+from jaypage import Jaypage
+
+########
+# Home #
+########
+config = {}
+config["title"] = "Home"
+config["favicon"] = "/images/logo.svg"
+config["logo"] = "/images/bluejay_devices.svg"
+config["site"] = "Bluejay Devices"
+config["footer-text"] = "&copy; 2025 Bluejay Devices"
 
 
-###########
-# Jaysite #
-###########
-class Jaysite:
-    ############
-    # __init__ #
-    ############
-    def __init__(self, config):
-        """
-        """
-        self.config = copy.deepcopy(config)
+root = Jaypage("index", config)
 
-    ###########
-    # __str__ #
-    ###########
-    def __str__(self):
-        """
-        """
-        return f"Jaysite({self.config})"
 
-    ############
-    # __repr__ #
-    ############
-    def __repr__(self):
-        """
-        """
-        return self.__str__()
+#########
+# About #
+#########
+config = {}
+config["title"] = "About"
 
-    ########
-    # read #
-    ########
-    def read(self, filename):
-        """
-        Reads from the specified file. 
-        
-        Arguments:
-            filename (str): Name of file.
-        """
-        with open(filename, 'r') as file:
-            return file.read()
+root.get([]).add(Jaypage("about", config))
 
-    #########
-    # write #
-    #########
-    def write(self, filename, txt):
-        """
-        Writes txt to the specified file. 
-        
-        Arguments:
-            filename (str): Name of file.
-            txt (str): String of text to be written.
-        """
-        with open(filename, 'w') as file:
-            file.write(txt)
+##########
+# Boards #
+##########
+config = {}
+config["title"] = "Boards"
 
-    ##########
-    # gennav #
-    ##########
-    def gennav(self, webpage):
-        """
-        """
-        params = {}
-        params["href"] = webpage
+root.get([]).add(Jaypage("boards", config))
+
+#################
+# Boards::Jay40 #
+#################
+config = {}
+config["title"] = "Jay40"
+
+root.get(["boards"]).add(Jaypage("jay40", config))
 
 
 
-         
-
-
-
-
-if __name__ == '__main__':
-    
-
-    config = {}
-    
-    config["webpages"] = {}
-
-    config["webpages"]["index"] = {
-        "title": "Home",
-    }
-
-    config["webpages"]["about"] = {
-        "title": "About",
-    }
-
-    config["webpages"]["contact"] = {
-        "title": "Contact",
-    }
-
-    config["webpages"]["products"] = {
-        "title": "Products",
-        "children": ["products/jay40", "products/jaybtn"],
-    }
-
-    config["webpages"]["products/jay40"] = {
-        "title": "Jay40",
-    }
-
-    config["webpages"]["products/jaybtn"] = {
-        "title": "JayBTN",
-    }
-
-    jaysite = Jaysite(config)
-    print(jaysite)
-
+root.init()
+root.buildall()
 
 
     

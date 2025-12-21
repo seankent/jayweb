@@ -28,6 +28,7 @@ class Jaypage(TreeNode):
         """
         return f"Jaypage('{self.name}', {self.value})"
 
+
     ##########
     # gennav #
     ##########
@@ -42,7 +43,7 @@ class Jaypage(TreeNode):
 
         params["nav-button"] = {}
         params["nav-button"]["text"] = self.value["title"]
-        params["nav-button"]["href"] = "/".join(self.getpath()) + "/index.html"
+        params["nav-button"]["href"] = "/" + "/".join(self.getpath()) + f"/{self.name}.html"
         params["nav-button"]["depth"] = str(depth)
 
         if self.children != []:
@@ -66,7 +67,11 @@ class Jaypage(TreeNode):
         """
         params = {}
 
+
         params["head"] = {}
+        params["head"]["title"] = self.value["title"] + " | " + self.root().value["site"]
+        params["head"]["favicon"] = self.root().value["favicon"] 
+
         params["body"] = {}
         params["body"]["header"] = {}
         params["body"]["nav"] = {}
@@ -74,23 +79,24 @@ class Jaypage(TreeNode):
         params["body"]["main"] = {}
         params["body"]["footer"] = {}
 
-        params["head"]["title"] = self.value["title"] 
-        params["head"]["logo"] = ROOT + "/docs/diag/logo.svg" 
-        params["head"]["base"] = ROOT + "/gen/index.html" 
-
         params["body"]["data-page-id"] = "-".join(self.getpath())
 
         params["body"]["header"]["nav-logo"] = {}
-        params["body"]["header"]["nav-logo"]["src"] = ROOT + f"/docs/diag/bluejay_devices.svg"  
+        params["body"]["header"]["nav-logo"]["href"] = f"/index.html"  
+        params["body"]["header"]["nav-logo"]["src"] = self.root().value["logo"]
         params["body"]["header"]["nav-logo"]["alt"] = "logo" 
 
         params["body"]["header"]["navbar"] = {}
 
         
         params["body"]["header"]["navbar"]["items"] = {}
-        params["body"]["header"]["navbar"]["items"]["about"] = {"href": ROOT + f"/gen/about/index.html", "text": "About"}
-        params["body"]["header"]["navbar"]["items"]["contact"] = {"href": ROOT + f"/gen/contact/index.html", "text": "Contact"}
-        params["body"]["header"]["navbar"]["items"]["docs"] = {"href": ROOT + f"/gen/products/index.html", "text": "Products"}
+
+        for child in self.root().children:
+            params["body"]["header"]["navbar"]["items"][child.name] = {"href": "/" + "/".join(child.getpath()) + f"/{child.name}.html", "text": child.value["title"]}
+
+        #params["body"]["header"]["navbar"]["items"]["about"] = {"href": ROOT + f"/gen/about/index.html", "text": "About"}
+        #params["body"]["header"]["navbar"]["items"]["contact"] = {"href": ROOT + f"/gen/contact/index.html", "text": "Contact"}
+        #params["body"]["header"]["navbar"]["items"]["docs"] = {"href": ROOT + f"/gen/products/index.html", "text": "Products"}
 
 
 
@@ -99,13 +105,10 @@ class Jaypage(TreeNode):
         params["body"]["side-nav"]["nav-item"] = self.root().gennav("side-nav")
 
 
-        if self.name[:4] == "test":
-            params["body"]["main"]["src"] = ROOT + f"/docs/index.py" 
-        else:
-            params["body"]["main"]["src"] = ROOT + f"/docs/{self.name}.py" 
+        params["body"]["main"]["src"] = f"{ROOT}/pages/" + "/".join(self.getpath()) + f"/{self.name}.py" 
         params["body"]["main"]["params"] = {} 
 
-        params["body"]["footer"]["text"] = "&copy; 2025 Bluejay Devices"
+        params["body"]["footer"]["text"] = self.root().value["footer-text"]
 
 
         return params
@@ -119,8 +122,13 @@ class Jaypage(TreeNode):
         txt = jayweb.postprocess(jayweb.include(f"{ROOT}/include/html.py", params = self.gen()))
         print(txt)
         print(f"mkdir -p {ROOT}/gen/{"/".join(self.getpath())}")
-        os.system(f"mkdir -p {ROOT}/gen/{"/".join(self.getpath())}")
-        jayweb.write(f'{ROOT}/gen/{"/".join(self.getpath())}/index.html', txt)
+
+        os.system(f"mkdir -p {ROOT}/gen/{'/'.join(self.getpath())}")
+
+        os.system(f"mkdir -p {ROOT}/gen/{'/'.join(self.getpath())}/diag")
+        os.system(f"cp {ROOT}/pages/{'/'.join(self.getpath())}/diag/* {ROOT}/gen/{'/'.join(self.getpath())}/diag")
+
+        jayweb.write(f"{ROOT}/gen/{'/'.join(self.getpath())}/{self.name}.html", txt)
 
     ############
     # buildall #
@@ -133,6 +141,22 @@ class Jaypage(TreeNode):
         for child in self.children:
             child.buildall()
 
+    ########
+    # init #
+    ########
+    def init(self):
+        """
+        """
+        os.system(f"mkdir -p {ROOT}/gen/")
+
+        os.system(f"mkdir -p {ROOT}/gen/css")
+        os.system(f"cp {ROOT}/css/*.css {ROOT}/gen/css/")
+
+        os.system(f"mkdir -p {ROOT}/gen/js")
+        os.system(f"cp {ROOT}/js/*.js {ROOT}/gen/js/")
+
+        os.system(f"mkdir -p {ROOT}/gen/images")
+        os.system(f"cp {ROOT}/images/*.svg {ROOT}/gen/images/")
 
 
 
@@ -209,6 +233,7 @@ if __name__ == '__main__':
 
     txt = jayweb.include(f"{ROOT}/include/html.py", params = page.gen())
     #page.build()
+    page.init()
     page.buildall()
     #jayweb.write(f'{ROOT}/gen/index.html', txt)
 
