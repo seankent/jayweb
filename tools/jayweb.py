@@ -2,6 +2,7 @@ import re
 import textwrap
 import markdown
 from bs4 import BeautifulSoup
+from pathlib import Path
 
 ROOT = "/Users/seankent/Documents/jayweb"
 
@@ -75,6 +76,7 @@ class Jayweb:
             params = {}
 
         params["ROOT"] = f"{ROOT}"
+        params["PWD"] = Path(filename).parent 
 
         namespace = {"jayweb": self, "params": params}
 
@@ -88,8 +90,8 @@ class Jayweb:
     def includef(self, filename, params = None, n = 0):
         """
         """
-        print(filename)
-        print(params)
+        #print(filename)
+        #print(params)
         return self.indent(self.include(filename, params), n)
 
     ############
@@ -99,8 +101,15 @@ class Jayweb:
         """
         """
         #return markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite', 'nl2br'])
-        print(repr(txt))
-        return markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite', 'attr_list', "md_in_html"], extension_configs = {'codehilite': {'stripnl': True}})
+        txt = markdown.markdown(txt, extensions=['tables', 'fenced_code', 'codehilite', 'attr_list', "md_in_html"], extension_configs = {'codehilite': {'stripnl': True, 'tab_length': 4}})
+
+        # add table-wrapper around tables
+        txt = re.sub(r'(<table>.*?</table>)', r'<div class="table-wrapper">\1</div>', txt, flags=re.DOTALL)
+
+        # add img-wrapper around images 
+        txt = re.sub(r'(<img.*?/>)', r'<div class="img-wrapper">\1</div>', txt, flags=re.DOTALL)
+
+        return txt
 
     #############
     # includemd #
@@ -124,21 +133,81 @@ class Jayweb:
     def postprocess(self, txt):
         """
         """
-        while True:
-            # check for a codehilite div block with one or more leading spaces
-            match = re.search(r'^\s+<div\s+class=["\']codehilite["\'][^>]*>.*?</div>', txt, re.DOTALL | re.MULTILINE)
+        #i = 0
+        #while True:
 
 
-            if match is None:
-                break
+        #    # check for a codehilite div block with one or more leading spaces
+        #    #match = re.search(r'^\s+<div\s+class=["\']codehilite["\'][^>]*>.*?</div>', txt, re.DOTALL | re.MULTILINE)
 
-            print(match.group())
 
-            txt = txt[:match.start()] + textwrap.dedent(match.group()) + txt[match.end():]
-                
+        #    #if match is None:
+        #    #    break
 
-        # add table-wrapper around tables
-        txt = re.sub(r'(<table>.*?</table>)', r'<div class="table-wrapper">\1</div>', txt, flags=re.DOTALL)
+        #    print(f"###################################################")
+        #    print(f"##################### {i} #########################")
+        #    print(f"###################################################")
+        #    print(match.group())
+
+        #    #txt = txt[:match.start()] + textwrap.dedent(match.group()) + txt[match.end():]
+
+
+        #    soup = BeautifulSoup(txt, 'html.parser')
+
+        #    
+        #        
+
+        #    i += 1
+
+        #    if i == 3:
+        #        break
+
+
+        soup = BeautifulSoup(txt, 'html5lib')
+
+        #for div in soup.find_all('div', class_='codehilite'):
+        #    print(txt)
+
+        #for div in soup.find_all('div', class_='codehilite'):
+        #    print(f"###################################################")
+        #    print(f"###################################################")
+
+        #    #print(str(div)) 
+        #    
+        #    #print(re.sub(r'^\s+', '', str(div), flags=re.MULTILINE)) 
+
+
+        #    #div.replace_with(BeautifulSoup(re.sub(r'^\s+', '', str(div), flags=re.MULTILINE), 'html.parser'))
+
+
+        #    new_div = BeautifulSoup(re.sub(r'^\s+', '', str(div), flags=re.MULTILINE))
+
+        #    div.replace_with(new_div)
+
+        for div in soup.find_all('div', class_='codehilite'):
+            content = div.decode_contents()
+            dedented = re.sub(r'^ +', '', content, flags=re.MULTILINE)
+
+            div.clear()
+            div.append(BeautifulSoup(dedented, 'html5lib'))
+
+        txt = str(soup)
+
+        for div in soup.find_all('div', class_='codehilite'):
+            print(txt)
+
+        
+
+            #print(textwrap.dedent(div.get_text()))
+
+        # check for a codehilite div block with one or more leading spaces
+
+
+        ## add table-wrapper around tables
+        #txt = re.sub(r'(<table>.*?</table>)', r'<div class="table-wrapper">\1</div>', txt, flags=re.DOTALL)
+
+        ## add img-wrapper around images 
+        #txt = re.sub(r'(<img.*?/>)', r'<div class="img-wrapper">\1</div>', txt, flags=re.DOTALL)
 
 
 

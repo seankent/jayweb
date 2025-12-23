@@ -1,0 +1,100 @@
+###################################################
+##################### 0 #########################
+###################################################
+                        <div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">pll_blinky</span>
+                        <span class="p">(</span>
+                        <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
+                        <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">rst</span><span class="p">,</span>
+                        <span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="n">out</span>
+                        <span class="p">);</span>
+
+                        <span class="kt">logic</span><span class="w"> </span><span class="n">pll_clk</span><span class="p">;</span>
+                        <span class="kt">logic</span><span class="w"> </span><span class="n">pll_lock</span><span class="p">;</span>
+                        <span class="kt">logic</span><span class="w"> </span><span class="n">blinky_rst</span><span class="p">;</span>
+
+                        <span class="k">assign</span><span class="w"> </span><span class="n">blinky_rst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">~</span><span class="n">pll_lock</span><span class="p">;</span>
+
+                        <span class="n">blinky</span><span class="w"> </span><span class="n">u_blinky</span>
+                        <span class="p">(</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">clk</span><span class="p">(</span><span class="n">pll_clk</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">rst</span><span class="p">(</span><span class="n">blinky_rst</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">out</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+                        <span class="p">);</span>
+
+                        <span class="c1">// F_pll_clk = (F_clk * (DIVF + 1))/(2**DIVQ * (DIVR + 1))</span>
+                        <span class="n">SB_PLL40_CORE</span><span class="w"> </span><span class="p">#(</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">FEEDBACK_PATH</span><span class="p">(</span><span class="s">&quot;SIMPLE&quot;</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">DIVF</span><span class="p">(</span><span class="mh">7&#39;h1</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">DIVQ</span><span class="p">(</span><span class="mh">3&#39;h0</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">DIVR</span><span class="p">(</span><span class="mh">4&#39;h0</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">FILTER_RANGE</span><span class="p">(</span><span class="mb">3&#39;b001</span><span class="p">)</span>
+                        <span class="p">)</span><span class="w"> </span><span class="n">u_sb_pll40_core</span><span class="w"> </span><span class="p">(</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">REFERENCECLK</span><span class="p">(</span><span class="n">clk</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">PLLOUTCORE</span><span class="p">(</span><span class="n">pll_clk</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">LOCK</span><span class="p">(</span><span class="n">pll_lock</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">RESETB</span><span class="p">(</span><span class="mb">1&#39;b1</span><span class="p">),</span>
+                        <span class="w">    </span><span class="p">.</span><span class="n">BYPASS</span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">)</span>
+                        <span class="p">);</span>
+
+                        <span class="k">endmodule</span>
+                        </code></pre></div>
+###################################################
+##################### 1 #########################
+###################################################
+
+                        <div class="codehilite"><pre><span></span><code><span class="p">#(</span><span class="k">parameter</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000000</span><span class="p">)</span>
+                        <span class="p">(</span>
+                        <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
+                        <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">rst</span><span class="p">,</span>
+                        <span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="n">out</span>
+                        <span class="p">);</span>
+
+                        <span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">23</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+                        <span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">23</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="p">;</span>
+                        <span class="kt">logic</span><span class="w"> </span><span class="n">out__nxt</span><span class="p">;</span>
+
+                        <span class="k">assign</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+                        <span class="k">assign</span><span class="w"> </span><span class="n">out__nxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">~</span><span class="n">out</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+
+                        <span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span>
+                        <span class="k">begin</span>
+                        <span class="w">    </span><span class="n">cnt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="p">;</span>
+                        <span class="k">end</span>
+
+                        <span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span>
+                        <span class="k">begin</span>
+                        <span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">out__nxt</span><span class="p">;</span>
+                        <span class="k">end</span>
+
+                        <span class="k">endmodule</span>
+                        </code></pre></div>
+###################################################
+##################### 2 #########################
+###################################################
+
+<div class="codehilite"><pre><span></span><code><span class="p">#(</span><span class="k">parameter</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000000</span><span class="p">)</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">rst</span><span class="p">,</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="n">out</span>
+<span class="p">);</span>
+
+<span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">23</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+<span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">23</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="p">;</span>
+<span class="kt">logic</span><span class="w"> </span><span class="n">out__nxt</span><span class="p">;</span>
+
+<span class="k">assign</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">assign</span><span class="w"> </span><span class="n">out__nxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">~</span><span class="n">out</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="n">cnt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">out__nxt</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="k">endmodule</span>
+</code></pre></div>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Using a PLL | Bluejay Devices</title>
+        <link href="/images/logo.svg" rel="icon"/>
+        <link href="/css/styles.css" rel="stylesheet"/>
+        <link href="/css/content.css" rel="stylesheet"/>
+        <link href="/css/syntax.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet"/></head>
+    <body data-page-id="boards-jay40-using_a_pll">
+        <div class="header">
+            <a class="nav-logo" href="/index.html">
+                <img alt="logo" src="/images/bluejay_devices.svg"/>
+            </a>
+            <div class="navbar">
+                <a class="button navbar-button" href="/about/about.html">
+                    About
+                </a>
+                <a class="button navbar-button" href="/boards/boards.html">
+                    Boards
+                </a>
+            </div>
+            <div class="nav-hamburger-button">
+                <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="none" height="800px" stroke="currentColor" style="width: 2.5rem; height: 2.5rem" viewBox="0 0 24 24" width="800px" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L4 7" stroke-linecap="round" stroke-width="1.5"></path><path d="M20 12L4 12" stroke-linecap="round" stroke-width="1.5"></path><path d="M20 17L4 17" stroke-linecap="round" stroke-width="1.5"></path></svg></div>
+        </div>
+        <div class="side-nav">
+            <div class="nav-item" data-page-id="" id="side-nav-">
+                <div class="nav-button">
+                    <a href="//index.html">
+                        Home
+                    </a>
+                    <div class="nav-button-chevron">
+                        <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="none" height="2rem" stroke="currentColor" viewBox="0 0 24 24" width="2rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 9.5L12 14.5L7 9.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>    </div>
+                </div>
+                <div class="nav-item" data-page-id="about" id="side-nav-about">
+                    <div class="nav-button">
+                        <a href="/about/about.html">
+                            About
+                        </a>
+                        <a href="/about/about.html">
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item" data-page-id="boards" id="side-nav-boards">
+                    <div class="nav-button">
+                        <a href="/boards/boards.html">
+                            Boards
+                        </a>
+                        <div class="nav-button-chevron">
+                            <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="none" height="2rem" stroke="currentColor" viewBox="0 0 24 24" width="2rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 9.5L12 14.5L7 9.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>    </div>
+                    </div>
+                    <div class="nav-item" data-page-id="boards-jay40" id="side-nav-boards-jay40">
+                        <div class="nav-button">
+                            <a href="/boards/jay40/jay40.html">
+                                Jay40
+                            </a>
+                            <div class="nav-button-chevron">
+                                <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="none" height="2rem" stroke="currentColor" viewBox="0 0 24 24" width="2rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 9.5L12 14.5L7 9.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>    </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-input_output" id="side-nav-boards-jay40-input_output">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/input_output/input_output.html">
+                                    Input/Output
+                                </a>
+                                <a href="/boards/jay40/input_output/input_output.html">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-configuration" id="side-nav-boards-jay40-configuration">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/configuration/configuration.html">
+                                    Configuration
+                                </a>
+                                <a href="/boards/jay40/configuration/configuration.html">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-power" id="side-nav-boards-jay40-power">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/power/power.html">
+                                    Power
+                                </a>
+                                <a href="/boards/jay40/power/power.html">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-using_a_pll" id="side-nav-boards-jay40-using_a_pll">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/using_a_pll/using_a_pll.html">
+                                    Using a PLL
+                                </a>
+                                <a href="/boards/jay40/using_a_pll/using_a_pll.html">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+                <div class="docs">
+                    <div class="markdown-content">
+                        <h1>Using a PLL</h1>
+                        <h2>pll_blinky.sv</h2>
+                        <div class="codehilite"><html><head></head><body><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">pll_blinky</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">rst</span><span class="p">,</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="n">out</span>
+<span class="p">);</span>
+
+<span class="kt">logic</span><span class="w"> </span><span class="n">pll_clk</span><span class="p">;</span>
+<span class="kt">logic</span><span class="w"> </span><span class="n">pll_lock</span><span class="p">;</span>
+<span class="kt">logic</span><span class="w"> </span><span class="n">blinky_rst</span><span class="p">;</span>
+
+<span class="k">assign</span><span class="w"> </span><span class="n">blinky_rst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">~</span><span class="n">pll_lock</span><span class="p">;</span>
+
+<span class="n">blinky</span><span class="w"> </span><span class="n">u_blinky</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="p">.</span><span class="n">clk</span><span class="p">(</span><span class="n">pll_clk</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">rst</span><span class="p">(</span><span class="n">blinky_rst</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">out</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// F_pll_clk = (F_clk * (DIVF + 1))/(2**DIVQ * (DIVR + 1))</span>
+<span class="n">SB_PLL40_CORE</span><span class="w"> </span><span class="p">#(</span>
+<span class="w">    </span><span class="p">.</span><span class="n">FEEDBACK_PATH</span><span class="p">(</span><span class="s">"SIMPLE"</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">DIVF</span><span class="p">(</span><span class="mh">7'h1</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">DIVQ</span><span class="p">(</span><span class="mh">3'h0</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">DIVR</span><span class="p">(</span><span class="mh">4'h0</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">FILTER_RANGE</span><span class="p">(</span><span class="mb">3'b001</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="n">u_sb_pll40_core</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">.</span><span class="n">REFERENCECLK</span><span class="p">(</span><span class="n">clk</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">PLLOUTCORE</span><span class="p">(</span><span class="n">pll_clk</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">LOCK</span><span class="p">(</span><span class="n">pll_lock</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">RESETB</span><span class="p">(</span><span class="mb">1'b1</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">BYPASS</span><span class="p">(</span><span class="mb">1'b0</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">endmodule</span>
+</code></pre></body></html></div>
+
+                        <h2>blinky.sv</h2>
+                        <div class="codehilite"><html><head></head><body><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">pll_blinky</span>
+<span class="p">#(</span><span class="k">parameter</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000000</span><span class="p">)</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">rst</span><span class="p">,</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="n">out</span>
+<span class="p">);</span>
+
+<span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">23</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+<span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">23</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="p">;</span>
+<span class="kt">logic</span><span class="w"> </span><span class="n">out__nxt</span><span class="p">;</span>
+
+<span class="k">assign</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">assign</span><span class="w"> </span><span class="n">out__nxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">~</span><span class="n">out</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="n">cnt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cnt__nxt</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">out__nxt</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="k">endmodule</span>
+</code></pre></body></html></div>
+
+                        <h2>pll_blinky.pcf</h2>
+                        <div class="codehilite"><html><head></head><body><pre><span></span><code>set_io clk C4
+set_io rst G1
+set_io out E1
+</code></pre></body></html></div>
+
+                        <h2>Synthesis Command</h2>
+                        <div class="codehilite"><html><head></head><body><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>gen/
+$<span class="w"> </span>yosys<span class="w"> </span>-p<span class="w"> </span><span class="s2">"synth_ice40 -top pll_blinky -json gen/blinky.json"</span><span class="w"> </span>pll_blinky.sv<span class="w"> </span>blinky.sv
+</code></pre></body></html></div>
+                    </div>
+                </div>
+        </div>
+        <div class="nav">
+            <div class="nav-cross-button">
+                <svg fill="currentColor" style="width: 2.5rem; height: 2.5rem" viewBox="0 -0.5 25 25" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.96967 16.4697C6.67678 16.7626 6.67678 17.2374 6.96967 17.5303C7.26256 17.8232 7.73744 17.8232 8.03033 17.5303L6.96967 16.4697ZM13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697L13.0303 12.5303ZM11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303L11.9697 11.4697ZM18.0303 7.53033C18.3232 7.23744 18.3232 6.76256 18.0303 6.46967C17.7374 6.17678 17.2626 6.17678 16.9697 6.46967L18.0303 7.53033ZM13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303L13.0303 11.4697ZM16.9697 17.5303C17.2626 17.8232 17.7374 17.8232 18.0303 17.5303C18.3232 17.2374 18.3232 16.7626 18.0303 16.4697L16.9697 17.5303ZM11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697L11.9697 12.5303ZM8.03033 6.46967C7.73744 6.17678 7.26256 6.17678 6.96967 6.46967C6.67678 6.76256 6.67678 7.23744 6.96967 7.53033L8.03033 6.46967ZM8.03033 17.5303L13.0303 12.5303L11.9697 11.4697L6.96967 16.4697L8.03033 17.5303ZM13.0303 12.5303L18.0303 7.53033L16.9697 6.46967L11.9697 11.4697L13.0303 12.5303ZM11.9697 12.5303L16.9697 17.5303L18.0303 16.4697L13.0303 11.4697L11.9697 12.5303ZM13.0303 11.4697L8.03033 6.46967L6.96967 7.53033L11.9697 12.5303L13.0303 11.4697Z"></path> </g></svg></div>
+            <div class="nav-item" data-page-id="" id="nav-">
+                <div class="nav-button">
+                    <a href="//index.html">
+                        Home
+                    </a>
+                    <div class="nav-button-chevron">
+                        <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="none" height="2rem" stroke="currentColor" viewBox="0 0 24 24" width="2rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 9.5L12 14.5L7 9.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>    </div>
+                </div>
+                <div class="nav-item" data-page-id="about" id="nav-about">
+                    <div class="nav-button">
+                        <a href="/about/about.html">
+                            About
+                        </a>
+                        <a href="/about/about.html">
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item" data-page-id="boards" id="nav-boards">
+                    <div class="nav-button">
+                        <a href="/boards/boards.html">
+                            Boards
+                        </a>
+                        <div class="nav-button-chevron">
+                            <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="none" height="2rem" stroke="currentColor" viewBox="0 0 24 24" width="2rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 9.5L12 14.5L7 9.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>    </div>
+                    </div>
+                    <div class="nav-item" data-page-id="boards-jay40" id="nav-boards-jay40">
+                        <div class="nav-button">
+                            <a href="/boards/jay40/jay40.html">
+                                Jay40
+                            </a>
+                            <div class="nav-button-chevron">
+                                <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --><svg fill="none" height="2rem" stroke="currentColor" viewBox="0 0 24 24" width="2rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 9.5L12 14.5L7 9.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>    </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-input_output" id="nav-boards-jay40-input_output">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/input_output/input_output.html">
+                                    Input/Output
+                                </a>
+                                <a href="/boards/jay40/input_output/input_output.html">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-configuration" id="nav-boards-jay40-configuration">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/configuration/configuration.html">
+                                    Configuration
+                                </a>
+                                <a href="/boards/jay40/configuration/configuration.html">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-power" id="nav-boards-jay40-power">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/power/power.html">
+                                    Power
+                                </a>
+                                <a href="/boards/jay40/power/power.html">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-item" data-page-id="boards-jay40-using_a_pll" id="nav-boards-jay40-using_a_pll">
+                            <div class="nav-button">
+                                <a href="/boards/jay40/using_a_pll/using_a_pll.html">
+                                    Using a PLL
+                                </a>
+                                <a href="/boards/jay40/using_a_pll/using_a_pll.html">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            © 2025 Bluejay Devices
+        </div>
+    <script src="/js/app.js"></script>
+    
+
+</body></html>

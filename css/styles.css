@@ -176,9 +176,7 @@ body {
     border-radius: var(--border-radius);
 }
 
-.nav-button:hover {
-    background-color: var(--bg-color-hover);
-}
+
 
 .nav-button > a {
     display: grid;
@@ -204,10 +202,6 @@ body {
     transform: rotate(-90deg);
 }
 
-
-.nav-button-chevron:hover {
-    background-color: var(--bg-color-hover-alt);
-}
 
 
 /* Second level (nested once) */
@@ -784,6 +778,11 @@ hr {
     margin: 3rem 0 3rem 0;
 }
 
+.docs {
+    display: grid;
+    max-width: 50rem;
+}
+
 @media (max-width: 65rem) {
     .board-overview {
         display: grid;
@@ -844,6 +843,23 @@ hr {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
+
+    .main {
+        //padding: 4rem 2rem 4rem 2rem;
+        //padding: clamp(2rem, 2rem + 2vw, 4rem);
+    }
+}
+
+/* Only apply hover on devices with a mouse */
+@media (hover: hover) and (pointer: fine) {
+    .nav-button:hover {
+        background-color: var(--bg-color-hover);
+    }
+
+    .nav-button-chevron:hover {
+        background-color: var(--bg-color-hover-alt);
+    }
+
 }
 
 

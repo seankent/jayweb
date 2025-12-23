@@ -38,6 +38,37 @@ config["title"] = "Jay40"
 
 root.get(["boards"]).add(Jaypage("jay40", config))
 
+###############################
+# Boards::Jay40::Input/Output #
+###############################
+config = {}
+config["title"] = "Input/Output"
+
+root.get(["boards", "jay40"]).add(Jaypage("input_output", config))
+
+################################
+# Boards::Jay40::Configuration #
+################################
+config = {}
+config["title"] = "Configuration"
+
+root.get(["boards", "jay40"]).add(Jaypage("configuration", config))
+
+########################
+# Boards::Jay40::Power #
+########################
+config = {}
+config["title"] = "Power"
+
+root.get(["boards", "jay40"]).add(Jaypage("power", config))
+
+##############################
+# Boards::Jay40::Using a PLL #
+##############################
+config = {}
+config["title"] = "Using a PLL"
+
+root.get(["boards", "jay40"]).add(Jaypage("using_a_pll", config))
 
 
 root.init()

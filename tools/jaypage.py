@@ -120,8 +120,8 @@ class Jaypage(TreeNode):
         """
         """
         txt = jayweb.postprocess(jayweb.include(f"{ROOT}/include/html.py", params = self.gen()))
-        print(txt)
-        print(f"mkdir -p {ROOT}/gen/{"/".join(self.getpath())}")
+        #print(txt)
+        #print(f"mkdir -p {ROOT}/gen/{"/".join(self.getpath())}")
 
         os.system(f"mkdir -p {ROOT}/gen/{'/'.join(self.getpath())}")
 
@@ -221,15 +221,9 @@ if __name__ == '__main__':
 
     page = root.get(["products", "jay40"])
 
-    print(root)
-    print(root.get(["about"]))
-    print(root.get(["products", "jay40"]))
     
     page = root.get([])
-    print(page.getpath())
     params = page.gennav("nav")
-    print(params)
-    print(page.gen())
 
     txt = jayweb.include(f"{ROOT}/include/html.py", params = page.gen())
     #page.build()
