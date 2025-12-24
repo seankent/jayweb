@@ -21,10 +21,6 @@ html .markdown-content * {
     line-height: 1.6; 
 }
 
-.markdown-content .codehilite {
-    margin: 2rem 0 1rem 0;
-}
-
 .markdown-content > :first-child {
     margin: 0;
 }
@@ -54,6 +50,10 @@ html .markdown-content * {
 //    margin: 0;
 //}
 
+.markdown-content .code-wrapper {
+    overflow-x: scroll;
+    margin: 2rem 0 1rem 0;
+}
 
 .markdown-content .codehilite {
     //padding: 0.25em 0em 0.25em 0em;
@@ -61,6 +61,7 @@ html .markdown-content * {
     border-radius: var(--border-radius); 
     border-color: var(--border-color);
     //background-color: var(--grey-0);
+    min-width: max-content;
 }
 
 .markdown-content .codehilite * {
@@ -75,20 +76,17 @@ html .markdown-content * {
 .markdown-content .codehilite pre {
     margin-left: 0;
     text-indent: 0;
-    width: 100%;
-    padding: 1.25em 1em 0.25em 1em;
-    overflow-x: scroll;
-    white-space: pre !important;  /* Preserves spaces and tabs exactly */
+    padding: 1.25em 1em 1.25em 1em;
 }
 
-.markdown-content .codehilite pre::-webkit-scrollbar-thumb {
-    //background-color: transparent;
-    background-color: var(--scrollbar-color);
-}
-
-.markdown-content .codehilite pre::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-color);
-}
+//.markdown-content .codehilite pre::-webkit-scrollbar-thumb {
+//    //background-color: transparent;
+//    background-color: var(--scrollbar-color);
+//}
+//
+//.markdown-content .codehilite pre::-webkit-scrollbar-thumb:hover {
+//    background-color: var(--scrollbar-color);
+//}
 
 
 
@@ -135,7 +133,7 @@ html .markdown-content * {
   border-color: var(--border-color);
   border-radius: var(--border-radius); 
   overflow: hidden;
-  table-layout: fixed;
+  table-layout: auto;
   //overflow-x: scroll;
   //min-width: 0;
 }
@@ -208,9 +206,32 @@ html .markdown-content * {
 
 .grid-table {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 100%;
-    grid-auto-columns: 1fr 1fr 1fr;
+    min-width: 100%;
+    //width: max.markdown-content;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: var(--border-color);
+    border-radius: var(--border-radius); 
+    overflow: hidden;
+    //overflow-x: scroll;
+    //min-width: 0;
 }
 
+.grid-table > .grid-header,
+.grid-table > .grid-cell {
+    display: grid;
+    padding: 0.75rem;
+    border-color: var(--border-color);
+    border-width: 0 var(--border-width) var(--border-width) 0;
+    text-align: left;
+    //min-width: 7.5rem;  /* Or whatever makes sense */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;  /* Allow wrapping */
+}
 
 

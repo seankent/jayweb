@@ -103,7 +103,7 @@
                     <div class="markdown-content">
                         <h1>Using a PLL</h1>
                         <h2>pll_blinky.sv</h2>
-                        <div class="codehilite"><html><head></head><body><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">pll_blinky</span>
+                        <div class="code-wrapper"><div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">pll_blinky</span>
 <span class="p">(</span>
 <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
 <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">rst</span><span class="p">,</span>
@@ -139,10 +139,10 @@
 <span class="p">);</span>
 
 <span class="k">endmodule</span>
-</code></pre></body></html></div>
+</code></pre></div></div>
 
                         <h2>blinky.sv</h2>
-                        <div class="codehilite"><html><head></head><body><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">pll_blinky</span>
+                        <div class="code-wrapper"><div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">blinky</span>
 <span class="p">#(</span><span class="k">parameter</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000000</span><span class="p">)</span>
 <span class="p">(</span>
 <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
@@ -168,18 +168,18 @@
 <span class="k">end</span>
 
 <span class="k">endmodule</span>
-</code></pre></body></html></div>
+</code></pre></div></div>
 
                         <h2>pll_blinky.pcf</h2>
-                        <div class="codehilite"><html><head></head><body><pre><span></span><code>set_io clk C4
+                        <div class="code-wrapper"><div class="codehilite"><pre><span></span><code>set_io clk C4
 set_io rst G1
 set_io out E1
-</code></pre></body></html></div>
+</code></pre></div></div>
 
                         <h2>Synthesis Command</h2>
-                        <div class="codehilite"><html><head></head><body><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>gen/
+                        <div class="code-wrapper"><div class="codehilite"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>gen/
 $<span class="w"> </span>yosys<span class="w"> </span>-p<span class="w"> </span><span class="s2">"synth_ice40 -top pll_blinky -json gen/blinky.json"</span><span class="w"> </span>pll_blinky.sv<span class="w"> </span>blinky.sv
-</code></pre></body></html></div>
+</code></pre></div></div>
                     </div>
                 </div>
         </div>

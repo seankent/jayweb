@@ -188,8 +188,13 @@ class Jayweb:
             content = div.decode_contents()
             dedented = re.sub(r'^ +', '', content, flags=re.MULTILINE)
 
+
             div.clear()
-            div.append(BeautifulSoup(dedented, 'html5lib'))
+            div.append(BeautifulSoup(dedented, 'html5lib').find('pre'))
+
+            wrapper = soup.new_tag('div', **{'class': 'code-wrapper'})
+
+            div.wrap(wrapper)
 
         txt = str(soup)
 

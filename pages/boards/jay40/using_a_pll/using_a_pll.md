@@ -45,7 +45,7 @@ endmodule
 ## blinky.sv
 
 ```systemverilog
-module pll_blinky
+module blinky
 #(parameter MAX_COUNT = 6000000)
 (
     input clk,

@@ -14,17 +14,14 @@ The board's pinout is shown in __. Aside from the single **5V** power pin, all o
 
 ![Alt text](diag/jay40_pinout.svg){: style="width: 30rem;"}
 
-
-
-
 <table>
     <colgroup>
-        <col style="width: 4rem;">
-        <col style="width: 7rem;">
-        <col style="width: auto; min-width: 11rem;">
-        <col style="width: 4rem;">
-        <col style="width: 7rem;">
-        <col style="width: auto; min-width: 11rem;">
+        <col style="width: 10%;">
+        <col style="width: 15%;">
+        <col style="width: 25%;">
+        <col style="width: 10%;">
+        <col style="width: 15%;">
+        <col style="width: 25%;">
     </colgroup>
     <thead>
         <tr>
@@ -154,12 +151,12 @@ The board's pinout is shown in __. Aside from the single **5V** power pin, all o
 
 <table>
     <colgroup>
-        <col style="width: 4rem;">
-        <col style="width: 7rem;">
-        <col style="width: auto; min-width: 11rem;">
-        <col style="width: 4rem;">
-        <col style="width: 7rem;">
-        <col style="width: auto; min-width: 11rem;">
+        <col style="width: 10%;">
+        <col style="width: 15%;">
+        <col style="width: 25%;">
+        <col style="width: 10%;">
+        <col style="width: 15%;">
+        <col style="width: 25%;">
     </colgroup>
     <thead>
         <tr>
@@ -294,9 +291,9 @@ The board's pinout is shown in __. Aside from the single **5V** power pin, all o
 
 <table>
     <colgroup>
-        <col style="width: 9rem;">
-        <col style="width: 9rem;">
-        <col style="width: auto; min-width: 15rem;">
+        <col style="width: 20%;">
+        <col style="width: 20%;">
+        <col style="width: 60%;">
     </colgroup>
     <thead>
         <tr>
@@ -537,6 +534,16 @@ The board's pinout is shown in __. Aside from the single **5V** power pin, all o
 
 
 <!--
+
+    <colgroup>
+        <col style="width: 4rem;">
+        <col style="width: 7rem;">
+        <col style="width: auto; min-width: 11rem;">
+        <col style="width: 4rem;">
+        <col style="width: 7rem;">
+        <col style="width: auto; min-width: 11rem;">
+    </colgroup>
+
 ![Alt text](diag/jay40_pinout.svg){: }
 
 %===============================================================
@@ -1178,5 +1185,14 @@ In addition to the header pins listed in Table \autoref{tab:pin_mapping}, anothe
         </tr>
     </tbody>
 </table>
+
+<div class="grid-table">
+    <div>Pin</div>
+    <div>Pin Name</div>
+    <div>Description</div>
+    <div>Pin</div>
+    <div>Pin Name</div>
+    <div>Description</div>
+</div>
 
 -->
