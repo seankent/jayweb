@@ -19,6 +19,7 @@ html .markdown-content * {
 .markdown-content p {
     margin: 1rem 0 0 0;
     line-height: 1.6; 
+    color: var(--grey-7);
 }
 
 .markdown-content > :first-child {
@@ -232,6 +233,21 @@ html .markdown-content * {
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;  /* Allow wrapping */
+}
+
+
+.markdown-content ul, 
+.markdown-content ol {
+    padding: 0 0 0 2rem;
+    margin: 1rem 0 0 0;
+}
+
+.markdown-content li {
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.markdown-content li::marker {
+    margin-right: 2rem; /* Doesn't work in all browsers */
 }
 
 

@@ -1,4 +1,4 @@
 .snakemake/
-.gen/
+gen/
 *.swp
 

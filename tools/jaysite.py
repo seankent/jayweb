@@ -70,6 +70,23 @@ config["title"] = "Using a PLL"
 
 root.get(["boards", "jay40"]).add(Jaypage("using_a_pll", config))
 
+###################
+# Boards::Bluejay #
+###################
+config = {}
+config["title"] = "Bluejay"
+
+root.get(["boards"]).add(Jaypage("bluejay", config))
+
+###################################
+# Boards::Bluejay::Board Overview #
+###################################
+config = {}
+config["title"] = "Board Overview"
+
+root.get(["boards", "bluejay"]).add(Jaypage("board_overview", config))
+
+
 
 root.init()
 root.buildall()

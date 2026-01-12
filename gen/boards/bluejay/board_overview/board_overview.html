@@ -2,13 +2,13 @@
 <html lang="en"><head>
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        <title>Home | Bluejay Devices</title>
+        <title>Board Overview | Bluejay Devices</title>
         <link href="/images/logo.svg" rel="icon"/>
         <link href="/css/styles.css" rel="stylesheet"/>
         <link href="/css/content.css" rel="stylesheet"/>
         <link href="/css/syntax.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet"/></head>
-    <body data-page-id="">
+    <body data-page-id="boards-bluejay-board_overview">
         <div class="header">
             <a class="nav-logo" href="/index.html">
                 <img alt="logo" src="/images/bluejay_devices.svg"/>
@@ -117,6 +117,41 @@
             </div>
         </div>
         <div class="main">
+                <div class="docs">
+                    <div class="markdown-content">
+                        <h1>Board Overview</h1>
+                        <h2>Overview</h2>
+                        <p>The Bluejay is a compact, low-power FPGA development board built around the iCE40LP8K from Lattice Semiconductor.</p>
+                        <p>The iCE40LP8K comes from the iCE40 LP/HX family of ultra-low power FPGAs. It is the largest FPGA in the family, featuring 7,680 Look-Up Tables (LUTs) and 128 kbits of Embedded Block RAM. The iCE40LP8K also includes two Phase Locked Loops for on-chip clock generation. When idle, the iCE40LP8K consumes just 250 µA of static power. This combination of logic capacity and energy efficiency makes it an ideal choice for low power applications, such as battery-powered devices.</p>
+                        <h2>39 Programmable I/O Pins</h2>
+                        <p>The board provides access to 39 of the FPGA's programmable I/O pins through two 24-pin connectors. Each pin can be independently configured as a digital input, output, or tri-state buffer. This high pin count and programmability allows the FPGA to easily interface with a wide variety of external devices, such as sensors, displays, microcontrollers, or other FPGAs.</p>
+                        <h2>12 MHz Oscillator</h2>
+                        <p>An onboard 12 MHz oscillator provides a clock signal for the system. The output of the oscillator can be used directly as a clock source or as a reference clock for the FPGA's internal PLLs to generate higher or lower frequencies as needed.</p>
+                        <h2>Onboard Configuration Storage</h2>
+                        <p>The board includes a 2 Mbit SPI flash chip for storing the FPGA's configuration bitstream. This allows the bitstream to be stored onboard and loaded automatically when power is applied.</p>
+                        <p>The flash can be programmed through the board's configuration interface.</p>
+                        <h2>Status LEDs</h2>
+                        <p>The board includes two status LEDs for providing visual feedback. The <strong>PWR</strong> LED indicates the board is receiving power. The <strong>USR</strong> LED is connected to one of the FPGA's programmable I/O pins and is free for use by the application.</p>
+                        <p>When used in power constrained applications, the status LEDs can be disconnected using the <strong>LED EN</strong> jumper.</p>
+                        <h2>Multiple Configuration Modes</h2>
+                        <p>The board supports both master and slave configuration modes. In Master Mode, the FPGA automatically loads its configuration from the flash when power is applied to the board. In Slave Mode, an external programmer connects to the board and loads the configuration directly into the FPGA.</p>
+                        <p>The configuration mode can be selected using a jumper.</p>
+                        <h2>Flexible Power Options</h2>
+                        <p>To provide maximum flexibility, the board can be powered through the USB-C connector, the 5V pin, or the 3.3V pins.</p>
+                        <p>When 5V is supplied to the board—either through the USB-C connector or the 5V power pin—an onboard low-dropout regulator (LDO) steps down the input voltage to the required 3.3V level. In these cases, the 3.3V pins can be used as power outputs to supply external circuitry (up to the LDO's current limit).</p>
+                        <p>When 3.3V is supplied to the board through the 3.3V pins, the LDO is bypassed. This allows the board to be easily integrated into larger systems that already have a regulated 3.3V supply.</p>
+                        <h2>Low Power Design</h2>
+                        <p>When idle, the board consumes approximately 600 µA. Active power consumption varies based on FPGA resource utilization and switching frequency. When clocked at the nominal 12 MHz frequency, the board will typically consume anywhere from a few milliamps to the low tens of milliamps. When the clock is boosted to its max value of 275 MHz (using one of the FPGAs intenal PLLs) and switching activity is high, the board consumes around 150 milliamps of power.</p>
+                        <h2>Open Source Toolchain</h2>
+                        <p>The board works with completely free and open-source FPGA development tools:</p>
+                        <ul>
+                        <li><strong>Yosys</strong> - RTL synthesis</li>
+                        <li><strong>NextPNR</strong> - Place and route</li>
+                        <li><strong>Project IceStorm</strong> - Bitstream generation and programming utilities</li>
+                        </ul>
+                        <p>These tools provide a complete RTL-to-bitstream flow for Linux, macOS, and Windows (via WSL), making FPGA development accessible without expensive proprietary software.</p>
+                    </div>
+                </div>
         </div>
         <div class="nav">
             <div class="nav-cross-button">

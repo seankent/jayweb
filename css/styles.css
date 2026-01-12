@@ -783,6 +783,11 @@ hr {
     max-width: 50rem;
 }
 
+
+ul, ol {
+  padding-left: 2em; /* or 40px, adjust as needed */
+}
+
 @media (max-width: 65rem) {
     .board-overview {
         display: grid;
